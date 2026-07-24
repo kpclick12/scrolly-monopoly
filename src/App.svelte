@@ -78,7 +78,12 @@
         Lodjursstråket Göteborg 82&nbsp;432; Vikingagatan Malmö 75&nbsp;572;
         Årevägen Åre 83&nbsp;436. Kvadratmeterpriser för brädets gator är
         ungefärliga områdesnivåer (Svensk Mäklarstatistik-baserad rapportering)
-        — endast Strandvägens siffra är exakt.
+        — endast Strandvägens siffra är exakt. Notera att "dyraste gata" mäts
+        två olika sätt: den här sidan rangordnar efter <em>kvadratmeterpris</em>,
+        där Strandvägen toppar. Rangordnar man i stället efter <em>snittpris för
+        en hel bostad</em> domineras listan av lyxvillor på strandnära gator i
+        Storstockholm — Dalarö, Danderyd, Lidingö, Nacka — där hela hus säljs för
+        20–27&nbsp;miljoner (Samblas och Fastighetsbyråns kartläggningar 2025–26).
       </li>
       <li>
         <strong>Snittpriser per stad</strong> — Svensk
