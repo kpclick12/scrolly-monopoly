@@ -15,9 +15,9 @@
     <p class="act-kicker">Akt ett</p>
     <h2>Spelplanen</h2>
     <p class="act-dek">
-      Svenska Monopol ritades 1932: en prisstege genom Stockholm, från Söders
-      arbetarkvarter till paradgatorna. Stegen finns kvar. Priserna har spelat
-      ett eget parti.
+      Svenska Monopol kom ut 1936: en prisstege genom Stockholm, från Söders
+      och Gamla stans kvarter till paradgatorna. Stegen finns kvar. Priserna
+      har spelat ett eget parti.
     </p>
   </div>
 
@@ -34,12 +34,12 @@
     {/snippet}
 
     <section class="scrolly-step">
-      <p class="kicker">1932</p>
+      <p class="kicker">1936</p>
       <h3>Hornsgatan kostade 60 kronor</h3>
       <p>
         Brädet är en karta över klassernas Stockholm. Billigast: de bruna och
-        ljusblå gatorna på Södermalm och i Gamla stan — Hornsgatan, Götgatan,
-        Ringvägen — arbetarkvarter för 60–120 spel-kronor. Dyrast: Norrmalmstorg
+        ljusblå gatorna i Gamla stan och på Södermalm — Västerlånggatan,
+        Hornsgatan, Götgatan — för 60–120 spel-kronor. Dyrast: Norrmalmstorg
         för 400.
       </p>
       <div class="callout">
@@ -61,7 +61,7 @@
         stegen har tryckts ihop i toppen.
       </p>
       <p>
-        Det som 1932 var 6,7 gånger skiljer idag inte ens en faktor två. På den
+        Det som 1936 var 6,7 gånger skiljer idag inte ens en faktor två. På den
         här spelplanen finns inga billiga gator kvar att börja på.
       </p>
     </section>

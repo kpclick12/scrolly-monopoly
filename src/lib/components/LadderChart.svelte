@@ -80,7 +80,7 @@
   </svg>
   <p class="legend">
     {mode === "board"
-      ? "Brädet ritades på 1930-talet: arbetarklassens Söder billigast, paradgatorna dyrast."
+      ? "Brädet kom ut 1936: Gamla stans och Söders gator billigast, paradgatorna dyrast."
       : "Områdesnivåer, avrundade (Svensk Mäklarstatistik apr 2025–mar 2026). Strandvägen är exakt: 168 360 kr/kvm."}
   </p>
 </figure>

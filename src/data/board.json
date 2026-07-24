@@ -1,5 +1,5 @@
 {
-  "note": "The classic Swedish Monopol board (Stockholm streets, first drawn in 1932). boardPrice = the printed purchase price in spel-kronor. realToday = approximate price per square meter (kr/kvm) for bostadsrätter on/around that street, rounded area-level figures consistent with Svensk Mäklarstatistik / Fastighetsbyrån reporting for apr 2025–mar 2026. Strandvägen's figure is the exact published number (Sveriges dyraste gata). Figures are approximations for storytelling, not listings data.",
+  "note": "The classic Swedish Monopol board (Stockholm streets; the Swedish edition was first published in 1936 by Åhlén & Åkerlund). boardPrice = the printed purchase price in spel-kronor. realToday = approximate price per square meter (kr/kvm) for bostadsrätter on/around that street, rounded area-level figures consistent with Svensk Mäklarstatistik / Fastighetsbyrån reporting for apr 2025–mar 2026. Strandvägen's figure is the exact published number (Sveriges dyraste gata). Figures are approximations for storytelling, not listings data.",
   "tagline": "Spelet där du gör snabba fastighetsaffärer",
   "gaBonus": 200,
   "groups": [
