@@ -93,3 +93,13 @@ Deployas till GitHub Pages via `.github/workflows/deploy.yml`, som
 bygger med `npm run build` och publicerar `dist/` vid varje push till
 `main`. Vite-basvägen (`/scrolly-monopoly/`) sätts i `vite.config.js`
 för både produktionsbygget och `vite preview`.
+
+### Delningsbild (og:image)
+
+`public/og-image.png` (1200×630) är den bild som visas när länken delas
+på LinkedIn, Reddit, Slack och X. Den är en skärmdump av 3D-hjältens
+tornvy (scrollposition ≈0,97 av hero-sektionen, med `.hero-card` och
+`.hero-chip` dolda) med rubriken pålagd. Vill du göra om den: rendera
+om plåten, lägg på texten och ersätt filen — måtten och filnamnet ska
+vara desamma, eftersom `index.html` pekar på den med en **absolut**
+URL (relativa sökvägar ignoreras av de flesta länkförhandsvisare).
