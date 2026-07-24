@@ -287,17 +287,11 @@
       });
     }
     const dieMats = [1, 6, 2, 5, 3, 4].map((n) => new THREE.MeshLambertMaterial({ map: dieFace(n), transparent: true }));
-    // The throw: the dice start in the player's "hand" above the GÅ corner
-    // and are flung across the board by the reader's first scroll — the
-    // title card's hint ("Scrolla för att kasta tärningarna") is literal.
     const dice = [];
-    const diceFlight = [
-      { from: [4.6, 4.1], to: [0.5, 1.9], restRy: 0.4, spins: 4, loft: 1.5 },
-      { from: [4.25, 4.55], to: [1.15, 2.3], restRy: -0.7, spins: 6, loft: 1.9 },
-    ];
-    for (const d of diceFlight) {
+    for (const [dx, dz, ry] of [[0.5, 1.9, 0.4], [1.15, 2.3, -0.7]]) {
       const die = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.42), dieMats);
-      die.position.set(d.from[0], boardTop + 0.36, d.from[1]);
+      die.position.set(dx, boardTop + 0.21, dz);
+      die.rotation.y = ry;
       scene.add(die);
       dice.push(die);
     }
@@ -452,27 +446,11 @@
         tw.cap.visible = rise > 0.02;
       }
 
-      // The hat idles with tiny life.
+      // The hat idles with tiny life; the dice breathe in place.
       hat.position.y = boardTop + 0.05 + Math.sin(t * 1.4) * 0.015;
       hat.rotation.y = Math.sin(t * 0.5) * 0.15;
-
-      // The dice throw, driven by the first stretch of scroll. Before it:
-      // hovering by GÅ, cocked in the hand. During: an arc across the board,
-      // tumbling, the tumble unwinding to zero exactly as they land. After:
-      // at rest mid-board with a breath of idle wobble.
-      const T = reduceMotion ? 1 : smooth(0.015, 0.13, P);
-      const arc = Math.sin(Math.PI * T);
-      dice.forEach((die, di) => {
-        const d = diceFlight[di];
-        die.position.set(
-          d.from[0] + (d.to[0] - d.from[0]) * T,
-          boardTop + 0.21 + (1 - T) * 0.3 + arc * d.loft,
-          d.from[1] + (d.to[1] - d.from[1]) * T
-        );
-        const spin = (1 - T) * Math.PI * d.spins;
-        const wobble = T * Math.sin(t * (0.7 - di * 0.1)) * 0.06;
-        die.rotation.set(spin, d.restRy + spin * 0.6 + wobble, spin * 0.35);
-      });
+      dice[0].rotation.y = 0.4 + Math.sin(t * 0.7) * 0.06;
+      dice[1].rotation.y = -0.7 + Math.cos(t * 0.6) * 0.06;
 
       // Camera along the keyframed crane path, with a breath of drift so a
       // stationary reader still sees a living scene.
