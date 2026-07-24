@@ -15,7 +15,7 @@
     <p class="act-kicker">Akt ett</p>
     <h2>Spelplanen</h2>
     <p class="act-dek">
-      Svenska Monopol kom ut 1936: en prisstege genom Stockholm, från Söders
+      Svenska Monopol kom ut 1937: en prisstege genom Stockholm, från Söders
       och Gamla stans kvarter till paradgatorna. Stegen finns kvar. Priserna
       har spelat ett eget parti.
     </p>
@@ -34,10 +34,12 @@
     {/snippet}
 
     <section class="scrolly-step">
-      <p class="kicker">1936</p>
+      <p class="kicker">1937</p>
       <h3>Hornsgatan kostade 1 000 kronor</h3>
       <p>
-        Brädet är en karta över klassernas Stockholm. Billigast: de bruna och
+        Brädet är en karta över klassernas Stockholm. Gatorna valdes av en
+        medarbetare på Åhlén &amp; Åkerlund som helt enkelt vandrade runt i
+        staden och rangordnade dem efter status. Billigast: de bruna och
         ljusblå gatorna i Gamla stan och på Södermalm — Västerlånggatan,
         Hornsgatan, Götgatan — för 1 000–2 200 spel-kronor. Dyrast:
         Norrmalmstorg för 8 000.
@@ -61,7 +63,7 @@
         stegen har tryckts ihop i toppen.
       </p>
       <p>
-        Det som 1936 var 8 gånger skiljer idag inte ens en faktor två. På den
+        Det som 1937 var 8 gånger skiljer idag inte ens en faktor två. På den
         här spelplanen finns inga billiga gator kvar att börja på.
       </p>
     </section>
