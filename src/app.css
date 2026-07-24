@@ -1,0 +1,345 @@
+/* Self-hosted font (GDPR-friendly — no third-party requests). Variable weight 400-900. */
+@font-face {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/playfair-display-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url("/fonts/playfair-display-latin-italic.woff2") format("woff2");
+}
+
+:root {
+  /* Game-night identity: warm spelkvälls-paper page, board-green felt for
+     the dark surfaces, Monopol-red accent. Sibling of scrolly-wealth's warm
+     paper and scrolly-butterflyeffect's cool paper — this one leans warm,
+     with a green cast borrowed from the board itself. */
+  --surface-1: #fbf7ee;
+  --page-plane: #f1eddf;
+  --text-primary: #24211a;
+  --text-secondary: #4a463b;
+  --text-muted: #7c776a;
+  --gridline: #e3ddcc;
+  --baseline: #c2bba6;
+  --border: rgba(36, 33, 26, 0.12);
+
+  /* Hero / game-table surfaces — deep felt green with Monopol-red and
+     aged-paper cream. Always dark regardless of OS color-scheme (these back
+     the 3D hero and the closing section, which never go "paper"). */
+  --felt: #10241c;
+  --felt-deep: #0a1a14;
+  --mono-red: #d93a2b;
+  --mono-cream: #f2e9cf;
+  --board-green: #cfe0c3;
+
+  /* Darker steps of the categorical hues, for use as TEXT on the light paper
+     surface — the chart-mark versions don't clear 4.5:1 there. Dark mode's
+     chart-mark colors already do, so they are reused inside the dark media
+     query below. */
+  --ink-blue: #1a5aa8;
+  --ink-red: #a8291f;
+  --ink-amber: #8a6200;
+  --ink-green: #0d6e50;
+
+  --serif: "Playfair Display", Georgia, "Times New Roman", "Liberation Serif", serif;
+
+  /* Categorical chart palette: validated (dataviz skill) against the warm
+     surfaces above — fixed hue order, never cycled. The amber and green marks
+     sit in the documented sub-3:1 contrast WARN band on light paper; every
+     chart that uses them carries always-on direct labels as the relief. */
+  --series-blue: #2a78d6;
+  --series-red: #e34948;
+  --series-amber: #eda100;
+  --series-green: #1baf7a;
+
+  /* The eight property groups of the Swedish board — identity colors for the
+     board itself, always used with a visible street-name label beside them,
+     never as the only carrier of meaning. */
+  --grp-brown: #8a5a34;
+  --grp-lightblue: #9ecbe8;
+  --grp-pink: #d0559c;
+  --grp-orange: #e2882a;
+  --grp-red: #d93a2b;
+  --grp-yellow: #ecc428;
+  --grp-green: #2f9e57;
+  --grp-darkblue: #2b5aa4;
+
+  --accent: var(--mono-red);
+
+  --sans: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  font: 16px/1.55 var(--sans);
+  color-scheme: light dark;
+  color: var(--text-primary);
+  background: var(--page-plane);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Same felt-green family as the always-dark hero surfaces above, so dark
+       mode reads as one continuous game table. */
+    --surface-1: #142a22;
+    --page-plane: #0a1a14;
+    --text-primary: #efeadb;
+    --text-secondary: #c9c3b0;
+    --text-muted: #948f7e;
+    --gridline: #21382e;
+    --baseline: #33503f;
+    --border: rgba(239, 234, 219, 0.12);
+
+    /* Dark-mode categorical steps — validated separately against the felt
+       surface, not an automatic flip of the light steps. The amber↔red pair
+       sits in the documented CVD floor band; direct labels and the 2px
+       surface gaps between marks are the required secondary encoding. */
+    --series-blue: #3987e5;
+    --series-red: #e66767;
+    --series-amber: #b09010;
+    --series-green: #199e70;
+
+    --ink-blue: #3987e5;
+    --ink-red: #e66767;
+    --ink-amber: #d3a410;
+    --ink-green: #2fbd8d;
+
+    --grp-brown: #a06a3e;
+    --grp-lightblue: #7fb6da;
+    --grp-pink: #c65b98;
+    --grp-orange: #cf7f2c;
+    --grp-red: #d94f41;
+    --grp-yellow: #d4b028;
+    --grp-green: #2f9e57;
+    --grp-darkblue: #4a7cc4;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+/* Last line of defense, not the fix: if some future element still forces a
+   descendant wider than the viewport, clip it here instead of letting the
+   whole page grow a horizontal scrollbar. The real fixes are the min-width:0 /
+   minmax(0, 1fr) declarations in the grid and flex layouts below. */
+html,
+body {
+  overflow-x: clip;
+}
+
+h1, h2, h3 {
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* Inline colored word — for callouts referencing a specific chart series. */
+.badge {
+  display: inline-block;
+  padding: 1px 8px;
+  font-weight: 700;
+  color: #ffffff;
+  border-radius: 2px;
+}
+.badge-red {
+  background: var(--series-red);
+  color: #241511;
+}
+.badge-blue {
+  background: var(--series-blue);
+  color: #101c2b;
+}
+.badge-green {
+  background: var(--series-green);
+  color: #0c2018;
+}
+.badge-amber {
+  background: var(--series-amber);
+  color: #241d08;
+}
+
+/* Visible keyboard focus everywhere by default — dark ink on the warm-paper
+   surfaces. Permanently dark sections (hero, closing) override this locally
+   with a cream ring instead. */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--text-primary);
+  outline-offset: 2px;
+}
+
+/* Respect the reduced-motion system setting. The 3D hero checks this same
+   media query in JS and freezes its dice to a gentle idle. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Shared scrolly-step card styles.
+   Declared ONCE here so every act stays visually consistent. Each act
+   sets --act-accent on its own wrapper; the border and kicker color both
+   read that one variable, so an act can never end up with a mismatched
+   border/kicker pair.
+------------------------------------------------------------------------ */
+.scrolly-step {
+  background: var(--surface-1);
+  border-left: 6px solid var(--act-accent, var(--series-red));
+  padding: 28px 32px;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(10, 26, 20, 0.1);
+  min-width: 0;
+}
+.scrolly-step > * {
+  opacity: 0.35;
+  transition: opacity 0.3s ease;
+}
+.scrolly-step.is-active > * {
+  opacity: 1;
+}
+.scrolly-step .kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--act-accent, var(--series-red));
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+.scrolly-step h3 {
+  font-family: var(--serif);
+  margin: 0 0 14px;
+  font-size: 23px;
+  line-height: 1.25;
+}
+.scrolly-step p {
+  margin: 0 0 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.scrolly-step p:last-child {
+  margin-bottom: 0;
+}
+.scrolly-step .callout {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 14px 0 12px;
+  padding: 12px 16px;
+  background: var(--page-plane);
+  border-radius: 6px;
+}
+.scrolly-step .callout-num {
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--act-accent, var(--series-red));
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  line-height: 1;
+}
+.scrolly-step .callout-label {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+@media (max-width: 860px) {
+  .scrolly-step {
+    padding: 20px 20px;
+  }
+  .scrolly-step h3 {
+    font-size: 20px;
+  }
+}
+
+/* ---------------------------------------------------------------------
+   Shared act header — the block that opens every act.
+------------------------------------------------------------------------ */
+.act-head {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 110px 24px 40px;
+  text-align: center;
+}
+.act-head .act-kicker {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-weight: 700;
+  color: var(--act-accent, var(--series-red));
+  margin: 0 0 10px;
+}
+.act-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.1;
+  margin: 0 0 16px;
+}
+.act-head .act-dek {
+  font-size: 16.5px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+/* ---------------------------------------------------------------------
+   Visual frame stack — the sticky-panel crossfade pattern. All slot
+   components stay mounted at once; only opacity/visibility toggle
+   between them, and the outer box has a fixed height (set per act) so
+   swapping slots never shifts layout.
+------------------------------------------------------------------------ */
+.visual-frame-stack {
+  position: relative;
+  width: 100%;
+  height: var(--stack-height, 440px);
+}
+.visual-frame-stack > .frame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease;
+}
+.visual-frame-stack > .frame.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+@media (max-width: 860px) {
+  .visual-frame-stack {
+    height: var(--stack-height-mobile, 360px);
+  }
+  /* Anchor content to the TOP of the panel on mobile instead of centering
+     it — the sticky panel is pinned at the top of the viewport while step
+     cards slide up over it from below, so top-anchoring keeps the least
+     content at risk of sliding under an incoming card. */
+  .visual-frame-stack > .frame {
+    align-items: flex-start;
+    padding-top: 4px;
+    padding-bottom: 2px;
+  }
+}

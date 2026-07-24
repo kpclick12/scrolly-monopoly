@@ -1,0 +1,25 @@
+{
+  "note": "Household debt as % of disposable income (skuldkvot), approximate yearly values consistent with SCB / Riksbanken / SEB reporting: from ~90 % in the mid-1990s to a peak of ~200 % in late 2021, down to ~173 % in 2025. totalDebt = total household debt, mdkr, Q1 2026 (SCB financial accounts via SEB). Regulation timeline: bolånetak 85 % (2010), amorteringskrav (2016), skärpt amorteringskrav (2018), and the April 2026 easing (tak 90 %, skärpning slopad, max amortering 2 %/år).",
+  "ratio": [
+    { "year": 1996, "pct": 90 },
+    { "year": 2000, "pct": 100 },
+    { "year": 2004, "pct": 120 },
+    { "year": 2008, "pct": 150 },
+    { "year": 2010, "pct": 160 },
+    { "year": 2013, "pct": 165 },
+    { "year": 2016, "pct": 180 },
+    { "year": 2019, "pct": 190 },
+    { "year": 2021, "pct": 199 },
+    { "year": 2023, "pct": 185 },
+    { "year": 2025, "pct": 173 }
+  ],
+  "totalDebtMdkr": 5530,
+  "mortgageShare": "cirka fyra femtedelar",
+  "regulations": [
+    { "year": 2010, "label": "Bolånetak 85 %", "dir": "åtstramning" },
+    { "year": 2016, "label": "Amorteringskrav", "dir": "åtstramning" },
+    { "year": 2018, "label": "Skärpt amorteringskrav", "dir": "åtstramning" },
+    { "year": 2026, "label": "Tak 90 %, kraven lättas", "dir": "lättnad" }
+  ],
+  "easing2026": { "capPct": 90, "contantBefore": 15, "contantAfter": 10, "maxAmortPct": 2 }
+}

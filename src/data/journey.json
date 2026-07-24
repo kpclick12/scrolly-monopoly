@@ -1,0 +1,37 @@
+{
+  "note": "Nominal price indices, 1996 = 100. Yearly values are approximate, interpolated to be consistent with the published totals: villor +366 % and bostadsrätter +789 % from 1996 through 2025 (Ekonomifokus compilation of SCB / Svensk Mäklarstatistik / HOX-style series), with the ~15 % correction from the 2022 peak and partial recovery. policyRate = Riksbankens styrränta/reporänta at year end, approximate, %.",
+  "years": [
+    { "year": 1996, "brf": 100, "villa": 100, "rate": 4.1 },
+    { "year": 1998, "brf": 135, "villa": 120, "rate": 3.4 },
+    { "year": 2000, "brf": 195, "villa": 140, "rate": 4.0 },
+    { "year": 2002, "brf": 225, "villa": 160, "rate": 3.75 },
+    { "year": 2004, "brf": 255, "villa": 185, "rate": 2.0 },
+    { "year": 2006, "brf": 330, "villa": 220, "rate": 3.0 },
+    { "year": 2008, "brf": 340, "villa": 240, "rate": 2.0 },
+    { "year": 2010, "brf": 425, "villa": 275, "rate": 1.25 },
+    { "year": 2012, "brf": 445, "villa": 280, "rate": 1.0 },
+    { "year": 2014, "brf": 545, "villa": 305, "rate": 0.0 },
+    { "year": 2016, "brf": 690, "villa": 360, "rate": -0.5 },
+    { "year": 2018, "brf": 700, "villa": 385, "rate": -0.5 },
+    { "year": 2020, "brf": 780, "villa": 420, "rate": 0.0 },
+    { "year": 2021, "brf": 890, "villa": 480, "rate": 0.0 },
+    { "year": 2022, "brf": 850, "villa": 490, "rate": 2.5 },
+    { "year": 2023, "brf": 790, "villa": 435, "rate": 4.0 },
+    { "year": 2024, "brf": 830, "villa": 450, "rate": 2.5 },
+    { "year": 2025, "brf": 889, "villa": 466, "rate": 1.75 }
+  ],
+  "totals": { "brfPct": 789, "villaPct": 366 },
+  "villaMedel": { "y1995": 700000, "y2025": 4800000 },
+  "correctionPct": -15,
+  "ratePeak": { "value": 4.0, "when": "sep 2023" },
+  "rateNow": { "value": 1.75, "when": "jun 2026" },
+  "negativeYears": "2015–2019",
+  "annotations": [
+    { "year": 2008, "label": "Finanskrisen — en krusning" },
+    { "year": 2015, "label": "Minusränta" },
+    { "year": 2020, "label": "Pandemi­rally" },
+    { "year": 2022, "label": "Räntechock, −15 %" }
+  ],
+  "savingYears": { "before": 12, "after": 7 },
+  "exampleFlat": { "sqm": 60, "kvm2013": 55000, "kvm2021": 95000 }
+}

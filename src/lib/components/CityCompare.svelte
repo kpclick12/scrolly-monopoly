@@ -1,0 +1,134 @@
+<script>
+  import { scaleBand, scaleLinear } from "d3-scale";
+
+  // Stockholm vs Göteborg vs Malmö vs riket — one measure at a time (never a
+  // dual axis): either each city's dearest street, or the central-average
+  // kr/kvm. Four fixed categorical hues, one per city, direct-labeled.
+  let { data, view = "dearest" } = $props();
+
+  const W = 600;
+  const H = 430;
+  const M = { top: 56, right: 18, bottom: 66, left: 56 };
+
+  const cityColor = {
+    sthlm: "var(--series-blue)",
+    gbg: "var(--series-red)",
+    malmo: "var(--series-amber)",
+    riket: "var(--series-green)",
+  };
+  const inkColor = {
+    sthlm: "var(--ink-blue)",
+    gbg: "var(--ink-red)",
+    malmo: "var(--ink-amber)",
+    riket: "var(--ink-green)",
+  };
+
+  const cities = $derived(data.cities);
+  const x = $derived(scaleBand(cities.map((c) => c.id), [M.left, W - M.right]).padding(0.32));
+  const y = $derived(scaleLinear([0, 175000], [H - M.bottom, M.top]));
+  const val = (c) => (view === "dearest" ? c.dearestKvm : c.central);
+  const fmtKr = (n) => n.toLocaleString("sv-SE");
+</script>
+
+<figure class="chart">
+  <figcaption>
+    {view === "dearest"
+      ? "Dyraste gatan i varje stad — kr/kvm, sålda bostäder apr 2025–mar 2026"
+      : "Snittpris i centrala staden — kr/kvm, bostadsrätter, början av 2026 (ungefärligt)"}
+  </figcaption>
+  <svg
+    viewBox="0 0 {W} {H}"
+    role="img"
+    aria-label={view === "dearest"
+      ? "Stapeldiagram över dyraste gatan per stad: Strandvägen i Stockholm 168 360 kr/kvm, Lodjursstråket i Göteborg 82 432, Vikingagatan i Malmö 75 572 och Årevägen i Åre 83 436."
+      : "Stapeldiagram över centrala snittpriser: Stockholm cirka 119 000 kr/kvm, Göteborg 69 000, Malmö 40 000 och riket 46 000."}
+  >
+    {#each [0, 50000, 100000, 150000] as tick}
+      <line class="grid" x1={M.left} x2={W - M.right} y1={y(tick)} y2={y(tick)} />
+      <text class="tick" x={M.left - 8} y={y(tick) + 4} text-anchor="end">{tick / 1000}{tick ? " tkr" : ""}</text>
+    {/each}
+
+    {#each cities as c (c.id)}
+      <rect
+        class="bar"
+        x={x(c.id)}
+        y={y(val(c))}
+        width={x.bandwidth()}
+        height={H - M.bottom - y(val(c))}
+        rx="4"
+        style="fill: {cityColor[c.id]};"
+      >
+        <title>{c.name} — {view === "dearest" ? `${c.dearestStreet}: ${fmtKr(c.dearestKvm)} kr/kvm` : `centralt snitt ≈${fmtKr(c.central)} kr/kvm`}</title>
+      </rect>
+      <text class="value" x={x(c.id) + x.bandwidth() / 2} y={y(val(c)) - 22} text-anchor="middle" style="fill: {inkColor[c.id]};">
+        {view === "dearest" ? fmtKr(c.dearestKvm) : `≈${fmtKr(val(c))}`}
+      </text>
+      <text class="value-sub" x={x(c.id) + x.bandwidth() / 2} y={y(val(c)) - 8} text-anchor="middle">
+        {view === "dearest" ? c.dearestStreet : "kr/kvm"}
+      </text>
+      <text class="tick city" x={x(c.id) + x.bandwidth() / 2} y={H - M.bottom + 22} text-anchor="middle">
+        {c.name}
+      </text>
+    {/each}
+    <line class="axis" x1={M.left} x2={W - M.right} y1={H - M.bottom} y2={H - M.bottom} />
+  </svg>
+  <p class="legend">
+    {view === "dearest"
+      ? "Gator med färre än fem försäljningar räknas inte. Hela topp-10-listan ligger i Stockholm; utanför storstäderna toppar Årevägen i Åre."
+      : "Ungefärliga, avrundade nivåer. Centrala Stockholm kostar ~1,7× centrala Göteborg och ~3× centrala Malmö."}
+  </p>
+</figure>
+
+<style>
+  .chart {
+    margin: 0;
+    width: min(640px, 100%);
+  }
+  figcaption {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .grid {
+    stroke: var(--gridline);
+  }
+  .axis {
+    stroke: var(--baseline);
+    stroke-width: 1.5;
+  }
+  .tick {
+    font-size: 12px;
+    fill: var(--text-muted);
+  }
+  .tick.city {
+    font-size: 13px;
+    font-weight: 600;
+    fill: var(--text-secondary);
+  }
+  .bar {
+    transition: height 0.7s cubic-bezier(0.25, 0.8, 0.35, 1), y 0.7s cubic-bezier(0.25, 0.8, 0.35, 1);
+    stroke: var(--surface-1);
+    stroke-width: 2;
+  }
+  .value {
+    font-size: 13.5px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .value-sub {
+    font-size: 10.5px;
+    fill: var(--text-muted);
+  }
+  .legend {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-muted);
+    margin: 8px 0 0;
+  }
+</style>

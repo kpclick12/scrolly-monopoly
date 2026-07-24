@@ -1,0 +1,20 @@
+{
+  "note": "Property-related taxes. The state fastighetsskatt on homes was abolished 2008 and replaced by the capped kommunal fastighetsavgift: 0.75 % of taxeringsvärde, at most 10 074 kr for småhus (inkomstår 2025 / deklaration 2026; the cap is indexed). Before the reform the state tax ran at 1.0–1.5 % of taxeringsvärde with no cap. Egendomsskatter as share of GDP: Sweden ≈ 1.0 %, EU-15 ≈ 2.3 % (LO/SNS compilations of OECD data). Ränteavdrag: 30 % of interest up to 100 000 kr/yr, 21 % above.",
+  "abolished": [
+    { "tax": "Arvs- och gåvoskatt", "year": 2004 },
+    { "tax": "Förmögenhetsskatt", "year": 2007 },
+    { "tax": "Fastighetsskatt (bostäder)", "year": 2008 }
+  ],
+  "avgift": { "ratePct": 0.75, "capKr": 10074, "capYear": 2026 },
+  "oldTax": { "ratePctMax": 1.5, "cap": null },
+  "examples": [
+    { "home": "Villa i Danderyd", "value": 20000000, "fee": 10074 },
+    { "home": "Villa i Hultsfred", "value": 1500000, "fee": 10074 }
+  ],
+  "gdpShare": [
+    { "id": "se", "name": "Sverige", "pct": 1.0 },
+    { "id": "eu15", "name": "EU-15 (snitt)", "pct": 2.3 }
+  ],
+  "ranteavdrag": { "pct": 30, "overKr": 100000, "overPct": 21 },
+  "reavinst": { "pct": 22 }
+}

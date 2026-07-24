@@ -1,0 +1,24 @@
+{
+  "note": "The classic Swedish Monopol board (Stockholm streets, first drawn in 1932). boardPrice = the printed purchase price in spel-kronor. realToday = approximate price per square meter (kr/kvm) for bostadsrätter on/around that street, rounded area-level figures consistent with Svensk Mäklarstatistik / Fastighetsbyrån reporting for apr 2025–mar 2026. Strandvägen's figure is the exact published number (Sveriges dyraste gata). Figures are approximations for storytelling, not listings data.",
+  "tagline": "Spelet där du gör snabba fastighetsaffärer",
+  "gaBonus": 200,
+  "groups": [
+    { "id": "brown", "name": "Bruna", "color": "--grp-brown", "boardPrice": 60, "street": "Hornsgatan", "second": "Västerlånggatan", "area": "Södermalm / Gamla stan", "realToday": 95000 },
+    { "id": "lightblue", "name": "Ljusblå", "color": "--grp-lightblue", "boardPrice": 100, "street": "Götgatan", "second": "Folkungag. · Ringvägen", "area": "Södermalm", "realToday": 98000 },
+    { "id": "pink", "name": "Rosa", "color": "--grp-pink", "boardPrice": 140, "street": "Odengatan", "second": "S:t Eriksg. · Valhallav.", "area": "Vasastan", "realToday": 103000 },
+    { "id": "orange", "name": "Orange", "color": "--grp-orange", "boardPrice": 180, "street": "Karlavägen", "second": "Stureg. · Narvavägen", "area": "Östermalm", "realToday": 125000 },
+    { "id": "red", "name": "Röda", "color": "--grp-red", "boardPrice": 220, "street": "Strandvägen", "second": "Kungsträdg. · Hamng.", "area": "Östermalm / City", "realToday": 168360 },
+    { "id": "yellow", "name": "Gula", "color": "--grp-yellow", "boardPrice": 260, "street": "Kungsgatan", "second": "Vasagatan · Stureplan", "area": "City / Norrmalm", "realToday": 100000 },
+    { "id": "green", "name": "Gröna", "color": "--grp-green", "boardPrice": 300, "street": "Drottninggatan", "second": "G. Adolfs torg m.fl.", "area": "City / Norrmalm", "realToday": 96000 },
+    { "id": "darkblue", "name": "Mörkblå", "color": "--grp-darkblue", "boardPrice": 400, "street": "Norrmalmstorg", "second": "Centrum", "area": "City", "realToday": 140000 }
+  ],
+  "taxSquares": [
+    { "name": "Inkomstskatt", "pay": 200 },
+    { "name": "Lyxskatt", "pay": 100 }
+  ],
+  "topStreets": [
+    { "street": "Strandvägen", "city": "Stockholm", "kvm": 168360, "onBoard": true },
+    { "street": "Bältgatan", "city": "Stockholm", "kvm": 161597, "onBoard": false },
+    { "street": "Lützengatan", "city": "Stockholm", "kvm": 159333, "onBoard": false }
+  ]
+}
