@@ -4,10 +4,12 @@ En scrollytelling-berättelse (på svenska) om den svenska
 fastighetsmarknaden, berättad genom Monopol. Den öppnar med en
 scrolldriven 3D-scen — ett Monopolbräde där husen växer till hotell och
 färggrupperna till slut reser sig som torn i höjd med gatornas verkliga
-kvadratmeterpriser — och går sedan igenom datat i fyra akter: gatorna
+kvadratmeterpriser — och går sedan igenom datat i fem akter: gatorna
 (Strandvägen 168 360 kr/kvm mot brädets 220 kr), bostadskarriären
-(+789 % för bostadsrätter sedan 1996), skatterutorna som plockades bort
-(fastighetsskatten 2008) och banken (5 530 miljarder i hushållsskulder).
+(+789 % för bostadsrätter sedan 1996), de som aldrig fick spela (en
+tredjedel av hushållen äger ingen ruta; 894 592 i Stockholms bostadskö),
+skatterutorna som plockades bort (fastighetsskatten 2008) och banken
+(5 530 miljarder i hushållsskulder).
 
 Live: https://kpclick12.github.io/scrolly-monopoly/
 
@@ -38,9 +40,10 @@ src/
   lib/
     components/           MonopolyHero (3D), Scrolly, LadderChart,
                            CityCompare, PriceJourney, EquityRace,
-                           TaxBoard, DebtMountain, StatTiles
+                           TenureWaffle, QueueScene, TaxBoard,
+                           DebtMountain, StatTiles
     story/                en Svelte-komponent per akt (ActSpelplanen,
-                           ActKarriaren, ActSkatten, ActBanken)
+                           ActKarriaren, ActUtanfor, ActSkatten, ActBanken)
     data/load.js           importerar och exporterar alla data/*.json
 ```
 
@@ -74,6 +77,9 @@ sidan. I korthet:
 - **Prisutveckling 1996–2025** — Ekonomifokus sammanställning av
   SCB / Svensk Mäklarstatistik (villor +366 %, bostadsrätter +789 %)
 - **Styrräntan** — Riksbanken (topp 4,00 % sep 2023; 1,75 % jun 2026)
+- **Utanför brädet** — SCB (boendeformer; boendeutgifter per
+  upplåtelseform), Bostadsförmedlingen i Stockholm (kötider),
+  Hyresgästföreningen (Unga vuxnas boende 2025)
 - **Skatterna** — Skatteverket (fastighetsavgiftens tak 10 074 kr),
   SNS/LO-sammanställningar av OECD-data (egendomsskatt som andel av BNP)
 - **Skulderna** — SCB/SEB (5 530 mdkr Q1 2026), Ekonomifakta/Riksbanken

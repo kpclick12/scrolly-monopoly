@@ -1,0 +1,24 @@
+{
+  "note": "The players who never got to join. Tenure split: ~two thirds of Swedish households own their home (villa or bostadsrätt), ~one third rent (SCB, boende i Sverige, 2024). Housing cost share of disposable income by tenure: rental 27 %, bostadsrätt 21 %, owned småhus 18 % (SCB hushållens boendeutgifter 2024). Stockholm queue: 894 592 registered at Bostadsförmedlingen 31 dec 2025; average wait 9.0 years for a regular rental, ~21 years for inner-city Stockholm. Young adults 20–27: 21 % (204 000 of 963 600) live with their parents, 9 of 10 involuntarily — the highest share ever measured (Hyresgästföreningen, Unga vuxnas boende 2025).",
+  "tenure": { "ownPct": 66, "rentPct": 34 },
+  "costShare": [
+    { "id": "rent", "label": "Hyresrätt", "pct": 27 },
+    { "id": "brf", "label": "Bostadsrätt", "pct": 21 },
+    { "id": "house", "label": "Ägt småhus", "pct": 18 }
+  ],
+  "queue": {
+    "registered": 894592,
+    "avgYears": 9.0,
+    "innerCityYears": 21,
+    "asOf": "31 dec 2025"
+  },
+  "youngAdults": {
+    "atHomePct": 21,
+    "atHomeCount": 204000,
+    "involuntaryShare": "9 av 10",
+    "wantToMoveCount": 184000,
+    "totalCount": 963600,
+    "year": 2025
+  },
+  "startCapital": 1500
+}

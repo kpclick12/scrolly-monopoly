@@ -3,6 +3,7 @@
   import MonopolyHero from "./lib/components/MonopolyHero.svelte";
   import ActSpelplanen from "./lib/story/ActSpelplanen.svelte";
   import ActKarriaren from "./lib/story/ActKarriaren.svelte";
+  import ActUtanfor from "./lib/story/ActUtanfor.svelte";
   import ActSkatten from "./lib/story/ActSkatten.svelte";
   import ActBanken from "./lib/story/ActBanken.svelte";
 </script>
@@ -12,6 +13,7 @@
 <main>
   <ActSpelplanen {data} />
   <ActKarriaren {data} />
+  <ActUtanfor {data} />
   <ActSkatten {data} />
   <ActBanken {data} />
 </main>
@@ -35,7 +37,8 @@
     <p>
       För det svenska partiet följde regelboken hon varnade för, punkt för
       punkt: stigande rutpriser, inkassering varje varv för de som äger,
-      skatterutorna bortplockade, banken som alltid säger ja. Ett brädspel
+      skatterutorna bortplockade, banken som alltid säger ja — och en
+      tredjedel av spelarna som aldrig fick något startkapital. Ett brädspel
       slutar när de sista spelarna går i konkurs och en vinnare räknar sedlar.
       Ett land har inte den möjligheten — här måste även nästa generation få en
       plats runt brädet. Frågan efter trettio vilda år är inte vem som vann.
@@ -85,6 +88,18 @@
       <li>
         <strong>Styrräntan</strong> — Riksbanken: minusränta 2015–2019, toppen
         4,00&nbsp;% september 2023, 1,75&nbsp;% vid beslutet i juni 2026.
+      </li>
+      <li>
+        <strong>Utanför brädet</strong> — boendeformer: ungefär två
+        tredjedelar av hushållen äger (villa eller bostadsrätt), en tredjedel
+        hyr (SCB, Boende i Sverige, 2024). Boendeutgift som andel av
+        disponibel inkomst: hyresrätt 27&nbsp;%, bostadsrätt 21&nbsp;%, ägt
+        småhus 18&nbsp;% (SCB, hushållens boendeutgifter 2024). Bostadskön:
+        894&nbsp;592 registrerade hos Bostadsförmedlingen i Stockholm 31 dec
+        2025; genomsnittlig kötid 9,0 år under 2025, ≈21 år för innerstan.
+        Unga vuxna 20–27 år: 21&nbsp;% (204&nbsp;000 av 963&nbsp;600) bor kvar
+        hemma, 9 av 10 ofrivilligt, 184&nbsp;000 vill flytta men kan inte
+        (Hyresgästföreningen, Unga vuxnas boende 2025).
       </li>
       <li>
         <strong>Skatterna</strong> — arvs- och gåvoskatt avskaffad 2004,

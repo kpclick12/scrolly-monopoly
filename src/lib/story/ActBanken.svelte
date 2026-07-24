@@ -14,9 +14,9 @@
   ];
 </script>
 
-<section class="act" aria-label="Akt 4: Banken" style="--act-accent: var(--ink-green);">
+<section class="act" aria-label="Akt 5: Banken" style="--act-accent: var(--ink-green);">
   <div class="act-head">
-    <p class="act-kicker">Akt fyra</p>
+    <p class="act-kicker">Akt fem</p>
     <h2>Banken</h2>
     <p class="act-dek">
       I Monopol kan en spelare i knipa alltid inteckna sina gator — banken

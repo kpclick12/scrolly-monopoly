@@ -8,9 +8,9 @@
   const view = $derived(["stamps", "cap", "gdp", "chance"][Math.min(currentStep, 3)]);
 </script>
 
-<section class="act" aria-label="Akt 3: Skatterutorna" style="--act-accent: var(--ink-amber);">
+<section class="act" aria-label="Akt 4: Skatterutorna" style="--act-accent: var(--ink-amber);">
   <div class="act-head">
-    <p class="act-kicker">Akt tre</p>
+    <p class="act-kicker">Akt fyra</p>
     <h2>Skatterutorna</h2>
     <p class="act-dek">
       På brädet finns två rutor alla fruktar: Inkomstskatt — betala 200, och

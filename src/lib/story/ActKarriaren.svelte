@@ -11,7 +11,7 @@
     { num: "12 år", label: "tog det att spara ihop kontantinsatsen till en etta i Stockholm — innan reglerna lättades", accent: "var(--series-red)" },
     { num: "7 år", label: "med de nya reglerna från april 2026 — fortfarande en hel spelomgång innan man ens får slå", accent: "var(--series-blue)" },
     { num: "360 000 kr", label: "har den som sparat hela barnbidraget i tolv år — ungefär en kontantinsats", accent: "var(--series-amber)" },
-    { num: "2 st", label: "sorters spelare: de som äger en ruta och de som betalar hyra till någon som gör det", accent: "var(--series-green)" },
+    { num: "10 %", label: "räcker i kontantinsats från april 2026, mot tidigare 15 — muren sänktes, men den står kvar", accent: "var(--series-green)" },
   ];
 </script>
 
@@ -124,17 +124,17 @@
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">Utanför brädet</p>
-      <h3>De som aldrig får slå tärningen</h3>
+      <p class="kicker">Tröskeln</p>
+      <h3>Muren runt brädet: kontantinsatsen</h3>
       <p>
-        Ett spel där rutorna stiger snabbare än lönerna delar spelarna i två
-        lag: de som kom in i tid, och de som står bredvid och sparar mot ett
-        mål som flyttar sig.
+        Den som vill in i spelet idag möter först en mur. I Stockholm tog det
+        i snitt <strong>tolv år</strong> att spara ihop kontantinsatsen till en
+        etta — sju med de nya reglerna från 2026. Och medan man sparar rullar
+        tärningarna vidare: målet flyttar sig för varje GÅ-varv.
       </p>
       <p>
-        Allt oftare avgörs det av en tredje spelare som inte finns i regelboken:
-        <strong>föräldrabanken</strong>. Den som kan låna kontantinsatsen hemma
-        startar på GÅ. Den som inte kan väntar — i snitt ett decennium.
+        Så långt de som köar vid muren. Men många kom aldrig ens fram till
+        den. Nästa akt räknar dem.
       </p>
     </section>
   </Scrolly>
