@@ -1,77 +1,90 @@
 <script>
-  // Stockholms bostadskö as a board: a line of tokens snaking toward one
-  // green door (a rental contract — not even ownership). The two rulers
-  // below give the real waiting times. Illustrative person density; the
-  // numbers are the data.
+  import { scaleLinear } from "d3-scale";
+
+  // Stockholms bostadskö, drawn as what it actually is: one single-file
+  // line toward one green door, where your place in the line is measured
+  // in YEARS. The queue and the time axis are the same thing — distance
+  // from the door = waiting time. Two queuers are picked out: the average
+  // wait (blue) and the inner-city wait (red), labeled directly.
   let { data } = $props();
 
-  const W = 600;
-  const H = 400;
+  const W = 620;
+  const H = 306;
   const q = $derived(data.queue);
   const fmt = (n) => n.toLocaleString("sv-SE");
 
-  // A snake of queue tokens: three rows, right → left → right, ending at
-  // the door. Spacing tightens near the door — the way real queues bunch.
-  const rows = [
-    { y: 96, from: 545, to: 60, n: 16 },
-    { y: 168, from: 60, to: 545, n: 16 },
-    { y: 240, from: 545, to: 120, n: 14 },
-  ];
-  const tokens = rows.flatMap((r, ri) =>
-    Array.from({ length: r.n }, (_, i) => ({
-      id: `${ri}-${i}`,
-      x: r.from + ((r.to - r.from) * i) / (r.n - 1),
-      y: r.y + Math.sin(i * 2.1 + ri) * 4,
-    }))
-  );
+  // Years → x. The door stands at year 0; the line stretches to 22+ years.
+  const X0 = 118;
+  const X1 = 578;
+  const x = scaleLinear([0, 22], [X0, X1]);
+  const QY = 168; // the queue's baseline
+
+  // One pawn every ~7 months of waiting keeps the line dense enough to
+  // read as a crowd but never as noise. The two highlighted years get
+  // their pawn drawn separately, bigger.
+  const AVG = 9;
+  const INNER = 21;
+  const pawns = Array.from({ length: 37 }, (_, i) => {
+    const yr = 0.35 + (i * 22) / 37;
+    return { id: i, yr, x: x(yr) };
+  }).filter((p) => Math.abs(p.yr - AVG) > 0.42 && Math.abs(p.yr - INNER) > 0.42);
 </script>
 
 <figure class="chart">
-  <figcaption>Bostadskön i Stockholm — kön till en enda grön dörr</figcaption>
+  <figcaption>Bostadskön i Stockholm — avståndet till dörren mäts i år</figcaption>
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
-    aria-label="Illustration av Stockholms bostadskö: en lång slingrande kö av spelpjäser mot en enda dörr märkt hyreskontrakt. 894 592 personer stod i kön vid årsskiftet 2025/26. Genomsnittlig kötid 9 år, drygt 21 år för innerstan."
+    aria-label="En enda kö av spelpjäser leder till en grön dörr märkt hyreskontrakt. Kön är samtidigt en tidsaxel: den genomsnittliga köaren står nio år från dörren, innerstadsköaren cirka 21 år bort. 894 592 personer stod i kön vid årsskiftet 2025/26."
   >
-    <!-- the door: one rental contract -->
-    <g transform="translate(58 218)">
-      <rect x="-26" y="-56" width="52" height="78" rx="5" class="door" />
-      <rect x="-16" y="-40" width="32" height="62" rx="3" class="door-leaf" />
-      <circle cx="8" cy="-6" r="2.6" class="door-knob" />
-      <text class="door-lbl" x="0" y="42" text-anchor="middle">Hyres-</text>
-      <text class="door-lbl" x="0" y="56" text-anchor="middle">kontrakt</text>
+    <!-- the door: one rental contract, at year zero -->
+    <g transform="translate(64 {QY - 22})">
+      <text class="door-lbl" x="0" y="-76" text-anchor="middle">Hyreskontrakt</text>
+      <rect x="-30" y="-64" width="60" height="92" rx="6" class="door" />
+      <rect x="-19" y="-46" width="38" height="74" rx="4" class="door-leaf" />
+      <circle cx="10" cy="-5" r="3" class="door-knob" />
     </g>
 
-    {#each tokens as t (t.id)}
-      <g class="pawn" transform="translate({t.x} {t.y})">
-        <circle cx="0" cy="-9" r="4.4" />
-        <path d="M -5.4 8 C -5.4 -1 5.4 -1 5.4 8 Z" />
+    <!-- the queue itself, standing on the year axis -->
+    {#each pawns as p (p.id)}
+      <g class="pawn" transform="translate({p.x} {QY})">
+        <circle cx="0" cy="-17.5" r="5.2" />
+        <path d="M -6.2 0 C -6.2 -11 6.2 -11 6.2 0 Z" />
       </g>
     {/each}
-    <text class="more" x="548" y="276" text-anchor="end">… och {fmt(q.registered - 46)} till</text>
 
-    <!-- waiting-time rulers -->
-    <g class="ruler">
-      <line x1="60" x2="545" y1="316" y2="316" />
-      {#each [0, 5, 10, 15, 20] as yr}
-        <line class="rt" x1={60 + (485 * yr) / 22} x2={60 + (485 * yr) / 22} y1="311" y2="321" />
-        <text class="rt-lbl" x={60 + (485 * yr) / 22} y="338" text-anchor="middle">{yr} år</text>
-      {/each}
-      <g class="marker avg" transform="translate({60 + (485 * q.avgYears) / 22} 316)">
-        <circle r="5" />
-        <text y="-14" text-anchor="middle">Snittet: {String(q.avgYears).replace(".0", "")} år</text>
-      </g>
-      <g class="marker inner" transform="translate({60 + (485 * q.innerCityYears) / 22} 316)">
-        <circle r="5" />
-        <text y="-14" text-anchor="middle">Innerstan: ≈{q.innerCityYears} år</text>
-      </g>
+    <!-- the average queuer -->
+    <g class="mark avg" transform="translate({x(AVG)} {QY})">
+      <line y1="-58" y2="-30" />
+      <circle cx="0" cy="-19.5" r="6" class="head" />
+      <path d="M -7.4 0 C -7.4 -12.5 7.4 -12.5 7.4 0 Z" class="body" />
+      <text y="-80" text-anchor="middle">Snittköaren</text>
+      <text class="strong" y="-64" text-anchor="middle">9 år kvar</text>
     </g>
-    <text class="big" x="60" y="386">{fmt(q.registered)}</text>
-    <text class="big-lbl" x="248" y="386">personer i kön ({q.asOf})</text>
+
+    <!-- the inner-city queuer -->
+    <g class="mark inner" transform="translate({x(INNER)} {QY})">
+      <line y1="-58" y2="-30" />
+      <circle cx="0" cy="-19.5" r="6" class="head" />
+      <path d="M -7.4 0 C -7.4 -12.5 7.4 -12.5 7.4 0 Z" class="body" />
+      <text y="-80" text-anchor="end" x="8">Kön till innerstan</text>
+      <text class="strong" y="-64" text-anchor="end" x="8">≈21 år kvar</text>
+    </g>
+
+    <!-- year axis = the floor the queue stands on -->
+    <line class="axis" x1={X0 - 26} x2={X1 + 14} y1={QY + 2} y2={QY + 2} />
+    {#each [0, 5, 10, 15, 20] as yr}
+      <line class="rt" x1={x(yr)} x2={x(yr)} y1={QY + 2} y2={QY + 9} />
+      <text class="rt-lbl" x={x(yr)} y={QY + 26} text-anchor="middle">{yr} år</text>
+    {/each}
+
+    <text class="big" x={X0 - 26} y={QY + 76}>{fmt(q.registered)}</text>
+    <text class="big-lbl" x={X0 + 166} y={QY + 76}>personer stod i kön {q.asOf}</text>
+    <text class="big-sub" x={X0 - 26} y={QY + 100}>— fler än det bor i hela Göteborg</text>
   </svg>
   <p class="legend">
-    Bostadsförmedlingen i Stockholm: genomsnittlig kötid för en vanlig hyresrätt
-    under 2025, längst för innerstadens lägenheter. Kön leder till ett hyreskontrakt —
+    Bostadsförmedlingen i Stockholm: genomsnittlig kötid för en vanlig hyresrätt under
+    2025 var 9 år, för innerstadens lägenheter drygt 20. Kön leder till ett hyreskontrakt —
     inte till en egen ruta på brädet.
   </p>
 </figure>
@@ -103,54 +116,56 @@
     fill: var(--surface-1);
   }
   .door-lbl {
-    font-size: 11px;
+    font-size: 11.5px;
     font-weight: 700;
     fill: var(--ink-green);
   }
   .pawn circle,
   .pawn path {
-    fill: var(--text-muted);
-  }
-  .pawn:nth-child(4n) circle,
-  .pawn:nth-child(4n) path {
     fill: var(--baseline);
   }
-  .more {
-    font-size: 12px;
-    fill: var(--text-muted);
-    font-style: italic;
+  .mark line {
+    stroke: var(--baseline);
+    stroke-width: 1.4;
+    stroke-dasharray: 3 3;
   }
-  .ruler line {
+  .mark text {
+    font-size: 12px;
+    fill: var(--text-secondary);
+  }
+  .mark text.strong {
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .mark.avg .head,
+  .mark.avg .body {
+    fill: var(--series-blue);
+    stroke: var(--surface-1);
+    stroke-width: 1.6;
+  }
+  .mark.avg text.strong {
+    fill: var(--ink-blue);
+  }
+  .mark.inner .head,
+  .mark.inner .body {
+    fill: var(--series-red);
+    stroke: var(--surface-1);
+    stroke-width: 1.6;
+  }
+  .mark.inner text.strong {
+    fill: var(--ink-red);
+  }
+  .axis {
     stroke: var(--baseline);
     stroke-width: 1.5;
   }
-  .ruler .rt {
+  .rt {
     stroke: var(--baseline);
     stroke-width: 1;
   }
   .rt-lbl {
     font-size: 11px;
     fill: var(--text-muted);
-  }
-  .marker circle {
-    stroke: var(--surface-1);
-    stroke-width: 2;
-  }
-  .marker.avg circle {
-    fill: var(--series-blue);
-  }
-  .marker.inner circle {
-    fill: var(--series-red);
-  }
-  .marker text {
-    font-size: 12px;
-    font-weight: 700;
-  }
-  .marker.avg text {
-    fill: var(--ink-blue);
-  }
-  .marker.inner text {
-    fill: var(--ink-red);
   }
   .big {
     font-family: var(--serif);
@@ -162,6 +177,11 @@
   .big-lbl {
     font-size: 13px;
     fill: var(--text-secondary);
+  }
+  .big-sub {
+    font-size: 12.5px;
+    fill: var(--text-muted);
+    font-style: italic;
   }
   .legend {
     font-size: 12px;
