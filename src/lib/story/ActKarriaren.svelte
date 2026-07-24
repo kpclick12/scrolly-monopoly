@@ -118,7 +118,7 @@
         <p class="callout-num">×4,4</p>
         <p class="callout-label">
           mer än spararen, i räkneexemplet — utan en enda arbetad extra timme.
-          I Monopol heter samma sak "inkassera 200 kr när du passerar GÅ".
+          I Monopol heter samma sak "avlöning 1 000 kr när du passerar GÅ".
         </p>
       </div>
     </section>

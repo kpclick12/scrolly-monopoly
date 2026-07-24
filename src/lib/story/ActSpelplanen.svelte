@@ -35,15 +35,15 @@
 
     <section class="scrolly-step">
       <p class="kicker">1936</p>
-      <h3>Hornsgatan kostade 60 kronor</h3>
+      <h3>Hornsgatan kostade 1 000 kronor</h3>
       <p>
         Brädet är en karta över klassernas Stockholm. Billigast: de bruna och
         ljusblå gatorna i Gamla stan och på Södermalm — Västerlånggatan,
-        Hornsgatan, Götgatan — för 60–120 spel-kronor. Dyrast: Norrmalmstorg
-        för 400.
+        Hornsgatan, Götgatan — för 1 000–2 200 spel-kronor. Dyrast:
+        Norrmalmstorg för 8 000.
       </p>
       <div class="callout">
-        <p class="callout-num">6,7×</p>
+        <p class="callout-num">8×</p>
         <p class="callout-label">
           så mycket dyrare var brädets finaste gata än dess billigaste. Stegen
           var brant — alla visste var man hörde hemma.
@@ -61,7 +61,7 @@
         stegen har tryckts ihop i toppen.
       </p>
       <p>
-        Det som 1936 var 6,7 gånger skiljer idag inte ens en faktor två. På den
+        Det som 1936 var 8 gånger skiljer idag inte ens en faktor två. På den
         här spelplanen finns inga billiga gator kvar att börja på.
       </p>
     </section>
@@ -70,7 +70,7 @@
       <p class="kicker">Den röda gruppen</p>
       <h3>Strandvägen: Sveriges dyraste gata</h3>
       <p>
-        På brädet en röd mellangata för 220 kronor. I verkligheten toppar
+        På brädet en röd mellangata för 4 200 kronor. I verkligheten toppar
         <strong>Strandvägen</strong> hela landet:
         <strong>168&nbsp;360&nbsp;kr per kvadratmeter</strong> — en trea på 80
         kvadrat för drygt 13 miljoner.

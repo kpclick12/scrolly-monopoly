@@ -34,7 +34,7 @@
     {
       band: [0.9, 1.01],
       body:
-        "På brädet kostar Hornsgatan 60 kronor och Norrmalmstorg 400. I trettio år har " +
+        "På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000. I trettio år har " +
         "Sverige spelat spelet på riktigt — tills gatorna växte till torn av pengar, " +
         "skatterutorna plockades bort och banken alltid sa ja. Det här är historien om det partiet.",
     },
@@ -528,7 +528,7 @@
         <p class="fb-eyebrow">En visuell berättelse om den svenska fastighetsmarknaden</p>
         <h1>Spelplanen har förändrats</h1>
         <p class="fb-body">
-          På brädet kostar Hornsgatan 60 kronor och Norrmalmstorg 400. I trettio år har
+          På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000. I trettio år har
           Sverige spelat spelet på riktigt. Det här är historien om det partiet.
         </p>
       </div>

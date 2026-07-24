@@ -5,7 +5,7 @@ fastighetsmarknaden, berättad genom Monopol. Den öppnar med en
 scrolldriven 3D-scen — ett Monopolbräde där husen växer till hotell och
 färggrupperna till slut reser sig som torn i höjd med gatornas verkliga
 kvadratmeterpriser — och går sedan igenom datat i fem akter: gatorna
-(Strandvägen 168 360 kr/kvm mot brädets 220 kr), bostadskarriären
+(Strandvägen 168 360 kr/kvm mot brädets 4 200 kr), bostadskarriären
 (+789 % för bostadsrätter sedan 1996), de som aldrig fick spela (en
 tredjedel av hushållen äger ingen ruta; 894 592 i Stockholms bostadskö),
 skatterutorna som plockades bort (fastighetsskatten 2008) och banken

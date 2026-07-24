@@ -1,7 +1,7 @@
 <script>
   import { scaleLinear } from "d3-scale";
 
-  // "Inkassera 200 kr när du passerar GÅ" — but only if you own a square.
+  // "Avlöning 1 000 kr när du passerar GÅ" — but only if you own a square.
   // Two people, same year one of them buys: the owner's equity in a small
   // Södermalm one-roomer (value follows the real brf index, minus the
   // original loan) against a renter putting 1 500 kr/month in the bank.

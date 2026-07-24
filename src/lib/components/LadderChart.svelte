@@ -15,11 +15,11 @@
 
   const groups = $derived(data.groups);
   const y = $derived(scaleBand(groups.map((g) => g.id), [M.top, H - M.bottom]).padding(0.3));
-  const maxVal = $derived(mode === "board" ? 400 : 175000);
+  const maxVal = $derived(mode === "board" ? 8400 : 175000);
   const x = $derived(scaleLinear([0, maxVal], [M.left, W - M.right]));
   const val = (g) => (mode === "board" ? g.boardPrice : g.realToday);
   const fmtKr = (n) => n.toLocaleString("sv-SE");
-  const ticks = $derived(mode === "board" ? [0, 100, 200, 300, 400] : [0, 50000, 100000, 150000]);
+  const ticks = $derived(mode === "board" ? [0, 2000, 4000, 6000, 8000] : [0, 50000, 100000, 150000]);
   const dimmed = (g) => highlight && g.id !== highlight;
 </script>
 
@@ -33,13 +33,13 @@
     viewBox="0 0 {W} {H}"
     role="img"
     aria-label={mode === "board"
-      ? "Liggande stapeldiagram: Monopolbrädets åtta färggrupper från Hornsgatan 60 kronor till Norrmalmstorg 400 kronor."
+      ? "Liggande stapeldiagram: Monopolbrädets åtta färggrupper från Hornsgatan 1 000 kronor till Norrmalmstorg 8 000 kronor."
       : "Liggande stapeldiagram: samma gator med dagens kvadratmeterpriser, från cirka 95 000 kr/kvm på Hornsgatan till 168 360 kr/kvm på Strandvägen."}
   >
     {#each ticks as tick}
       <line class="grid" x1={x(tick)} x2={x(tick)} y1={M.top - 6} y2={H - M.bottom} />
       <text class="tick" x={x(tick)} y={H - M.bottom + 18} text-anchor="middle">
-        {mode === "board" ? tick : tick === 0 ? "0" : `${tick / 1000} tkr`}
+        {tick === 0 ? "0" : `${tick / 1000} tkr`}
       </text>
     {/each}
 
@@ -69,10 +69,10 @@
           rx="4"
           style="fill: var({g.color});"
         >
-          <title>{g.street}: {mode === "board" ? `${g.boardPrice} kr på brädet` : `≈${fmtKr(g.realToday)} kr/kvm`}</title>
+          <title>{g.street}: {mode === "board" ? `${fmtKr(g.boardPrice)} kr på brädet` : `≈${fmtKr(g.realToday)} kr/kvm`}</title>
         </rect>
         <text class="value" x={x(val(g)) + 8} y={y(g.id) + y.bandwidth() / 2 + 4}>
-          {mode === "board" ? `${g.boardPrice} kr` : `≈${fmtKr(g.realToday)}`}
+          {mode === "board" ? `${fmtKr(g.boardPrice)} kr` : `≈${fmtKr(g.realToday)}`}
         </text>
       </g>
     {/each}

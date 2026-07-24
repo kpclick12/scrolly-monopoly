@@ -13,8 +13,8 @@
     <p class="act-kicker">Akt fyra</p>
     <h2>Skatterutorna</h2>
     <p class="act-dek">
-      På brädet finns två rutor alla fruktar: Inkomstskatt — betala 200, och
-      Lyxskatt — betala 100. I det svenska partiet gjorde vi något som inte
+      På brädet finns två rutor alla fruktar: Inkomstskatt — betala 4 000, och
+      Extra skatt — betala 2 000. I det svenska partiet gjorde vi något som inte
       står i regelboken: vi plockade bort rutorna.
     </p>
   </div>

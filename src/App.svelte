@@ -58,11 +58,16 @@
     <ul>
       <li>
         <strong>Spelplanen</strong> — det klassiska svenska Monopol-brädet
-        (Stockholmsgator). Den svenska utgåvan kom ut 1936 (Åhlén &amp;
-        Åkerlund), med Norrmalmstorg som dyrast och Västerlånggatan/Hornsgatan
-        billigast; köpesummor 60–400 spel-kronor, rutorna Inkomstskatt (200 kr)
-        och Lyxskatt (100 kr) samt regeln "inkassera 200 kr när du passerar GÅ".
-        (Det amerikanska Monopoly gavs ut av Parker Brothers 1935.)
+        (Stockholmsgator), utgivet av Åhlén &amp; Åkerlunds förlag i slutet av
+        1930-talet (1936; vissa katalogiseringar anger 1937). Priserna är
+        avlästa direkt från det tidiga brädet i Nordiska museets samling
+        (DigitaltMuseum, id 021028370534): köpesummor 1&nbsp;000–8&nbsp;000
+        spel-kronor med Norrmalmstorg dyrast (8&nbsp;000) och
+        Västerlånggatan/Hornsgatan billigast (1&nbsp;000), rutorna Inkomstskatt
+        (betala 4&nbsp;000) och Extra skatt (betala 2&nbsp;000) samt regeln
+        "avlöning 1&nbsp;000 kr när du passerar GÅ". (Det amerikanska Monopoly
+        gavs ut av Parker Brothers 1935; senare svenska utgåvor använder
+        valörerna 60–400.)
       </li>
       <li>
         <strong>Dyraste gator</strong> — Fastighetsbyråns kartläggning på
