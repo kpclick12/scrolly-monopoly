@@ -103,7 +103,7 @@
 
     <section class="scrolly-step">
       <p class="kicker">Snittpriserna</p>
-      <h3>Tre gånger Malmö</h3>
+      <h3>Tre gånger dyrare än Malmö</h3>
       <p>
         Skillnaden syns långt utanför paradgatorna. En central kvadratmeter i
         Stockholm kostar omkring <strong>119&nbsp;000 kronor</strong>. Det är
@@ -111,7 +111,7 @@
       </p>
       <p>
         Var du föddes och när du köpte avgör vilken ruta du börjar på. Nästa
-        akt handlar om dem som fick tärningen med sig.
+        akt handlar om dem som hade turen med sig.
       </p>
     </section>
   </Scrolly>

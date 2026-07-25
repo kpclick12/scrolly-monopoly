@@ -7,10 +7,10 @@
   let currentStep = $state(0);
 
   const tiles = [
-    { num: "5 530 mdr", label: "kronor i hushållsskulder första kvartalet 2026 — mer än Sveriges hela BNP", accent: "var(--series-red)" },
-    { num: "90 %", label: "får bolånet täcka från april 2026 — kontantinsatsen sänkt till 10 procent", accent: "var(--series-blue)" },
-    { num: "2 %", label: "per år är numera det maximala amorteringskravet — skärpningen från 2018 är slopad", accent: "var(--series-green)" },
-    { num: "≈173 %", label: "av disponibel inkomst är hushållens skulder — fortfarande bland de högsta i världen", accent: "var(--series-amber)" },
+    { num: "5 530 mdr", label: "kronor i hushållsskulder första kvartalet 2026, mer än hela Sveriges BNP", accent: "var(--series-red)" },
+    { num: "90 %", label: "av bostadens värde får bolånet täcka sedan april 2026. Kontantinsatsen är nere i 10 procent", accent: "var(--series-blue)" },
+    { num: "2 %", label: "per år är det mesta man numera behöver amortera. Skärpningen från 2018 är slopad", accent: "var(--series-green)" },
+    { num: "≈173 %", label: "av disponibel inkomst är hushållens skulder. Det är fortfarande bland de högsta i världen", accent: "var(--series-amber)" },
   ];
 </script>
 
@@ -50,7 +50,7 @@
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">Spelledaren ingriper</p>
+      <p class="kicker">Regleringarna</p>
       <h3>Nya regler mitt i partiet</h3>
       <p>
         Myndigheterna försökte bromsa utan att välta brädet.

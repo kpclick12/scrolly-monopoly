@@ -9,10 +9,10 @@
 
   const ya = data.outside.youngAdults;
   const tiles = [
-    { num: "204 000", label: "unga vuxna (20–27 år) bor kvar i föräldrahemmet — 21 procent av alla", accent: "var(--series-red)" },
-    { num: "9 av 10", label: "av dem bor kvar ofrivilligt — den högsta andelen som någonsin uppmätts", accent: "var(--series-amber)" },
-    { num: "184 000", label: "vill flytta men kan inte — de väntar på att få börja spela", accent: "var(--series-blue)" },
-    { num: "1 500 kr", label: "får varje spelare av banken när Monopol börjar. Verklighetens motsvarighet heter föräldrabanken — och alla har ingen", accent: "var(--series-green)" },
+    { num: "204 000", label: "unga vuxna mellan 20 och 27 år bor kvar hemma hos föräldrarna. Det är 21 procent av alla", accent: "var(--series-red)" },
+    { num: "9 av 10", label: "av dem bor kvar ofrivilligt. Så hög har andelen aldrig varit", accent: "var(--series-amber)" },
+    { num: "184 000", label: "vill flytta hemifrån men kan inte", accent: "var(--series-blue)" },
+    { num: "0 kr", label: "i startkapital delades ut i verkligheten. Den som inte kunde låna till kontantinsatsen hemma fick vänta", accent: "var(--series-green)" },
   ];
 
   const waffleView = $derived(currentStep === 0 ? "all" : currentStep === 1 ? "split" : "rent");
@@ -24,8 +24,8 @@
     <h2>Utanför brädet</h2>
     <p class="act-dek">
       Monopols första regel är att alla får lika mycket av banken innan partiet
-      börjar. Den regeln hoppade vi över. En stor del av Sverige blev aldrig
-      ens inbjuden att spela.
+      börjar. Så började aldrig det svenska partiet. En stor del av Sverige
+      blev aldrig ens inbjuden att spela.
     </p>
   </div>
 
@@ -46,7 +46,7 @@
 
     <section class="scrolly-step">
       <p class="kicker">Startkapitalet</p>
-      <h3>Regeln som aldrig fanns</h3>
+      <h3>Alla började inte med lika mycket</h3>
       <p>
         I spelet är starten rättvis. Samma sedelbunt till alla, samma GÅ-ruta,
         samma tärningar. Verkligheten började annorlunda. Vem som kunde köpa en
@@ -60,12 +60,12 @@
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">De 34 rutorna</p>
-      <h3>En tredjedel äger ingenting på brädet</h3>
+      <p class="kicker">Ägandet</p>
+      <h3>En tredjedel äger ingenting</h3>
       <p>
         Ungefär <strong>två tredjedelar</strong> av hushållen äger sitt boende.
-        Drygt vart tredje hyr. Översatt till spelet: de landar varje månad på
-        någon annans gata och betalar hyra, men äger inte en enda ruta själva.
+        Drygt vart tredje hyr. De betalar varje månad till någon som äger, men
+        äger ingenting själva.
       </p>
       <p>
         När bostadsrätterna steg 789 procent gick varenda krona av
@@ -89,7 +89,7 @@
         <p class="callout-num">0 kr</p>
         <p class="callout-label">
           av de trettio årens värdestegring gick till den som hyrde. Att stå
-          utanför brädet blev de vilda årens dyraste plats.
+          utanför blev dyrt.
         </p>
       </div>
     </section>
@@ -122,9 +122,9 @@
         decennier.
       </p>
       <p>
-        Det är dem de nya lånereglerna från 2026 säger sig vilja släppa in. Men
-        först ska vi titta på rutorna som gjorde ägandet så billigt för dem som
-        redan sitter vid bordet.
+        Det är den gruppen de nya lånereglerna från 2026 säger sig vilja hjälpa
+        in. Men först ska vi titta på det som gjorde ägandet så billigt för dem
+        som redan sitter vid bordet.
       </p>
     </section>
   </Scrolly>

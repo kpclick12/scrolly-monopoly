@@ -66,8 +66,8 @@
       Ungefär två tredjedelar av hushållen äger sitt boende (villa eller bostadsrätt),
       en tredjedel hyr (SCB, 2024).
     {:else}
-      I Monopol får varje spelare {fmt(data.startCapital)} kr av banken innan partiet börjar.
-      Den regeln fanns aldrig i det svenska spelet.
+      I Monopol får alla spelare lika mycket av banken innan partiet börjar.
+      Den regeln fanns aldrig i verkligheten.
     {/if}
   </p>
 </figure>

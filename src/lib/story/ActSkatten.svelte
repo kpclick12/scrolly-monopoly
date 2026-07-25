@@ -13,9 +13,9 @@
     <p class="act-kicker">Akt fyra</p>
     <h2>Skatterutorna</h2>
     <p class="act-dek">
-      På brädet finns två rutor alla fruktar: Inkomstskatt — betala 4 000, och
-      Extra skatt — betala 2 000. I det svenska partiet gjorde vi något som inte
-      står i regelboken: vi plockade bort rutorna.
+      På brädet finns två rutor som ingen vill hamna på. Inkomstskatt, betala
+      4 000. Extra skatt, betala 2 000. I verkligheten gjorde vi tvärtom och
+      plockade bort dem.
     </p>
   </div>
 
@@ -30,7 +30,7 @@
 
     <section class="scrolly-step">
       <p class="kicker">2004 · 2007 · 2008</p>
-      <h3>Rutorna som lyftes bort</h3>
+      <h3>Skatterna som försvann</h3>
       <p>
         På fyra år försvann tre skatter på ägande. Arvs- och gåvoskatten 2004,
         förmögenhetsskatten 2007 och till sist, 2008, den statliga
@@ -38,13 +38,14 @@
         politiks mest framgångsrika folkuppror.
       </p>
       <p>
-        Kvar blev bara en liten avgift. Det är där det börjar bli intressant.
+        Kvar blev bara en liten avgift. Och det är den avgiften som är
+        intressant.
       </p>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Taket</p>
-      <h3>Villan för 20 miljoner betalar som villan för 1,5</h3>
+      <h3>Villan för 20 miljoner betalar lika mycket som villan för 1,5</h3>
       <p>
         Ersättaren heter kommunal fastighetsavgift och ligger på 0,75 procent
         av taxeringsvärdet, men aldrig mer än
@@ -68,8 +69,8 @@
       <p>
         Sveriges egendomsskatter motsvarar ungefär <strong>1 procent av
         BNP</strong>. I EU-15 är snittet 2,3. Landet som en gång hade världens
-        hårdaste skattetryck blev något i stil med ett skatteparadis, för den
-        som äger sitt boende.
+        hårdaste skattetryck blev nästan ett skatteparadis för den som äger
+        sitt boende.
       </p>
       <p>
         Ekonomerna är ovanligt eniga här. En löpande fastighetsskatt hör till
@@ -88,10 +89,10 @@
         räntekostnaden, år efter år, hur stort lånet än är.
       </p>
       <p>
-        Summera akten. Ingen fastighetsskatt att tala om, ingen
-        förmögenhetsskatt, ingen arvsskatt, plus en rabattkupong på att låna.
-        Ingen behöver undra varför alla ville köpa rutor. Frågan är var
-        pengarna kom ifrån, och det handlar nästa akt om.
+        Lägg ihop det hela. Ingen fastighetsskatt att tala om, ingen
+        förmögenhetsskatt, ingen arvsskatt och dessutom avdrag på räntan. Då
+        behöver ingen undra varför det blev så attraktivt att äga sitt boende.
+        Återstår frågan var pengarna kom ifrån. Det handlar nästa akt om.
       </p>
     </section>
   </Scrolly>
