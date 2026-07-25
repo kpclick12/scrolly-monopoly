@@ -507,11 +507,20 @@
       });
     }
     const dieMats = [1, 6, 2, 5, 3, 4].map((n) => new THREE.MeshLambertMaterial({ map: dieFace(n), transparent: true }));
+    // The roll. Both dice lie still ON the board at the very top of the
+    // page, near the GÅ corner, and tumble across to the middle on the
+    // reader's first scroll. Starting them at rest is the whole trick: an
+    // earlier version launched them from a hand in mid-air, which left them
+    // hanging in the sky behind the title.
     const dice = [];
-    for (const [dx, dz, ry] of [[0.5, 1.9, 0.4], [1.15, 2.3, -0.7]]) {
+    const diceRoll = [
+      { from: [3.4, 3.0], to: [0.5, 1.9], restY: 0.4, qx: 5, qz: 3, hop: 0.26 },
+      { from: [3.7, 2.5], to: [1.15, 2.3], restY: -0.7, qx: 4, qz: 5, hop: 0.19 },
+    ];
+    for (const d of diceRoll) {
       const die = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.42), dieMats);
-      die.position.set(dx, boardTop + 0.21, dz);
-      die.rotation.y = ry;
+      die.position.set(d.from[0], boardTop + 0.21, d.from[1]);
+      die.rotation.y = d.restY;
       scene.add(die);
       dice.push(die);
     }
@@ -669,11 +678,31 @@
         tw.cap.visible = rise > 0.02;
       }
 
-      // The hat idles with tiny life; the dice breathe in place.
+      // The hat idles with tiny life.
       hat.position.y = boardTop + 0.05 + Math.sin(t * 1.4) * 0.015;
       hat.rotation.y = Math.sin(t * 0.5) * 0.15;
-      dice[0].rotation.y = 0.4 + Math.sin(t * 0.7) * 0.06;
-      dice[1].rotation.y = -0.7 + Math.cos(t * 0.6) * 0.06;
+
+      // The dice roll, scrubbed by the first sliver of scroll. Both ends of
+      // the motion are a die lying flat and still on the board: the tumble
+      // runs through whole quarter-turns, so whatever the reader stops on,
+      // the die is always resting on a face rather than balanced on a
+      // corner. Two low decaying bounces stand in for the throw itself.
+      // Reduced motion jumps straight to the resting arrangement.
+      const T = reduceMotion ? 1 : smooth(0.008, 0.085, P);
+      dice.forEach((die, di) => {
+        const d = diceRoll[di];
+        const hop = Math.abs(Math.sin(T * Math.PI * 2.3)) * d.hop * (1 - T);
+        die.position.set(
+          d.from[0] + (d.to[0] - d.from[0]) * T,
+          boardTop + 0.21 + hop,
+          d.from[1] + (d.to[1] - d.from[1]) * T
+        );
+        die.rotation.set(
+          T * Math.PI * 0.5 * d.qx,
+          d.restY + Math.sin(t * (0.7 - di * 0.1)) * 0.06 * T,
+          T * Math.PI * 0.5 * d.qz
+        );
+      });
 
       // Camera along the keyframed crane path, with a breath of drift so a
       // stationary reader still sees a living scene.
