@@ -15,9 +15,9 @@
     <p class="act-kicker">Akt ett</p>
     <h2>Spelplanen</h2>
     <p class="act-dek">
-      Svenska Monopol kom ut 1937: en prisstege genom Stockholm, från Söders
-      och Gamla stans kvarter till paradgatorna. Stegen finns kvar. Priserna
-      har spelat ett eget parti.
+      Svenska Monopol kom ut 1937 och är en prisstege genom Stockholm, från
+      Gamla stan och Söder upp till paradgatorna. Stegen finns kvar. Priserna
+      har sedan dess spelat ett helt eget parti.
     </p>
   </div>
 
@@ -37,18 +37,17 @@
       <p class="kicker">1937</p>
       <h3>Hornsgatan kostade 1 000 kronor</h3>
       <p>
-        Brädet är en karta över klassernas Stockholm. Gatorna valdes av en
-        medarbetare på Åhlén &amp; Åkerlund som helt enkelt vandrade runt i
-        staden och rangordnade dem efter status. Billigast: de bruna och
-        ljusblå gatorna i Gamla stan och på Södermalm — Västerlånggatan,
-        Hornsgatan, Götgatan — för 1 000–2 200 spel-kronor. Dyrast:
-        Norrmalmstorg för 8 000.
+        Brädet är en klasskarta över Stockholm. En anställd på Åhlén &amp;
+        Åkerlund fick i uppdrag att gå runt i stan och rangordna gatorna efter
+        status, och det är den promenaden vi fortfarande spelar på. Billigast
+        blev Gamla stan och Söder: Västerlånggatan och Hornsgatan för tusen
+        kronor styck. Dyrast blev Norrmalmstorg, åttatusen.
       </p>
       <div class="callout">
         <p class="callout-num">8×</p>
         <p class="callout-label">
-          så mycket dyrare var brädets finaste gata än dess billigaste. Stegen
-          var brant — alla visste var man hörde hemma.
+          skilde det mellan den finaste gatan och den billigaste. Alla som satt
+          runt bordet visste var de hörde hemma.
         </p>
       </div>
     </section>
@@ -57,14 +56,14 @@
       <p class="kicker">2026</p>
       <h3>Spelplanen har förändrats</h3>
       <p>
-        Samma gator, dagens priser. Brädets logik har kollapsat: Söder är inte
-        längre botten — en kvadratmeter på <strong>Hornsgatan kostar runt
-        95&nbsp;000&nbsp;kr</strong>, ungefär som på "fina" Drottninggatan. Hela
-        stegen har tryckts ihop i toppen.
+        Samma gator, dagens priser. Nu stämmer ingenting. Söder är inte längre
+        botten: en kvadratmeter på <strong>Hornsgatan går för runt
+        95&nbsp;000&nbsp;kronor</strong>, ungefär vad du betalar på "fina"
+        Drottninggatan. Hela stegen har tryckts ihop uppåt.
       </p>
       <p>
-        Det som 1937 var 8 gånger skiljer idag inte ens en faktor två. På den
-        här spelplanen finns inga billiga gator kvar att börja på.
+        1937 skilde det åtta gånger mellan billigast och dyrast. Idag inte ens
+        dubbelt. Det finns ingen billig gata kvar att börja på.
       </p>
     </section>
 
@@ -72,31 +71,33 @@
       <p class="kicker">Den röda gruppen</p>
       <h3>Strandvägen: Sveriges dyraste gata</h3>
       <p>
-        På brädet en röd mellangata för 4 200 kronor. I verkligheten toppar
-        <strong>Strandvägen</strong> hela landet:
-        <strong>168&nbsp;360&nbsp;kr per kvadratmeter</strong> — en trea på 80
-        kvadrat för drygt 13 miljoner.
+        På brädet är den en röd medelgata för 4 200. I verkligheten är
+        <strong>Strandvägen</strong> dyrast i hela landet:
+        <strong>168&nbsp;360&nbsp;kronor kvadratmetern</strong>. En trea på 80
+        kvadrat kostar drygt 13 miljoner.
       </p>
       <div class="callout">
         <p class="callout-num">10 av 10</p>
         <p class="callout-label">
-          av Sveriges dyraste gator ligger i Stockholm (Bältgatan och
-          Lützengatan följer närmast). Svensk Mäklarstatistik, apr 2025–mar 2026.
+          av Sveriges dyraste gator ligger i Stockholm. Närmast efter
+          Strandvägen kommer Bältgatan och Lützengatan. Svensk Mäklarstatistik,
+          apr 2025–mar 2026.
         </p>
       </div>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Resten av brädet</p>
-      <h3>Ett Monopol — men tre olika spel</h3>
+      <h3>Ett Monopol, tre olika spel</h3>
       <p>
-        Byt stad och valörerna byter skala. Göteborgs dyraste gata,
-        <strong>Lodjursstråket i Hovås</strong>, kostar hälften av Strandvägen.
-        Malmös toppgata <strong>Vikingagatan i Limhamn</strong> ännu mindre. Och
-        utanför storstäderna toppar — fjällturismens <strong>Årevägen</strong>.
+        Byt stad och siffrorna byter storlek. Dyrast i Göteborg är
+        <strong>Lodjursstråket i Hovås</strong>, ungefär halva Strandvägen.
+        Malmös <strong>Vikingagatan i Limhamn</strong> ligger lägre än så. Och
+        utanför storstäderna toppar en gata som inte ens ligger i en stad:
+        <strong>Årevägen</strong> i fjällen.
       </p>
       <p>
-        Samma land, samma regler, helt olika brädespel.
+        Samma land, samma regler, tre helt olika partier.
       </p>
     </section>
 
@@ -104,13 +105,13 @@
       <p class="kicker">Snittpriserna</p>
       <h3>Tre gånger Malmö</h3>
       <p>
-        Även bortom paradgatorna är skillnaden en spelplan i sig: en central
-        kvadratmeter i Stockholm kostar runt <strong>119&nbsp;000 kr</strong> —
-        ungefär 1,7 gånger centrala Göteborg och tre gånger centrala Malmö.
+        Skillnaden syns långt utanför paradgatorna. En central kvadratmeter i
+        Stockholm kostar omkring <strong>119&nbsp;000 kronor</strong>. Det är
+        1,7 gånger Göteborg och tre gånger Malmö.
       </p>
       <p>
-        Var du råkar födas, och när du råkar köpa, avgör vilken ruta du startar
-        på. Nästa akt handlar om dem som fick tärningarna med sig.
+        Var du föddes och när du köpte avgör vilken ruta du börjar på. Nästa
+        akt handlar om dem som fick tärningen med sig.
       </p>
     </section>
   </Scrolly>

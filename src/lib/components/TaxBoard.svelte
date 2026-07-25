@@ -259,10 +259,24 @@
     }
     .square {
       min-height: 0;
-      padding-bottom: 12px;
+      padding-bottom: 14px;
     }
     .square-title {
       min-height: 0;
+    }
+    /* On a phone the cards collapse to a single short row each, so an
+       absolutely-positioned stamp lands straight on top of the tax name.
+       Drop it back into the flow underneath instead — still tilted like a
+       rubber stamp, but it can no longer cover the text it annotates. */
+    .stamp {
+      position: static;
+      transform: rotate(-2deg);
+      display: inline-block;
+      margin-top: 10px;
+      background: none;
+    }
+    .square-pay {
+      margin-top: 6px;
     }
   }
 </style>

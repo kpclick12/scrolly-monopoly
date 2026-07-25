@@ -19,9 +19,9 @@
     <p class="act-kicker">Akt fem</p>
     <h2>Banken</h2>
     <p class="act-dek">
-      I Monopol kan en spelare i knipa alltid inteckna sina gator — banken
-      säger aldrig nej, den finns ju för att spelet ska fortsätta. Sverige
-      byggde sin bostadsmarknad på samma husregel.
+      I Monopol kan den som hamnar i knipa alltid inteckna sina gator. Banken
+      säger aldrig nej, den finns ju till för att spelet ska rulla vidare.
+      Sverige byggde sin bostadsmarknad på samma husregel.
     </p>
   </div>
 
@@ -41,10 +41,11 @@
       <p class="kicker">Inteckningarna</p>
       <h3>Skuldberget</h3>
       <p>
-        För varje uppköpt gata växte lånestocken. I mitten av 90-talet var
-        hushållens skulder cirka <strong>90 procent</strong> av en årsinkomst;
-        på toppen 2021 nästan <strong>200 procent</strong>. Priser som stiger
-        kräver större lån, större lån driver priserna — GÅ-varv efter GÅ-varv.
+        För varje uppköpt gata växte lånestocken. I mitten av 90-talet låg
+        hushållens skulder på omkring <strong>90 procent</strong> av en
+        årsinkomst. På toppen 2021 var de uppe i nästan
+        <strong>200 procent</strong>. Stigande priser kräver större lån, och
+        större lån driver upp priserna. Varv efter varv.
       </p>
     </section>
 
@@ -52,32 +53,32 @@
       <p class="kicker">Spelledaren ingriper</p>
       <h3>Nya regler mitt i partiet</h3>
       <p>
-        Myndigheterna försökte bromsa utan att välta brädet:
-        <strong>bolånetak</strong> 2010 — max 85 procent får lånas.
-        <strong>Amorteringskrav</strong> 2016. <strong>Skärpt krav</strong> 2018
-        för de högst belånade.
+        Myndigheterna försökte bromsa utan att välta brädet.
+        <strong>Bolånetak</strong> 2010, där max 85 procent fick lånas.
+        <strong>Amorteringskrav</strong> 2016. <strong>Skärpt krav</strong>
+        2018 för dem som lånat allra mest.
       </p>
       <div class="callout">
         <p class="callout-num">3 st</p>
         <p class="callout-label">
-          åtstramningar på åtta år — och skuldkvoten fortsatte ändå uppåt,
-          tills något annat tog i handbromsen.
+          åtstramningar på åtta år. Skuldkvoten fortsatte ändå uppåt, ända tills
+          något helt annat tog i handbromsen.
         </p>
       </div>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Handbromsen</p>
-      <h3>Det räntan gjorde som reglerna inte gjorde</h3>
+      <h3>Räntan klarade det reglerna inte klarade</h3>
       <p>
-        Räntechocken 2022–2023 åstadkom det inga amorteringskrav klarat:
-        skuldkvoten föll, från nästan 200 till runt
-        <strong>173 procent</strong>. Inte för att lånen krympte — utan för att
-        nya jättelån blev för dyra att ta.
+        Räntechocken 2022–2023 gjorde det inga amorteringskrav lyckats med.
+        Skuldkvoten föll från nästan 200 till runt
+        <strong>173 procent</strong>. Inte för att lånen krympte, utan för att
+        nya jättelån helt enkelt blev för dyra att ta.
       </p>
       <p>
-        Fortfarande ett av världens mest belånade folk. Riksbanken har pekat på
-        skuldberget som Sveriges största inhemska risk i över ett decennium.
+        Vi är ändå ett av världens mest belånade folk. Riksbanken har pekat ut
+        skuldberget som Sveriges största inhemska risk i över tio år.
       </p>
     </section>
 
@@ -85,15 +86,15 @@
       <p class="kicker">April 2026</p>
       <h3>Banken säger ja igen</h3>
       <p>
-        Så, mitt i partiet, vändes reglerna åt andra hållet: bolånetaket höjt
-        till <strong>90 procent</strong>, det skärpta amorteringskravet slopat,
-        max 2 procent i årlig amortering. Motivet är gott — släppa in dem som
-        står utanför brädet.
+        Så vändes reglerna åt andra hållet, mitt i partiet. Bolånetaket höjdes
+        till <strong>90 procent</strong>, det skärpta amorteringskravet
+        slopades och nu amorterar man som mest 2 procent om året. Motivet är
+        gott. Det handlar om att släppa in dem som står utanför brädet.
       </p>
       <p>
-        Men mekaniken är densamma som alltid: mer lånekraft möter samma gator.
-        Alla som spelat Monopol vet vad som händer med priset på en ruta när
-        fler spelare får mer pengar i näven.
+        Men mekaniken är sig lik. Mer lånekraft möter precis samma gator. Alla
+        som spelat Monopol vet vad som händer med priset på en ruta när fler
+        spelare får mer pengar i näven.
       </p>
     </section>
   </Scrolly>

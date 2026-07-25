@@ -26,23 +26,23 @@
     </svg>
     <h2>Spelet som skulle varna oss</h2>
     <p>
-      Monopol började inte som en hyllning till fastighetsaffärer. Förlagan,
-      The Landlord's Game, patenterades 1904 av Lizzie Magie — som en
-      <em>varning</em>: den skulle visa vad som händer i en ekonomi där värdet
-      av mark och läge tillfaller den som råkar äga rutan, tills en spelare har
-      allt och de andra inget. Spelet var propaganda för jordvärdeskatt. Vi
-      gjorde det till familjeunderhållning — och sedan, i Sverige, till
-      nationalekonomi.
+      Monopol började inte som en hyllning till fastighetsaffärer. Förlagan
+      hette The Landlord's Game och patenterades 1904 av Lizzie Magie. Det var
+      menat som en <em>varning</em>. Spelet skulle visa vad som händer i en
+      ekonomi där värdet av mark och läge tillfaller den som råkar äga rutan,
+      tills en spelare har allt och de andra ingenting. Det var propaganda för
+      jordvärdeskatt. Vi gjorde det till familjeunderhållning, och sedan, i
+      Sverige, till nationalekonomi.
     </p>
     <p>
-      För det svenska partiet följde regelboken hon varnade för, punkt för
-      punkt: stigande rutpriser, inkassering varje varv för de som äger,
-      skatterutorna bortplockade, banken som alltid säger ja — och en
-      tredjedel av spelarna som aldrig fick något startkapital. Ett brädspel
-      slutar när de sista spelarna går i konkurs och en vinnare räknar sedlar.
-      Ett land har inte den möjligheten — här måste även nästa generation få en
-      plats runt brädet. Frågan efter trettio vilda år är inte vem som vann.
-      Det vet vi. Frågan är vilka regler nästa parti spelas efter.
+      Det svenska partiet följde nämligen hennes regelbok punkt för punkt.
+      Rutpriserna steg, ägarna inkasserade varje varv, skatterutorna plockades
+      bort, banken sa alltid ja, och en tredjedel av spelarna fick aldrig något
+      startkapital. Ett brädspel tar slut när de sista går i konkurs och en
+      vinnare räknar sedlar. Ett land kan inte sluta så. Här måste även nästa
+      generation få plats runt bordet. Efter trettio vilda år är frågan inte
+      vem som vann, för det vet vi. Frågan är vilka regler nästa parti ska
+      spelas efter.
     </p>
   </div>
 </section>
@@ -148,9 +148,9 @@
 
 <footer>
   <p>
-    Byggd för att förklara en mekanism, inte för att ge råd om bostadsköp.
-    Om en enda idé ska följa med härifrån är det Lizzie Magies: reglerna
-    avgör hur partiet slutar.
+    Sidan är gjord för att förklara hur något fungerar, inte för att ge råd om
+    bostadsköp. Om du bara tar med dig en sak härifrån, låt det bli Lizzie
+    Magies poäng: reglerna avgör hur partiet slutar.
   </p>
 </footer>
 

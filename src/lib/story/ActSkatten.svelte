@@ -32,14 +32,13 @@
       <p class="kicker">2004 · 2007 · 2008</p>
       <h3>Rutorna som lyftes bort</h3>
       <p>
-        På fyra år försvann tre skatter på ägande: arvs- och gåvoskatten 2004,
-        förmögenhetsskatten 2007 — och 2008 den statliga
+        På fyra år försvann tre skatter på ägande. Arvs- och gåvoskatten 2004,
+        förmögenhetsskatten 2007 och till sist, 2008, den statliga
         <strong>fastighetsskatten</strong> på bostäder, efter ett av svensk
         politiks mest framgångsrika folkuppror.
       </p>
       <p>
-        Kvar på brädet blev bara en liten avgift. Och det är där det blir
-        intressant.
+        Kvar blev bara en liten avgift. Det är där det börjar bli intressant.
       </p>
     </section>
 
@@ -47,16 +46,18 @@
       <p class="kicker">Taket</p>
       <h3>Villan för 20 miljoner betalar som villan för 1,5</h3>
       <p>
-        Ersättaren, den kommunala fastighetsavgiften, är 0,75 procent av
-        taxeringsvärdet — men aldrig mer än <strong>10&nbsp;074 kr per år</strong>.
-        Ovanför taket är avgiften platt: Djursholmsvillan och Hultsfredsvillan
-        betalar exakt lika.
+        Ersättaren heter kommunal fastighetsavgift och ligger på 0,75 procent
+        av taxeringsvärdet, men aldrig mer än
+        <strong>10&nbsp;074 kronor om året</strong>. Ovanför taket spelar
+        husets värde ingen roll alls. Villan i Djursholm och villan i
+        Hultsfred betalar exakt lika mycket.
       </p>
       <div class="callout">
         <p class="callout-num">10 074 kr</p>
         <p class="callout-label">
-          maxavgiften 2026 — ungefär en månadsavgift för en normal
-          bostadsrättstvåa, för att äga ett hus utan övre gräns i värde.
+          är maxavgiften 2026. Ungefär en månadsavgift för en vanlig
+          bostadsrättstvåa, för att äga ett hus som får kosta hur mycket som
+          helst.
         </p>
       </div>
     </section>
@@ -66,30 +67,31 @@
       <h3>Bland de lägsta i västvärlden</h3>
       <p>
         Sveriges egendomsskatter motsvarar ungefär <strong>1 procent av
-        BNP</strong>, mot cirka 2,3 procent i EU-15. Landet med världens en gång
-        hårdaste skattetryck blev — för den som äger sitt boende — närmast ett
-        skatteparadis.
+        BNP</strong>. I EU-15 är snittet 2,3. Landet som en gång hade världens
+        hårdaste skattetryck blev något i stil med ett skatteparadis, för den
+        som äger sitt boende.
       </p>
       <p>
-        Ekonomkåren är ovanligt enig: en löpande fastighetsskatt är en av de
-        minst skadliga skatter som finns, och dess frånvaro kapitaliseras rakt
-        in i priserna. Rutan som skulle bromsa spelet finns inte längre.
+        Ekonomerna är ovanligt eniga här. En löpande fastighetsskatt hör till
+        de minst skadliga skatter som finns, och när den tas bort hamnar
+        pengarna i stället i priset på bostaden. Rutan som skulle bromsa spelet
+        finns helt enkelt inte kvar.
       </p>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Chans-kortet</p>
-      <h3>Banken betalar din ränta. En tredjedel av den.</h3>
+      <h3>Banken betalar en tredjedel av din ränta</h3>
       <p>
-        Och spelet ger inte bara ägandet rabatt — det subventionerar själva
-        lånandet. <strong>Ränteavdraget</strong> ger tillbaka 30 procent av
-        räntekostnaden, år efter år, utan tak i lånets storlek.
+        Spelet ger inte bara rabatt på ägandet. Det subventionerar själva
+        lånandet. <strong>Ränteavdraget</strong> betalar tillbaka 30 procent av
+        räntekostnaden, år efter år, hur stort lånet än är.
       </p>
       <p>
-        Räkna ihop akten: ingen fastighetsskatt att tala om, ingen
-        förmögenhetsskatt, ingen arvsskatt — och en rabattkupong på att belåna
-        sig. Det är inte konstigt att alla ville köpa rutor. Frågan är var
-        pengarna kom ifrån. Svar: nästa akt.
+        Summera akten. Ingen fastighetsskatt att tala om, ingen
+        förmögenhetsskatt, ingen arvsskatt, plus en rabattkupong på att låna.
+        Ingen behöver undra varför alla ville köpa rutor. Frågan är var
+        pengarna kom ifrån, och det handlar nästa akt om.
       </p>
     </section>
   </Scrolly>

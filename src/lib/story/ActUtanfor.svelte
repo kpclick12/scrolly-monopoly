@@ -23,9 +23,9 @@
     <p class="act-kicker">Akt tre</p>
     <h2>Utanför brädet</h2>
     <p class="act-dek">
-      Monopols första regel: alla spelare får 1 500 kr av banken innan partiet
-      börjar. Det svenska partiet hoppade över den regeln. En stor del av
-      Sverige blev aldrig ens inbjuden att spela.
+      Monopols första regel är att alla får lika mycket av banken innan partiet
+      börjar. Den regeln hoppade vi över. En stor del av Sverige blev aldrig
+      ens inbjuden att spela.
     </p>
   </div>
 
@@ -48,13 +48,13 @@
       <p class="kicker">Startkapitalet</p>
       <h3>Regeln som aldrig fanns</h3>
       <p>
-        I spelet är starten rättvis: samma sedelbunt till alla, samma GÅ-ruta,
-        samma tärningar. Verklighetens parti började annorlunda — vem som
-        kunde köpa en ruta på 90-talet avgjordes av inkomst, arv och var i
-        landet man råkade stå.
+        I spelet är starten rättvis. Samma sedelbunt till alla, samma GÅ-ruta,
+        samma tärningar. Verkligheten började annorlunda. Vem som kunde köpa en
+        ruta på 90-talet avgjordes av inkomst, arv och var i landet man råkade
+        bo.
       </p>
       <p>
-        Och de trettio vilda åren delade inte ut vinster till alla som bodde i
+        De trettio vilda åren delade inte ut vinster till alla som bodde i
         Sverige. Bara till dem som ägde rutorna.
       </p>
     </section>
@@ -64,14 +64,13 @@
       <h3>En tredjedel äger ingenting på brädet</h3>
       <p>
         Ungefär <strong>två tredjedelar</strong> av hushållen äger sitt boende.
-        Den sista tredjedelen — drygt vart tredje hushåll — hyr. I spelets
-        termer: de landar varje månad på någon annans gata och betalar hyra,
-        men äger inte en enda ruta själva.
+        Drygt vart tredje hyr. Översatt till spelet: de landar varje månad på
+        någon annans gata och betalar hyra, men äger inte en enda ruta själva.
       </p>
       <p>
         När bostadsrätterna steg 789 procent gick varenda krona av
         värdestegringen till de <span class="badge badge-blue">blå</span>
-        rutorna. De <span class="badge badge-amber">gula</span> fick behålla
+        rutorna. De <span class="badge badge-amber">gula</span> fick
         hyreshöjningarna.
       </p>
     </section>
@@ -81,15 +80,16 @@
       <h3>Dyrast för den som har minst</h3>
       <p>
         Hyresgästerna lägger i snitt <strong>27 procent</strong> av sin
-        disponibla inkomst på boendet. Villaägaren — med lägst boendekostnad
-        och trettio års värdestegring i ryggen — lägger 18. Inte för att hyror
-        är högre än boendekostnader, utan för att hyresgästerna tjänar mindre.
+        disponibla inkomst på boendet. Villaägaren, som har lägst
+        boendekostnad och trettio års värdestegring i ryggen, lägger 18. Det
+        beror inte på att hyrorna är högre. Det beror på att hyresgästerna
+        tjänar mindre.
       </p>
       <div class="callout">
         <p class="callout-num">0 kr</p>
         <p class="callout-label">
-          av de trettio årens värdestegring tillföll den som hyrde. Att stå
-          utanför brädet var de vilda årens dyraste position.
+          av de trettio årens värdestegring gick till den som hyrde. Att stå
+          utanför brädet blev de vilda årens dyraste plats.
         </p>
       </div>
     </section>
@@ -98,15 +98,16 @@
       <p class="kicker">Kön</p>
       <h3>894 592 personer väntar på tur</h3>
       <p>
-        Alternativet till att köpa är att köa. I Stockholms bostadskö stod
-        vid årsskiftet nästan <strong>900 000 personer</strong> — fler än det
-        bor i hela Göteborg. Genomsnittlig kötid: <strong>9 år</strong>. För
-        en lägenhet i innerstan: drygt <strong>20 år</strong>.
+        Alternativet till att köpa är att köa. Vid årsskiftet stod nästan
+        <strong>900 000 personer</strong> i Stockholms bostadskö, fler än det
+        bor i hela Göteborg. Snittet är <strong>9 års</strong> väntan. Vill du
+        ha en lägenhet i innerstan får du räkna med drygt
+        <strong>20 år</strong>.
       </p>
       <p>
-        Tjugo års kö — inte för att få köpa en ruta, utan för att få
-        <em>hyra</em> en. I Monopol finns ingen sådan regel; ingen hade
-        accepterat den.
+        Tjugo år i kö, och då inte för att få köpa en ruta utan för att få
+        <em>hyra</em> en. Någon sådan regel finns inte i Monopol. Ingen hade
+        gått med på den.
       </p>
     </section>
 
@@ -114,16 +115,16 @@
       <p class="kicker">Väntrummet</p>
       <h3>En generation i föräldrahemmet</h3>
       <p>
-        Där kön och priserna möts uppstår ett väntrum:
+        Där kön och priserna möts uppstår ett väntrum.
         <strong>204 000 unga vuxna</strong> bor kvar hos sina föräldrar, nio av
-        tio ofrivilligt — den högsta andel som uppmätts. De sparar mot en
-        kontantinsats som växer snabbare än sparandet, i en kö som mäts i
+        tio ofrivilligt. Så hög har andelen aldrig varit. De sparar mot en
+        kontantinsats som växer fortare än sparandet, i en kö som mäts i
         decennier.
       </p>
       <p>
-        Det är dessa spelare de nya lånereglerna 2026 säger sig vilja släppa
-        in. Men först: rutorna som gjorde ägandet så billigt för dem som redan
-        sitter vid bordet.
+        Det är dem de nya lånereglerna från 2026 säger sig vilja släppa in. Men
+        först ska vi titta på rutorna som gjorde ägandet så billigt för dem som
+        redan sitter vid bordet.
       </p>
     </section>
   </Scrolly>

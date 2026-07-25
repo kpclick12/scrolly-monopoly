@@ -35,8 +35,8 @@
       band: [0.9, 1.01],
       body:
         "På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000. I trettio år har " +
-        "Sverige spelat spelet på riktigt — tills gatorna växte till torn av pengar, " +
-        "skatterutorna plockades bort och banken alltid sa ja. Det här är historien om det partiet.",
+        "Sverige spelat spelet på riktigt. Gatorna växte till torn av pengar, skatterutorna " +
+        "plockades bort och banken sa alltid ja. Det här är historien om det partiet.",
     },
   ];
 
@@ -95,6 +95,34 @@
     felt.rotation.x = -Math.PI / 2;
     felt.position.y = -0.16;
     scene.add(felt);
+
+    // Contact shadow: one radial-gradient sprite under the board. A real
+    // shadow map would cost a second render pass every frame; this is a
+    // single texture drawn once and it does the same job of sitting the
+    // board on the table instead of letting it float.
+    const shadow = new THREE.Mesh(
+      new THREE.PlaneGeometry(20, 20),
+      new THREE.MeshBasicMaterial({
+        transparent: true,
+        depthWrite: false,
+        opacity: 0.55,
+        map: (() => {
+          const c = document.createElement("canvas");
+          c.width = c.height = 256;
+          const g = c.getContext("2d");
+          const rg = g.createRadialGradient(128, 128, 40, 128, 128, 126);
+          rg.addColorStop(0, "rgba(0,0,0,0.85)");
+          rg.addColorStop(0.55, "rgba(0,0,0,0.35)");
+          rg.addColorStop(1, "rgba(0,0,0,0)");
+          g.fillStyle = rg;
+          g.fillRect(0, 0, 256, 256);
+          return new THREE.CanvasTexture(c);
+        })(),
+      })
+    );
+    shadow.rotation.x = -Math.PI / 2;
+    shadow.position.y = -0.14;
+    scene.add(shadow);
 
     // --- Canvas-texture helper: all lettering on the board is drawn, not
     // loaded. ---
@@ -175,26 +203,141 @@
     cardPile("#e2882a", "?", 2.1, -2.1, Math.PI / 4);
     cardPile("#9ecbe8", "?", -2.1, 2.1, Math.PI / 4);
 
-    // --- The 40 squares. Each side: a big corner + 9 street-sized tiles.
-    // Group layout follows the Swedish board going anti-clockwise from GÅ
-    // (bottom-right corner): bruna och ljusblå first, mörkblå last. ---
+    // --- The 40 squares of the 1937 board, with the real street names and
+    // prices printed on them — read off the Åhlén & Åkerlunds board in
+    // Nordiska museets samling. Each side runs from the leading corner:
+    // bottom (right→left), left (bottom→top), top (left→right), right
+    // (top→bottom), i.e. the direction of play.
+    //
+    // Every tile face is a canvas texture built ONCE here at startup. The
+    // lettering therefore costs nothing per frame — the render loop only
+    // moves the camera and a handful of transforms. ---
     const CSS = getComputedStyle(document.documentElement);
     const groupHex = (id) => CSS.getPropertyValue(`--grp-${id}`).trim() || "#888888";
-    const sides = [
-      // slot index 0..8 walking away from the leading corner
-      ["brown", null, "brown", null, null, "lightblue", null, "lightblue", "lightblue"],
-      ["pink", null, "pink", "pink", null, "orange", null, "orange", "orange"],
-      ["red", null, "red", "red", null, "yellow", "yellow", null, "yellow"],
-      ["green", "green", null, "green", null, null, "darkblue", null, "darkblue"],
+    const LAYOUT = [
+      [
+        { n: "VÄSTERLÅNG-\nGATAN", p: 1000, grp: "brown" },
+        { n: "ALLMÄNNING", t: "chest" },
+        { n: "HORNS-\nGATAN", p: 1000, grp: "brown" },
+        { n: "INKOMST-\nSKATT", t: "tax", sub: "BETALA\nKR.4000" },
+        { n: "SÖDRA\nSTATION", p: 4000, t: "station" },
+        { n: "FOLKUNGA-\nGATAN", p: 2000, grp: "lightblue" },
+        { n: "CHANS", t: "chance" },
+        { n: "GÖTGATAN", p: 2000, grp: "lightblue" },
+        { n: "RINGVÄGEN", p: 2200, grp: "lightblue" },
+      ],
+      [
+        { n: "S:T ERIKS-\nGATAN", p: 2500, grp: "pink" },
+        { n: "ELVERKET", p: 3000, t: "utility" },
+        { n: "ODENGATAN", p: 2500, grp: "pink" },
+        { n: "VALHALLA-\nVÄGEN", p: 3000, grp: "pink" },
+        { n: "ÖSTRA\nSTATION", p: 4000, t: "station" },
+        { n: "STUREGATAN", p: 3500, grp: "orange" },
+        { n: "ALLMÄNNING", t: "chest" },
+        { n: "KARLAVÄGEN", p: 3500, grp: "orange" },
+        { n: "NARVAVÄGEN", p: 3800, grp: "orange" },
+      ],
+      [
+        { n: "STRAND-\nVÄGEN", p: 4200, grp: "red" },
+        { n: "CHANS", t: "chance" },
+        { n: "KUNGSTRÄD-\nGÅRDSGATAN", p: 4200, grp: "red" },
+        { n: "HAMNGATAN", p: 4500, grp: "red" },
+        { n: "CENTRAL\nSTATION", p: 4000, t: "station" },
+        { n: "VASAGATAN", p: 5000, grp: "yellow" },
+        { n: "KUNGSGATAN", p: 5000, grp: "yellow" },
+        { n: "VATTENLED-\nNINGSVERKET", p: 3000, t: "utility" },
+        { n: "STUREPLAN", p: 5300, grp: "yellow" },
+      ],
+      [
+        { n: "GUSTAV\nADOLFS TORG", p: 6000, grp: "green" },
+        { n: "DROTTNING-\nGATAN", p: 6000, grp: "green" },
+        { n: "ALLMÄNNING", t: "chest" },
+        { n: "DIPLOMAT-\nSTADEN", p: 6000, grp: "green" },
+        { n: "NORRA\nSTATION", p: 4000, t: "station" },
+        { n: "CHANS", t: "chance" },
+        { n: "CENTRUM", p: 6500, grp: "darkblue" },
+        { n: "EXTRA\nSKATT", t: "tax", sub: "BETALA\nKR.2000" },
+        { n: "NORRMALMS-\nTORG", p: 8000, grp: "darkblue" },
+      ],
     ];
     const CORNER = 1.55;
     const SW = (B * 2 - CORNER * 2) / 9; // street width
-    const tileMat = new THREE.MeshLambertMaterial({ color: "#e7efdc" });
-    const tileGeom = new THREE.BoxGeometry(SW * 0.94, 0.03, CORNER * 0.96);
-    const stripGeom = new THREE.BoxGeometry(SW * 0.94, 0.05, 0.36);
-    const stripMats = {};
-    for (const s of sides.flat()) {
-      if (s && !stripMats[s]) stripMats[s] = new THREE.MeshLambertMaterial({ color: groupHex(s) });
+    const PAPER = "#f4f1e2";
+    const INK = "#26241d";
+
+    // One tile face. TW/TH are modest on purpose: 40 of these is the whole
+    // texture budget of the scene, and the lettering only needs to hold up
+    // at the closest camera pass.
+    const TW = 192;
+    const TH = 336;
+    function drawLines(g, text, cx, y, lh) {
+      text.split("\n").forEach((line, i) => g.fillText(line, cx, y + i * lh));
+    }
+    function tileTexture(sq) {
+      return textTexture(TW, TH, (g) => {
+        g.fillStyle = PAPER;
+        g.fillRect(0, 0, TW, TH);
+        g.strokeStyle = INK;
+        g.lineWidth = 4;
+        g.strokeRect(2, 2, TW - 4, TH - 4);
+        g.textAlign = "center";
+        g.textBaseline = "top";
+        let top = 18;
+        if (sq.grp) {
+          // The colour band sits at the tile's inner edge, as on the board.
+          g.fillStyle = groupHex(sq.grp);
+          g.fillRect(4, 4, TW - 8, 84);
+          g.strokeStyle = INK;
+          g.lineWidth = 4;
+          g.strokeRect(4, 4, TW - 8, 84);
+          top = 104;
+        }
+        g.fillStyle = INK;
+        if (sq.t === "chance") {
+          g.font = "700 26px Georgia, serif";
+          g.fillText("CHANS", TW / 2, 30);
+          g.fillStyle = "#d93a2b";
+          g.font = "900 130px Georgia, serif";
+          g.fillText("?", TW / 2, 96);
+          return;
+        }
+        if (sq.t === "chest") {
+          g.font = "700 22px Georgia, serif";
+          drawLines(g, "ALL-\nMÄNNING", TW / 2, 30, 28);
+          g.strokeStyle = "#2b6cb0";
+          g.lineWidth = 5;
+          g.strokeRect(46, 130, 100, 74);
+          g.fillStyle = "#2b6cb0";
+          g.fillRect(46, 130, 100, 18);
+          return;
+        }
+        // Street, station, utility and tax squares share the name/price stack.
+        g.font = `700 ${sq.n.length > 22 ? 19 : 21}px Georgia, serif`;
+        drawLines(g, sq.n, TW / 2, top, 25);
+        if (sq.t === "station") {
+          g.fillStyle = INK;
+          g.fillRect(52, 186, 88, 26);
+          g.beginPath();
+          g.arc(70, 218, 11, 0, Math.PI * 2);
+          g.arc(122, 218, 11, 0, Math.PI * 2);
+          g.fill();
+        }
+        if (sq.t === "utility") {
+          g.fillStyle = "#e0a821";
+          g.beginPath();
+          g.arc(TW / 2, 208, 24, 0, Math.PI * 2);
+          g.fill();
+        }
+        if (sq.t === "tax") {
+          g.fillStyle = INK;
+          g.font = "700 19px Georgia, serif";
+          drawLines(g, sq.sub, TW / 2, 200, 24);
+          return;
+        }
+        g.fillStyle = INK;
+        g.font = "700 20px Georgia, serif";
+        g.fillText(`KR.${sq.p}`, TW / 2, TH - 44);
+      });
     }
 
     // Walk the four sides; collect one anchor tile per group for the
@@ -208,57 +351,134 @@
       (d) => ({ x: -B + CORNER + SW * (d + 0.5), z: -B + CORNER / 2, rotY: 0 }),
       (d) => ({ x: B - CORNER / 2, z: -B + CORNER + SW * (d + 0.5), rotY: Math.PI / 2 }),
     ];
-    sides.forEach((slots, si) => {
-      slots.forEach((grp, d) => {
+    // Euler order is XYZ, so rotation.z is applied to the quad FIRST and
+    // rotation.x lays it flat afterwards — which means z simply spins the
+    // artwork in its own plane. One quarter-turn per side points every
+    // tile's colour band at the middle of the board, exactly like print.
+    const sideSpin = [0, -Math.PI / 2, Math.PI, Math.PI / 2];
+    const tileGeom = new THREE.PlaneGeometry(SW * 0.985, CORNER * 0.985);
+    LAYOUT.forEach((slots, si) => {
+      slots.forEach((sq, d) => {
         const { x, z, rotY } = sideTransforms[si](d);
-        const tile = new THREE.Mesh(tileGeom, tileMat);
-        tile.position.set(x, boardTop + 0.015, z);
-        tile.rotation.y = rotY;
+        const tile = new THREE.Mesh(
+          tileGeom,
+          new THREE.MeshLambertMaterial({ map: tileTexture(sq) })
+        );
+        tile.rotation.set(-Math.PI / 2, 0, sideSpin[si]);
+        tile.position.set(x, boardTop + 0.012, z);
         scene.add(tile);
-        if (grp) {
-          const strip = new THREE.Mesh(stripGeom, stripMats[grp]);
-          // The color band sits on the tile's inner edge, facing the middle.
-          const inX = si === 1 ? 1 : si === 3 ? -1 : 0;
-          const inZ = si === 0 ? -1 : si === 2 ? 1 : 0;
-          strip.position.set(x + inX * (CORNER / 2 - 0.24), boardTop + 0.04, z + inZ * (CORNER / 2 - 0.24));
-          strip.rotation.y = rotY;
-          scene.add(strip);
-          streetTiles.push({ x, z, group: grp, rotY });
-          if (!towerAnchor[grp]) towerAnchor[grp] = { x, z };
+        if (sq.grp) {
+          streetTiles.push({ x, z, group: sq.grp, rotY });
+          if (!towerAnchor[sq.grp]) towerAnchor[sq.grp] = { x, z };
         }
       });
     });
 
-    // GÅ corner: the red arrow and lettering, rotated diagonally like the
-    // printed square.
-    const gaTile = new THREE.Mesh(
-      new THREE.PlaneGeometry(CORNER * 0.94, CORNER * 0.94),
-      new THREE.MeshLambertMaterial({
-        transparent: true,
-        map: textTexture(256, 256, (g) => {
-          g.translate(128, 128);
-          g.rotate(-Math.PI / 4);
-          g.fillStyle = "#d93a2b";
-          g.font = "900 92px Georgia, serif";
-          g.textAlign = "center";
-          g.textBaseline = "middle";
-          g.fillText("GÅ", 0, -18);
-          g.beginPath();
-          g.moveTo(-56, 56);
-          g.lineTo(40, 56);
-          g.lineTo(40, 40);
-          g.lineTo(72, 66);
-          g.lineTo(40, 92);
-          g.lineTo(40, 76);
-          g.lineTo(-56, 76);
-          g.closePath();
-          g.fill();
-        }),
-      })
-    );
-    gaTile.rotation.x = -Math.PI / 2;
-    gaTile.position.set(B - CORNER / 2, boardTop + 0.02, B - CORNER / 2);
-    scene.add(gaTile);
+    // --- The four corners, each drawn on the diagonal like the print. ---
+    const cornerGeom = new THREE.PlaneGeometry(CORNER * 0.985, CORNER * 0.985);
+    function cornerTile(draw, x, z) {
+      const m = new THREE.Mesh(
+        cornerGeom,
+        new THREE.MeshLambertMaterial({ map: textTexture(320, 320, draw) })
+      );
+      m.rotation.x = -Math.PI / 2;
+      m.position.set(x, boardTop + 0.012, z);
+      scene.add(m);
+    }
+    const cornerBase = (g) => {
+      g.fillStyle = PAPER;
+      g.fillRect(0, 0, 320, 320);
+      g.strokeStyle = INK;
+      g.lineWidth = 6;
+      g.strokeRect(3, 3, 314, 314);
+      g.textAlign = "center";
+      g.textBaseline = "middle";
+    };
+    // GÅ — the red arrow and the pay-day line.
+    cornerTile((g) => {
+      cornerBase(g);
+      g.save();
+      g.translate(160, 160);
+      g.rotate(-Math.PI / 4);
+      g.fillStyle = "#d93a2b";
+      g.font = "900 104px Georgia, serif";
+      g.fillText("GÅ", 0, 28);
+      g.beginPath();
+      g.moveTo(-84, 94);
+      g.lineTo(44, 94);
+      g.lineTo(44, 76);
+      g.lineTo(86, 106);
+      g.lineTo(44, 136);
+      g.lineTo(44, 118);
+      g.lineTo(-84, 118);
+      g.closePath();
+      g.fill();
+      g.fillStyle = INK;
+      g.font = "700 21px Georgia, serif";
+      g.fillText("AVLÖNING KR.1000", 0, -70);
+      g.fillText("NÄR NI PASSERAR", 0, -44);
+      g.restore();
+    }, B - CORNER / 2, B - CORNER / 2);
+    // Fängelse (bottom-left).
+    cornerTile((g) => {
+      cornerBase(g);
+      g.fillStyle = "#e2882a";
+      g.fillRect(16, 16, 288, 46);
+      g.fillStyle = INK;
+      g.font = "700 26px Georgia, serif";
+      g.fillText("FÄNGELSE", 160, 40);
+      g.strokeStyle = INK;
+      g.lineWidth = 6;
+      g.strokeRect(86, 96, 148, 148);
+      for (let i = 1; i < 4; i++) {
+        g.beginPath();
+        g.moveTo(86 + i * 37, 96);
+        g.lineTo(86 + i * 37, 244);
+        g.stroke();
+      }
+      g.font = "700 22px Georgia, serif";
+      g.fillText("PÅ BESÖK", 160, 276);
+    }, -B + CORNER / 2, B - CORNER / 2);
+    // Fri parkering (top-left).
+    cornerTile((g) => {
+      cornerBase(g);
+      g.save();
+      g.translate(160, 160);
+      g.rotate(Math.PI / 4);
+      g.fillStyle = "#d93a2b";
+      g.font = "900 34px Georgia, serif";
+      g.fillText("FRI", 0, -74);
+      g.fillText("PARKERING", 0, 92);
+      g.fillStyle = "#2b6cb0";
+      g.fillRect(-66, -30, 132, 44);
+      g.fillStyle = INK;
+      g.beginPath();
+      g.arc(-40, 20, 15, 0, Math.PI * 2);
+      g.arc(40, 20, 15, 0, Math.PI * 2);
+      g.fill();
+      g.restore();
+    }, -B + CORNER / 2, -B + CORNER / 2);
+    // Gå till fängelset (top-right).
+    cornerTile((g) => {
+      cornerBase(g);
+      g.save();
+      g.translate(160, 160);
+      g.rotate(-Math.PI / 4);
+      g.fillStyle = INK;
+      g.font = "900 34px Georgia, serif";
+      g.fillText("GÅ TILL", 0, -86);
+      g.fillText("FÄNGELSET", 0, 96);
+      g.strokeStyle = "#2b6cb0";
+      g.lineWidth = 7;
+      g.strokeRect(-56, -46, 112, 100);
+      for (let i = 1; i < 4; i++) {
+        g.beginPath();
+        g.moveTo(-56 + i * 28, -46);
+        g.lineTo(-56 + i * 28, 54);
+        g.stroke();
+      }
+      g.restore();
+    }, B - CORNER / 2, -B + CORNER / 2);
 
     // --- The top hat token, waiting on GÅ. ---
     const hat = new THREE.Group();
@@ -400,11 +620,14 @@
 
     // Camera keyframes: low over GÅ → a slow half-orbit at table height →
     // rising crane shot as the towers grow.
+    // Opens low over the GÅ corner — close enough to read Västerlånggatan
+    // and KR.1000 off the print — then pulls up and around into the crane
+    // shot that reveals the towers.
     const KEY = [
-      { t: 0.0, pos: [7.4, 2.4, 8.4], look: [0, 0.4, 0] },
-      { t: 0.3, pos: [9.2, 4.4, 2.2], look: [0, 0.2, 0] },
-      { t: 0.62, pos: [4.0, 6.4, -8.6], look: [0, 0.6, 0] },
-      { t: 1.0, pos: [-7.8, 9.4, 8.8], look: [0, 1.8, 0] },
+      { t: 0.0, pos: [5.6, 2.5, 7.4], look: [0.6, 0.15, 1.2] },
+      { t: 0.3, pos: [8.2, 4.0, 1.6], look: [0, 0.2, 0] },
+      { t: 0.62, pos: [3.6, 6.0, -8.0], look: [0, 0.6, 0] },
+      { t: 1.0, pos: [-7.4, 9.0, 8.4], look: [0, 1.8, 0] },
     ];
     function cameraAt(p) {
       let i = 0;
@@ -546,6 +769,24 @@
     height: 100%;
     display: block;
   }
+  /* Vignette: pure CSS over the canvas, so it costs one composited layer
+     rather than a post-processing pass on every frame. Sinks the corners
+     into the table and keeps the eye on the board. */
+  .hero-sticky::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* Above the canvas, below the copy — a generated ::after paints last,
+       so without this it would dim the title instead of the board. */
+    z-index: 1;
+    background: radial-gradient(
+      120% 88% at 50% 46%,
+      rgba(10, 26, 20, 0) 38%,
+      rgba(10, 26, 20, 0.42) 78%,
+      rgba(8, 20, 15, 0.78) 100%
+    );
+  }
   .hero-card {
     position: absolute;
     left: 50%;
@@ -556,6 +797,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    z-index: 2;
   }
   .card-eyebrow {
     color: var(--mono-cream);
@@ -614,6 +856,7 @@
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
+    z-index: 2;
   }
   .hero-fallback {
     height: 100%;
