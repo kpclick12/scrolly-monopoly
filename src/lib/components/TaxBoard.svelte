@@ -137,10 +137,18 @@
   }
   .square-title {
     font-weight: 700;
-    font-size: 14px;
+    /* The three-across square is only ~121px wide and "Förmögenhetsskatt"
+       is one unbreakable 17-character word. At 14px it overran the square
+       and got clipped mid-word; at this size each tax name fits its line,
+       so "Fastighetsskatt (bostäder)" wraps at its space instead of
+       stranding a letter. break-word is the safety net for narrower
+       squares, not the everyday mechanism. */
+    font-size: 13.5px;
     line-height: 1.3;
     color: var(--text-primary);
     min-height: 38px;
+    overflow-wrap: break-word;
+    hyphens: auto;
   }
   .square-pay {
     font-size: 11px;
@@ -149,11 +157,16 @@
     margin-top: 8px;
     text-decoration: line-through;
   }
+  /* The stamp sits in the flow, after the struck-through BETALA it cancels
+     — never absolutely positioned. A percentage offset collides with the
+     title the moment that title wraps to a second line, which it does at
+     every square width under ~200px: the three-across desktop layout and
+     the phone both hit it. In flow it cannot reach the title at any width.
+     `max-width` keeps the rotated box inside the square's rounded border. */
   .stamp {
-    position: absolute;
-    left: 50%;
-    top: 58%;
-    transform: translate(-50%, -50%) rotate(-14deg);
+    display: inline-block;
+    margin-top: 10px;
+    transform: rotate(-6deg);
     border: 3px solid var(--series-red);
     color: var(--ink-red);
     font-weight: 900;
@@ -161,8 +174,8 @@
     letter-spacing: 0.08em;
     padding: 4px 8px;
     border-radius: 4px;
-    white-space: nowrap;
-    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
+    line-height: 1.25;
+    max-width: 100%;
   }
   .legend {
     font-size: 12px;
@@ -279,16 +292,12 @@
     .square-title {
       min-height: 0;
     }
-    /* On a phone the cards collapse to a single short row each, so an
-       absolutely-positioned stamp lands straight on top of the tax name.
-       Drop it back into the flow underneath instead — still tilted like a
-       rubber stamp, but it can no longer cover the text it annotates. */
+    /* One square per row here, so the stamp has width to spare and can sit
+       flatter. Everything else about it is inherited — the in-flow
+       positioning that keeps it off the title is in the base rule, not a
+       phone-only patch. */
     .stamp {
-      position: static;
-      transform: rotate(-2deg);
-      display: inline-block;
-      margin-top: 10px;
-      background: none;
+      transform: rotate(-3deg);
     }
     .square-pay {
       margin-top: 6px;
