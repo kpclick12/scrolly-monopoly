@@ -10,7 +10,11 @@
   const ladderHighlight = $derived(currentStep === 2 ? "red" : null);
 </script>
 
-<section class="act" aria-label="Akt 1: Spelplanen" style="--act-accent: var(--ink-red);">
+<section
+  class="act"
+  aria-label="Akt 1: Spelplanen"
+  style="--act-accent: var(--ink-red); --step-min: 375px; --step-min-mobile: 476px;"
+>
   <div class="act-head">
     <p class="act-kicker">Akt ett</p>
     <h2>Spelplanen</h2>

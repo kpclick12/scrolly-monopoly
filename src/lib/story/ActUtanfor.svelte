@@ -9,16 +9,20 @@
 
   const ya = data.outside.youngAdults;
   const tiles = [
-    { num: "204 000", label: "unga vuxna mellan 20 och 27 år bor kvar hemma hos föräldrarna. Det är 21 procent av alla", accent: "var(--series-red)" },
-    { num: "9 av 10", label: "av dem bor kvar ofrivilligt. Så hög har andelen aldrig varit", accent: "var(--series-amber)" },
-    { num: "184 000", label: "vill flytta hemifrån men kan inte", accent: "var(--series-blue)" },
+    { num: "204 000", label: "unga vuxna mellan 20 och 27 år bor kvar hemma hos föräldrarna, 21 procent av alla (2025)", accent: "var(--series-red)" },
+    { num: "9 av 10", label: "av dem bor kvar ofrivilligt (2025). Så hög har andelen aldrig varit", accent: "var(--series-amber)" },
+    { num: "184 000", label: "vill flytta hemifrån men kan inte (2025)", accent: "var(--series-blue)" },
     { num: "0 kr", label: "i startkapital delades ut i verkligheten. Den som inte kunde låna till kontantinsatsen hemma fick vänta", accent: "var(--series-green)" },
   ];
 
   const waffleView = $derived(currentStep === 0 ? "all" : currentStep === 1 ? "split" : "rent");
 </script>
 
-<section class="act" aria-label="Akt 3: Utanför brädet" style="--act-accent: var(--ink-pink);">
+<section
+  class="act"
+  aria-label="Akt 3: Utanför brädet"
+  style="--act-accent: var(--ink-pink); --step-min: 350px; --step-min-mobile: 415px;"
+>
   <div class="act-head">
     <p class="act-kicker">Akt tre</p>
     <h2>Utanför brädet</h2>

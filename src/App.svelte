@@ -120,8 +120,10 @@
         kommunal fastighetsavgift 0,75&nbsp;% av taxeringsvärdet, max
         10&nbsp;074 kr (deklarationen 2026, Skatteverket). Egendomsskatter som
         andel av BNP: Sverige ≈1&nbsp;%, EU-15 ≈2,3&nbsp;% (SNS/LO-sammanställningar
-        av OECD-data). Ränteavdrag 30&nbsp;% upp till 100&nbsp;000 kr/år, 21&nbsp;%
-        därutöver.
+        av OECD-data, publicerade omkring 2020 — nivåskillnaden är väl belagd,
+        men mätåret är sidans sämst daterade uppgift och diagrammet säger det).
+        Ränteavdrag 30&nbsp;% upp till 100&nbsp;000 kr/år, 21&nbsp;% därutöver
+        (regler 2026).
       </li>
       <li>
         <strong>Skulderna</strong> — SCB finansräkenskaper via SEB: hushållens

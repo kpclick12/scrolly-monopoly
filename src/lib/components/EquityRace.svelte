@@ -54,7 +54,9 @@
 </script>
 
 <figure class="chart">
-  <figcaption>Två spelare, samma startkapital 1999: en köper en etta, en sparar på konto</figcaption>
+  <figcaption>
+    Räkneexempel 1999–2025: en köper en etta, en sparar på konto
+  </figcaption>
   <p class="key" aria-hidden="true">
     <span><i class="sw sw-blue"></i>Ägarens eget kapital i ettan</span>
     <span><i class="sw sw-amber"></i>Spararens konto, 1 500 kr/mån</span>

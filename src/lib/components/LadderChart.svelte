@@ -26,8 +26,8 @@
 <figure class="chart">
   <figcaption>
     {mode === "board"
-      ? "Spelplanens prisstege — köpesumma i spel-kronor (svenska Monopol)"
-      : "Samma gator idag — ungefärligt kvadratmeterpris, kr/kvm"}
+      ? "Spelplanens prisstege — köpesumma i spel-kronor (svenska Monopol, 1937)"
+      : "Samma gator idag — ungefärligt kvadratmeterpris, kr/kvm (2026)"}
   </figcaption>
   <svg
     viewBox="0 0 {W} {H}"

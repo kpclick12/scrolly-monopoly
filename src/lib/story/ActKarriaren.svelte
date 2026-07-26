@@ -15,7 +15,11 @@
   ];
 </script>
 
-<section class="act" aria-label="Akt 2: Bostadskarriären" style="--act-accent: var(--ink-blue);">
+<section
+  class="act"
+  aria-label="Akt 2: Bostadskarriären"
+  style="--act-accent: var(--ink-blue); --step-min: 370px; --step-min-mobile: 440px;"
+>
   <div class="act-head">
     <p class="act-kicker">Akt två</p>
     <h2>Bostadskarriären</h2>

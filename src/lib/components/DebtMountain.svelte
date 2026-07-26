@@ -39,7 +39,7 @@
 </script>
 
 <figure class="chart">
-  <figcaption>Hushållens skulder i procent av disponibel inkomst</figcaption>
+  <figcaption>Hushållens skulder i procent av disponibel inkomst, 1996–2025</figcaption>
   <svg
     viewBox="0 0 {W} {H}"
     role="img"

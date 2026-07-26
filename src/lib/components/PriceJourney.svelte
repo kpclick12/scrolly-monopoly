@@ -39,7 +39,9 @@
 </script>
 
 <figure class="chart">
-  <figcaption>Bostadspriser (index, 1996 = 100) och styrräntan som eldade på dem</figcaption>
+  <figcaption>
+    Bostadspriser (index, 1996 = 100) och styrräntan som eldade på dem, 1996–2025
+  </figcaption>
   <p class="key" aria-hidden="true">
     <span><i class="sw sw-blue"></i>Bostadsrätter</span>
     <span><i class="sw sw-green"></i>Villor</span>

@@ -14,7 +14,11 @@
   ];
 </script>
 
-<section class="act" aria-label="Akt 5: Banken" style="--act-accent: var(--ink-green);">
+<section
+  class="act"
+  aria-label="Akt 5: Banken"
+  style="--act-accent: var(--ink-green); --step-min: 355px; --step-min-mobile: 415px;"
+>
   <div class="act-head">
     <p class="act-kicker">Akt fem</p>
     <h2>Banken</h2>

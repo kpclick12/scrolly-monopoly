@@ -207,6 +207,14 @@ select:focus-visible,
    read that one variable, so an act can never end up with a mismatched
    border/kicker pair.
 ------------------------------------------------------------------------ */
+/* Every act carries the page's horizontal gutter, and the step card cancels
+   exactly that value under 860px to go full-bleed. Declaring it once here is
+   the point: the card's negative margin can never drift out of sync with the
+   padding it is undoing. */
+.act {
+  --act-pad-x: 24px;
+  padding-inline: var(--act-pad-x);
+}
 .scrolly-step {
   background: var(--surface-1);
   border-left: 6px solid var(--act-accent, var(--series-red));
@@ -214,6 +222,11 @@ select:focus-visible,
   border-radius: 4px;
   box-shadow: 0 2px 10px rgba(10, 26, 20, 0.1);
   min-width: 0;
+  /* Uniform height within an act. Without a floor, card height follows
+     paragraph length and the column drifts by 100–200px as you scroll, which
+     reads as sloppy. Each act sets --step-min / --step-min-mobile from its
+     own measured tallest card. */
+  min-height: var(--step-min, 0);
 }
 .scrolly-step > * {
   opacity: 0.35;
@@ -268,8 +281,20 @@ select:focus-visible,
   color: var(--text-secondary);
 }
 @media (max-width: 860px) {
+  /* Full-bleed: the card spans edge to edge, cancelling the act's gutter.
+     On a 360px screen this recovers ~48px of line width, about an eighth.
+     Rounded corners flush against the viewport edge read as a bug, so the
+     radius goes; a hairline top/bottom rule and a deeper shadow replace the
+     "surface sitting on the page" cue that the side gaps used to give. */
   .scrolly-step {
-    padding: 20px 20px;
+    width: calc(100% + 2 * var(--act-pad-x));
+    margin-inline: calc(-1 * var(--act-pad-x));
+    padding: 22px 20px;
+    border-radius: 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: 0 6px 20px rgba(10, 26, 20, 0.14);
+    min-height: var(--step-min-mobile, 0);
   }
   .scrolly-step h3 {
     font-size: 20px;
@@ -282,7 +307,9 @@ select:focus-visible,
 .act-head {
   max-width: 640px;
   margin: 0 auto;
-  padding: 110px 24px 40px;
+  /* Horizontal inset comes from .act's --act-pad-x, so the gutter is
+     defined in exactly one place. */
+  padding: 110px 0 40px;
   text-align: center;
 }
 .act-head .act-kicker {

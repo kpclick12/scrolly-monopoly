@@ -60,6 +60,7 @@
       </p>
     </div>
   {:else if view === "gdp"}
+    <p class="cap">Egendomsskatter som andel av BNP</p>
     <svg viewBox="0 0 {W} {H}" role="img" aria-label="Stapeldiagram: egendomsskatter som andel av BNP — Sverige cirka 1 procent, EU-15 cirka 2,3 procent.">
       {#each [0, 1, 2] as tick}
         <line class="grid" x1="70" x2={W - 24} y1={y(tick)} y2={y(tick)} />
@@ -82,6 +83,11 @@
       {/each}
       <line class="axis" x1="70" x2={W - 24} y1={y(0)} y2={y(0)} />
     </svg>
+    <p class="legend">
+      Ungefärliga nivåer. LO- och SNS-sammanställningar av OECD-data, publicerade
+      omkring 2020. Det här är sidans minst exakt daterade siffra — nivåskillnaden
+      är väl belagd, men mätåret är det inte.
+    </p>
   {:else}
     <div class="chance">
       <p class="chance-head">CHANS</p>
@@ -90,7 +96,10 @@
         Banken betalar tillbaka <strong>{data.ranteavdrag.pct} %</strong> av din ränta.
       </p>
       <p class="chance-sub">Gäller alla spelare, varje år, hur stort lånet än är.*</p>
-      <p class="chance-fine">*Ränteavdraget: 30 % upp till 100 000 kr per år, 21 % därutöver.</p>
+      <p class="chance-fine">
+        *Ränteavdraget, regler {data.avgift.capYear}: 30 % upp till 100 000 kr per år,
+        21 % därutöver.
+      </p>
     </div>
   {/if}
 </div>
@@ -98,6 +107,12 @@
 <style>
   .taxwrap {
     width: min(620px, 100%);
+  }
+  .cap {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 0 0 6px;
   }
   .squares {
     display: grid;

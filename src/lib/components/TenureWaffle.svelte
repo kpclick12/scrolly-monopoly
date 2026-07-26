@@ -25,7 +25,7 @@
 </script>
 
 <figure class="chart">
-  <figcaption>Sveriges hushåll som 100 rutor — vilka äger sitt boende?</figcaption>
+  <figcaption>Sveriges hushåll som 100 rutor — vilka äger sitt boende? (SCB, 2024)</figcaption>
   <svg
     viewBox="0 0 {W} {W + 58}"
     role="img"
@@ -59,9 +59,9 @@
   </svg>
   <p class="legend">
     {#if view === "rent"}
-      Hyresgästerna lägger i snitt <strong>27 %</strong> av sin disponibla inkomst på boendet —
-      mot 21 % i bostadsrätt och 18 % i ägt småhus. Och inte en krona av de trettio årens
-      värdestegring landade hos dem.
+      Hyresgästerna lägger i snitt <strong>27 %</strong> av sin disponibla inkomst på boendet,
+      mot 21 % i bostadsrätt och 18 % i ägt småhus (SCB, 2024). Och inte en krona av de
+      trettio årens värdestegring landade hos dem.
     {:else if view === "split"}
       Ungefär två tredjedelar av hushållen äger sitt boende (villa eller bostadsrätt),
       en tredjedel hyr (SCB, 2024).
