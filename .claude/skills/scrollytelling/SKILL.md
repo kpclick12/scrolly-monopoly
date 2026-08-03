@@ -12,12 +12,31 @@ skeleton, all deployed to GitHub Pages:
 |---|---|---|
 | [`scrolly-wealth`](https://github.com/kpclick12/scrolly-wealth) | global wealth inequality | interactive wheel game + "where do you stand" explorer, GSAP, linked bar/pictogram pyramid, standalone share-chart generator, per-figure provenance flags |
 | [`scrolly-butterflyeffect`](https://github.com/kpclick12/scrolly-butterflyeffect) | chaos theory → European extreme weather | Three.js meadow→storm hero with a custom grass shader |
-| [`scrolly-monopoly`](https://github.com/kpclick12/scrolly-monopoly) | Swedish housing market, in Swedish | Three.js Monopoly board that extrudes into a price skyline |
+| [`scrolly-monopoly`](https://github.com/kpclick12/scrolly-monopoly) | Swedish housing market, in Swedish | Three.js board printed from the real 1937 edition, extruding into a price skyline; step cards styled as Monopoly title deeds |
 
 **Read the actual source before building.** These files are the reference
 implementation, not this document. `scrolly-monopoly` is the newest and the
 cleanest starting point for structure; `scrolly-wealth` is the reference for
-full-bleed mobile cards, palette validation and sourcing discipline.
+palette validation and sourcing discipline.
+
+### How to hold these rules
+
+Most of what follows is a reason with a rule attached, and the reason is the
+part that travels. When a rule and the piece in front of you disagree, check
+whether the reason still applies before obeying the rule — several things
+here were once written as settled that turned out to be one good answer among
+two. The card treatment below is the worked example: full-bleed was house
+style until a piece whose whole conceit was a printed card needed the
+opposite, and the opposite was better *for that piece*.
+
+Three kinds of statement appear:
+
+- **Structural** — holds regardless of brand or concept. Breaking it breaks
+  the format. Say so out loud rather than breaking it quietly.
+- **Default** — my taste. A brand, a voice standard or the piece's own
+  concept overrides it; carry the reason across rather than dropping it.
+- **Failure modes** — a bug I have actually shipped, with the number attached.
+  These are not taste. Read them as "this will happen to you too."
 
 ## Using this alongside a brand or house-style skill
 
@@ -35,11 +54,10 @@ skill or a plain-language standard (klarspråk / myndighetssvenska) owns
 visual, the act/step-card structure, hand-built SVG charts, the sourcing
 discipline, the mobile layout rules, and the 3D hero recipe.
 
-Where a rule below is marked **default**, it is my taste and the other skill
-overrides it — but the *reason* attached to it usually still applies, so carry
-the reason across rather than dropping it. Rules marked **structural** hold
-regardless of brand; if a brand rule genuinely contradicts one, say so instead
-of quietly breaking the format.
+The default / structural split above applies: a brand skill overrides the
+defaults, carries their reasons across, and if one of its rules genuinely
+contradicts something structural, that gets said out loud rather than broken
+quietly.
 
 ## Stack
 
@@ -151,12 +169,37 @@ top-anchor instead of centering — the sticky panel is pinned at the top while
 cards slide up over it, so top-anchored content is the least likely to end up
 underneath an incoming card.
 
-Prefer `clamp(floor, Nsvh, ceiling)` over a flat pixel value for
-`--stack-height-mobile`: a fixed 380–480px panel plus a card of unknown height
-overflows a short screen, and a phone browser's chrome can eat 200px of it. The
-floor keeps the chart from clipping; the `svh` term makes it shrink where it
-must. Measure the floor from the chart's actual content height rather than
-guessing.
+**Measure the height; never guess it, and do not reach for `clamp()` here.**
+This is the single most expensive mistake in the format, because of how it
+fails. `.frame` children are absolutely positioned, so they cannot grow the
+stack: content taller than `--stack-height-mobile` does not push the panel
+open, it *escapes* — and since the panel's background stops at the panel, the
+overflow paints straight over whatever section comes next. In
+`scrolly-monopoly` four stat tiles stood 526px tall in a 420px frame and 110px
+of them landed on top of the closing band.
+
+An earlier version of this skill recommended
+`clamp(floor, Nsvh, ceiling)` here. That advice is wrong and it is worth
+knowing why: these visuals are *width*-driven — an SVG with `width: 100%;
+height: auto` takes the height its viewBox dictates — so shrinking the box on
+a short screen does not shrink the content, it just makes the overspill
+bigger. The box must be at least as tall as the content, full stop.
+
+So: walk every step of every act, measure the active frame's first child, and
+set `--stack-height` and `--stack-height-mobile` from the tallest one plus a
+little headroom. Then assert the spill is zero rather than trusting the
+screenshot:
+
+```js
+const k = frame.firstElementChild.getBoundingClientRect();
+const s = stack.getBoundingClientRect();
+Math.max(0, k.bottom - s.bottom, s.top - k.top);   // must be 0
+```
+
+Run it at 360×740 and at desktop. It found two more acts silently overflowing
+in the same pass that fixed the reported one. The residual risk it cannot
+solve is a genuinely short viewport — a 530px panel on a 500px-tall screen —
+so keep the tallest frame modest rather than relying on the box to save you.
 
 ## app.css owns everything shared
 
@@ -196,9 +239,13 @@ tokens propagated.
 
 ### Small things that matter
 
-- **Step cards go full-bleed on mobile.** No left/right margin — the card
-  spans edge to edge. Every `.act` pads with `var(--act-pad-x)`, and the card
-  cancels exactly that under 860px, so the value only exists in one place:
+- **Pick a card treatment: full-bleed, or an object on the table.** Two
+  answers, and the piece's concept decides. Whichever you pick, define the
+  gutter once — every `.act` pads with `var(--act-pad-x)` and the card either
+  cancels it or sits inside it, so the value never drifts out of sync.
+
+  *Full-bleed* (`scrolly-wealth`) buys line width, which on a 360px screen is
+  roughly 50px, about a fifth:
 
   ```css
   width: calc(100% + 2 * var(--act-pad-x));
@@ -208,10 +255,21 @@ tokens propagated.
   With it: `border-radius: 0` (rounded corners flush against the viewport edge
   read as a bug), a hairline `border-top`/`border-bottom` plus deeper shadow to
   replace the "surface sitting on the page" cue the side gaps used to give, and
-  generous inner padding (20px) so text still clears the accent bar and the
-  screen edge. On a 360px screen this recovers roughly 50px of line width —
-  about a fifth. See `scrolly-wealth/src/app.css` — the other two repos predate
-  this and are the worse version.
+  generous inner padding so text still clears the accent bar and the screen
+  edge.
+
+  *An object on the table* (`scrolly-monopoly`) gives the width back and buys
+  the conceit instead: a `max-width` around 460px, keyline border, the act
+  accent as a band across the top, and the table showing down both sides. Do
+  this when the piece's frame is a physical object — a card, a ticket, a page
+  — because a card that runs edge to edge stops reading as something you could
+  pick up. Pay for it by trimming inner padding on mobile rather than
+  narrowing the gutter, and expect every card height to change: re-measure the
+  floors afterwards.
+
+  What is **not** optional either way: one gutter variable, uniform heights
+  within an act, and a card that still looks like a surface rather than loose
+  text on the page.
 - **Keep step cards a uniform height within an act.** Card height otherwise
   follows paragraph length, so steps silently differ by 50–250px and the column
   reads as sloppy as you scroll. Trim copy to match, then add a `min-height`
@@ -306,7 +364,25 @@ const showEurope = $derived(step >= 1);   // step gates progressive reveal
   aligns in a column.
 - **A single headline number is a stat tile, not a one-bar chart.** Use
   `StatTiles.svelte` (it exists in all three repos, in two variants — grid of
-  cards, or a staggered vertical list).
+  cards, or a staggered vertical list). Watch its column count on a phone:
+  `repeat(auto-fit, minmax(150px, 1fr))` drops to **one** column inside a
+  ~280px panel, so four tiles stack to 526px and overflow the frame. A 126px
+  minimum keeps two columns at 360px and halves the height. Whenever you
+  change a tile's `minmax`, padding or type size, re-measure the act's stack
+  height — tiles are the component most likely to break it.
+- **Do not annotate flowing text with an absolutely-positioned overlay.** A
+  badge, stamp or flag placed at a percentage offset lands on the text the
+  moment that text wraps to another line, and it will wrap at some width you
+  did not test. Put the annotation in the flow, after the thing it annotates,
+  and tilt or offset it there. `scrolly-monopoly`'s AVSKAFFAD stamp sat at
+  `top: 58%` and collided with the tax name at every square narrower than
+  ~200px — which was both the three-across desktop layout *and* the phone.
+  Fixing it only under a mobile breakpoint left the desktop case live for
+  another two commits.
+- **An overlap can be hiding a second bug.** When that stamp stopped covering
+  the title underneath it, the title turned out to have been clipped mid-word
+  the whole time. After you remove anything that was painting over content,
+  look at what it was painting over.
 - Progressive reveal is driven by the `step` prop, never by a timer.
 - **Write label-collision logic once.** Two charts in `scrolly-wealth` solved
   overlapping marker labels independently, and both got it wrong on mobile
@@ -402,6 +478,27 @@ in Swedish because the subject is Swedish; `index.html` gets `lang="sv"` and
 `og:locale="sv_SE"` to match. Set `lang` correctly whatever the language — it
 is what screen readers use to pick a voice.
 
+**Swedish compounds need soft hyphens in narrow boxes.** `Förmögenhetsskatt`
+is one unbreakable 17-character word; in a ~121px square it overran the box
+and `overflow: hidden` clipped it mid-word. `overflow-wrap: anywhere` stops
+the clipping but breaks greedily and strands letters — "Fastighetsskat / t
+(bostäder)". Put a `U+00AD` at the compound boundary in the data instead
+(`Förmögenhets­skatt`), keep `overflow-wrap: break-word` as the safety
+net, and the word hyphenates where a Swedish reader would break it. Soft
+hyphens are invisible at any width where the word fits, so they cost nothing
+on wider screens. German and Dutch will want the same treatment; English
+mostly will not.
+
+**Don't let the metaphor colonise every headline.** A conceit works
+structurally — the act titles, the visual, one callback per act — and then
+gets out of the way. When every `<h3>` is a pun on the frame ("Muren runt
+brädet heter kontantinsats"), the prose stops reading as reporting and starts
+reading as a machine that has been told to be clever. The fix is to let most
+headlines say plainly what happened ("Tolv år för att spara ihop
+kontantinsatsen") and spend the metaphor where it actually lands. The same
+goes for em-dashes and for symmetrical "inte X, utan Y" constructions: one is
+a flourish, six in a row is a tell.
+
 ## Sourcing — non-negotiable
 
 Every essay ends with a **"Methodology & sources"** section in `App.svelte`
@@ -450,6 +547,21 @@ had already shipped. These are the rules that came out of it:
 - **A half-updated dataset is worse than a consistent old one.** If a refresh
   can only cover some markets, either finish it or leave the old figures with
   honest labels. Say which you did.
+- **A figure you cannot date says so on screen.** Sometimes the level is well
+  established and the vintage simply is not recoverable — a comparison that
+  every secondary source repeats without naming the measurement year. Do not
+  borrow a plausible year to fill the slot, and do not quietly leave the
+  caption off. Label it: *"nivåskillnaden är väl belagd, men mätåret är
+  sidans sämst daterade uppgift"*. A figure that admits its own weakest link
+  is more defensible than one that hides it, and it tells a later editor
+  exactly what to go and fix.
+- **Changing an artifact changes the numbers that describe it.** When
+  `scrolly-monopoly` moved from the modern Monopoly board to the real 1937
+  edition, the street prices went from 60–400 to 1 000–8 000 and the
+  cheapest-to-dearest ratio from 6.7× to 8× — so every headline, callout and
+  chart axis quoting those numbers was suddenly wrong. Grep for the old values
+  rather than fixing the ones you happen to remember, and check the sources
+  section last: it is where the stale figure survives.
 
 ## The 3D hero (optional)
 
@@ -485,6 +597,27 @@ earning its place.
   the frame cap, damp wind/rain/particles. The scroll-driven progression stays.
 - **Dispose everything** in the `onMount` cleanup: geometries, materials,
   material maps, renderer, and remove all listeners.
+- **A scrubbed object must be at rest at both ends of its band.** The reader
+  can stop anywhere, and they *will* stop at the top of the page. A first
+  attempt at the Monopoly dice started them in a hand in mid-air so the throw
+  had somewhere to come from — which meant the title screen, the one frame
+  everybody sees, showed two dice hanging in the sky. Start from the resting
+  pose, move to another resting pose, and put the drama in between.
+- **Snap a resting pose to whole quarter-turns on every axis.** A die that
+  lands propped on an edge is the giveaway. Counting quarter-turns on X and Z
+  is not enough if the yaw is arbitrary: with Three's default `XYZ` Euler the
+  matrix is `Rx · Ry · Rz`, so a free `Ry` sits *between* two axis-aligned
+  rotations and tilts the result off-axis instead of spinning the object in
+  place about world Y. Drive all three axes as integers × 90°, from an
+  integer × 90° start, and any pose you can stop on is flat on a face. Drop
+  the idle wobble too — an object at rest is at rest.
+- **Print the real artifact if the subject has one.** Reading the actual 1937
+  board — every street name and price, the corner squares, the tax squares —
+  onto canvas-textured tiles cost one texture per tile *at startup* and
+  nothing per frame, and it did more for the piece than any amount of shader
+  work. Detail baked once is free; detail computed per frame is the battery
+  budget. Same reasoning gives you a contact-shadow sprite instead of a shadow
+  map, and a CSS vignette instead of a post pass.
 
 For SVG scenes, honour reduced motion by jumping to the resting end state
 rather than merely shortening the animation, and set each keyframe's 0%/100%
@@ -556,6 +689,25 @@ deliberately short viewport — a bare 390×844 window is taller than a real
 phone's usable area, which is how a whole class of mobile bug shipped twice.
 Assemble same-size shots into a strip when checking uniformity; drift is
 obvious side by side and invisible one at a time.
+
+**Assert what you can, look at the rest.** Anything geometric has a number
+behind it, and the number both finds the bug and names the element — which
+eyeballing does not. These six run in one Playwright pass over the built
+site and are worth keeping as a script in `scripts/`:
+
+| Check | Assertion |
+|---|---|
+| horizontal overflow | `documentElement.scrollWidth <= innerWidth` at 320/360/375/390/412 |
+| frame spill | active frame's child bottom ≤ its stack's bottom, every step |
+| card uniformity | `max(height) - min(height)` per act is 0 |
+| SVG geometry | rendered `width/height` equals the viewBox ratio (proves nothing back-solved a narrower width) |
+| dark-section contrast | text colour composited over the *actual* dark surface, ≥ 4.5:1 |
+| overlay collisions | annotation top ≥ the text bottom it sits under, swept across widths |
+
+Sweep widths rather than testing two. The desktop stamp collision, the
+clipped compound word and two of the three frame overflows were all invisible
+at the sizes I happened to open first. Screenshots then answer the question
+the assertions cannot: does it look right.
 
 - **No horizontal scrollbar at any width.** Verify it programmatically rather
   than by eye: assert `document.documentElement.scrollWidth <=
