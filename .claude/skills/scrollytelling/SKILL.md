@@ -1,6 +1,6 @@
 ---
 name: scrollytelling
-description: Build a scrollytelling visual essay — a scroll-driven data story that explains its subject through a familiar analogy (a board game, a known theory, a film), with a sticky visual panel, hand-built SVG charts, and an optional 3D hero. Starts with a planning pass on the conceit before any code. Use when asked for a scrollytelling piece, a visual essay, a scroll-driven data story, "a scrolly", or when working in any scrolly-* repo. Also use it when debugging one from a symptom alone ("the chart jumps when I scroll", "the text is cut off on my phone", "the cards are different sizes"), when sourcing or citing the figures in one, and when preparing a piece for publication or sharing it on a social platform.
+description: Build a scrollytelling visual essay — a scroll-driven data story that explains its subject through a familiar analogy (a board game, a known theory, a film), with scroll-driven visuals, hand-built SVG charts, and an optional 3D hero. Starts with a planning pass on the conceit before any code. Use when asked for a scrollytelling piece, a visual essay, a scroll-driven data story, "a scrolly", or when working in any scrolly-* repo. Also use it when debugging one from a symptom alone ("the chart jumps when I scroll", "the text is cut off on my phone", "the cards are different sizes"), when sourcing or citing the figures in one, and when preparing a piece for publication or sharing it on a social platform.
 ---
 
 # Scrollytelling
@@ -37,6 +37,29 @@ Three kinds of statement appear:
   concept overrides it; carry the reason across rather than dropping it.
 - **Failure modes** — a bug I have actually shipped, with the number attached.
   These are not taste. Read them as "this will happen to you too."
+
+Keep this document short. Prefer trying something in a build over writing a
+rule about it here — a rule earns its place after it has caught something
+twice, not because it sounded sensible.
+
+### Each piece should look like itself
+
+These pieces share a method, not a look. This is a portfolio, so range is the
+point: a new piece that could be mistaken for the last one has wasted its best
+chance to show something. Where the existing three have drifted into looking
+alike, treat that as a bug rather than a house style.
+
+Vary it deliberately — typeface, palette, whether there are cards at all, the
+chart idiom, and the one most often forgotten: **the scroll form itself**. The
+sticky panel with a step column, described below, is one form and not the
+format. A single graphic that transforms the whole way down, full-bleed states
+with text over them, horizontal sections, a tool with narrative wrapped
+around it, or ordinary long-form with scroll-triggered graphics and nothing
+sticky — all fair game. Ask which one the subject wants, in the planning pass,
+before reaching for the familiar one.
+
+Reusing an earlier piece's choice is fine when the subject asks for it. Doing
+it because it is already written down here is not.
 
 ## Start here — plan before writing any code
 
@@ -133,8 +156,10 @@ this — but everything below the framework line still holds.
 - **Fonts are self-hosted** (structural) — no third-party font requests, ever.
   That is a GDPR constraint, not a preference, and it survives any brand
   typeface: take the brand's faces and serve them from `public/fonts/`.
-  **Default** for the faces themselves: variable-weight Playfair Display for
-  display type, `system-ui` stack for everything else.
+  For the faces themselves: two of the three pieces landed on variable-weight
+  Playfair Display for display type over a `system-ui` stack. That is where
+  they landed, not a default to reach for — pick the face the subject wants
+  and self-host that one.
 
 Scaffold: `npm create vite@latest . -- --template svelte`, then copy
 `vite.config.js`, `src/app.css`, `src/lib/components/Scrolly.svelte`,
