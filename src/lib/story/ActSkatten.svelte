@@ -11,7 +11,7 @@
 <section
   class="act"
   aria-label="Akt 4: Skatterutorna"
-  style="--act-accent: var(--ink-amber); --step-min: 415px; --step-min-mobile: 520px;"
+  style="--act-accent: var(--ink-amber); --step-min: 435px; --step-min-mobile: 502px;"
 >
   <div class="act-head">
     <p class="act-kicker">Akt fyra</p>
@@ -25,7 +25,7 @@
 
   <Scrolly onStepChange={(i) => (currentStep = i)}>
     {#snippet visual()}
-      <div class="visual-frame-stack" style="--stack-height: 480px; --stack-height-mobile: 430px;">
+      <div class="visual-frame-stack" style="--stack-height: 480px; --stack-height-mobile: 530px;">
         <div class="frame is-active">
           <TaxBoard data={data.taxes} {view} />
         </div>

@@ -42,4 +42,26 @@
     line-height: 1.45;
     color: var(--text-secondary);
   }
+  /* On a phone a 150px minimum forces one column, which stacked four tiles
+     into 526px inside a 420px panel — the overspill painted straight over
+     the section below. A lower minimum keeps two columns at 360px, which
+     halves the height. */
+  @media (max-width: 860px) {
+    .tiles {
+      grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+      gap: 10px;
+    }
+    .tile {
+      padding: 12px 12px 11px;
+      border-top-width: 3px;
+    }
+    .num {
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+    .label {
+      font-size: 11.5px;
+      line-height: 1.4;
+    }
+  }
 </style>

@@ -18,7 +18,7 @@
 <section
   class="act"
   aria-label="Akt 2: Bostadskarriären"
-  style="--act-accent: var(--ink-blue); --step-min: 370px; --step-min-mobile: 440px;"
+  style="--act-accent: var(--ink-blue); --step-min: 405px; --step-min-mobile: 460px;"
 >
   <div class="act-head">
     <p class="act-kicker">Akt två</p>
@@ -32,7 +32,7 @@
 
   <Scrolly onStepChange={(i) => (currentStep = i)}>
     {#snippet visual()}
-      <div class="visual-frame-stack" style="--stack-height: 520px; --stack-height-mobile: 430px;">
+      <div class="visual-frame-stack" style="--stack-height: 520px; --stack-height-mobile: 415px;">
         <div class="frame" class:is-active={currentStep <= 2}>
           <PriceJourney data={data.journey} step={currentStep} />
         </div>

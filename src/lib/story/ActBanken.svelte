@@ -17,7 +17,7 @@
 <section
   class="act"
   aria-label="Akt 5: Banken"
-  style="--act-accent: var(--ink-green); --step-min: 355px; --step-min-mobile: 415px;"
+  style="--act-accent: var(--ink-green); --step-min: 398px; --step-min-mobile: 448px;"
 >
   <div class="act-head">
     <p class="act-kicker">Akt fem</p>
@@ -31,7 +31,7 @@
 
   <Scrolly onStepChange={(i) => (currentStep = i)}>
     {#snippet visual()}
-      <div class="visual-frame-stack" style="--stack-height: 500px; --stack-height-mobile: 420px;">
+      <div class="visual-frame-stack" style="--stack-height: 500px; --stack-height-mobile: 350px;">
         <div class="frame" class:is-active={currentStep <= 2}>
           <DebtMountain data={data.debt} step={currentStep} />
         </div>

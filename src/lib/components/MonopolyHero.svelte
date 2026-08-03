@@ -512,15 +512,23 @@
     // reader's first scroll. Starting them at rest is the whole trick: an
     // earlier version launched them from a hand in mid-air, which left them
     // hanging in the sky behind the title.
+    // Orientation is counted in whole quarter-turns on all three axes, from a
+    // whole-quarter-turn starting pose. Both ends of the roll are therefore
+    // axis-aligned and the die lies flat on a face. The previous version kept
+    // an arbitrary yaw (restY) for the resting pose, which tilted the landed
+    // die onto an edge: that yaw sits *between* two axis-aligned rotations in
+    // the XYZ Euler composition rather than being applied about world Y last,
+    // so it does not simply spin the die in place.
+    const QT = Math.PI / 2;
     const dice = [];
     const diceRoll = [
-      { from: [3.4, 3.0], to: [0.5, 1.9], restY: 0.4, qx: 5, qz: 3, hop: 0.26 },
-      { from: [3.7, 2.5], to: [1.15, 2.3], restY: -0.7, qx: 4, qz: 5, hop: 0.19 },
+      { from: [3.4, 3.0], to: [0.5, 1.9], base: [1, 0, 2], q: [5, 2, 3], hop: 0.26 },
+      { from: [3.7, 2.5], to: [1.15, 2.3], base: [0, 3, 1], q: [4, 3, 5], hop: 0.19 },
     ];
     for (const d of diceRoll) {
       const die = new THREE.Mesh(new THREE.BoxGeometry(0.42, 0.42, 0.42), dieMats);
       die.position.set(d.from[0], boardTop + 0.21, d.from[1]);
-      die.rotation.y = d.restY;
+      die.rotation.set(d.base[0] * QT, d.base[1] * QT, d.base[2] * QT);
       scene.add(die);
       dice.push(die);
     }
@@ -682,11 +690,10 @@
       hat.position.y = boardTop + 0.05 + Math.sin(t * 1.4) * 0.015;
       hat.rotation.y = Math.sin(t * 0.5) * 0.15;
 
-      // The dice roll, scrubbed by the first sliver of scroll. Both ends of
-      // the motion are a die lying flat and still on the board: the tumble
-      // runs through whole quarter-turns, so whatever the reader stops on,
-      // the die is always resting on a face rather than balanced on a
-      // corner. Two low decaying bounces stand in for the throw itself.
+      // The dice roll, scrubbed by the first sliver of scroll. Two low
+      // decaying bounces stand in for the throw; at T = 1 the hop is zero and
+      // every axis has turned a whole number of quarter-turns, so each die
+      // comes to rest flat on a face rather than propped on an edge.
       // Reduced motion jumps straight to the resting arrangement.
       const T = reduceMotion ? 1 : smooth(0.008, 0.085, P);
       dice.forEach((die, di) => {
@@ -698,9 +705,9 @@
           d.from[1] + (d.to[1] - d.from[1]) * T
         );
         die.rotation.set(
-          T * Math.PI * 0.5 * d.qx,
-          d.restY + Math.sin(t * (0.7 - di * 0.1)) * 0.06 * T,
-          T * Math.PI * 0.5 * d.qz
+          (d.base[0] + T * d.q[0]) * QT,
+          (d.base[1] + T * d.q[1]) * QT,
+          (d.base[2] + T * d.q[2]) * QT
         );
       });
 

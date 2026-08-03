@@ -13,7 +13,7 @@
 <section
   class="act"
   aria-label="Akt 1: Spelplanen"
-  style="--act-accent: var(--ink-red); --step-min: 375px; --step-min-mobile: 476px;"
+  style="--act-accent: var(--ink-red); --step-min: 435px; --step-min-mobile: 530px;"
 >
   <div class="act-head">
     <p class="act-kicker">Akt ett</p>
@@ -27,7 +27,7 @@
 
   <Scrolly onStepChange={(i) => (currentStep = i)}>
     {#snippet visual()}
-      <div class="visual-frame-stack" style="--stack-height: 520px; --stack-height-mobile: 420px;">
+      <div class="visual-frame-stack" style="--stack-height: 520px; --stack-height-mobile: 350px;">
         <div class="frame" class:is-active={currentStep <= 2}>
           <LadderChart data={data.board} mode={ladderMode} highlight={ladderHighlight} />
         </div>

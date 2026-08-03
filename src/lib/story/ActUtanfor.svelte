@@ -21,7 +21,7 @@
 <section
   class="act"
   aria-label="Akt 3: Utanför brädet"
-  style="--act-accent: var(--ink-pink); --step-min: 350px; --step-min-mobile: 415px;"
+  style="--act-accent: var(--ink-pink); --step-min: 390px; --step-min-mobile: 472px;"
 >
   <div class="act-head">
     <p class="act-kicker">Akt tre</p>
@@ -35,7 +35,7 @@
 
   <Scrolly onStepChange={(i) => (currentStep = i)}>
     {#snippet visual()}
-      <div class="visual-frame-stack" style="--stack-height: 520px; --stack-height-mobile: 440px;">
+      <div class="visual-frame-stack" style="--stack-height: 640px; --stack-height-mobile: 490px;">
         <div class="frame" class:is-active={currentStep <= 2}>
           <TenureWaffle data={data.outside} view={waffleView} />
         </div>
