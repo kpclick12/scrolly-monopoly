@@ -6,8 +6,8 @@ scrolldriven 3D-scen — ett Monopolbräde där husen växer till hotell och
 färggrupperna till slut reser sig som torn i höjd med gatornas verkliga
 kvadratmeterpriser — och går sedan igenom datat i fem akter: gatorna
 (Strandvägen 168 360 kr/kvm mot brädets 4 200 kr), bostadskarriären
-(+789 % för bostadsrätter sedan 1996), de som aldrig fick spela (en
-tredjedel av hushållen äger ingen ruta; 894 592 i Stockholms bostadskö),
+(SCB:s villaindex +412 % sedan 1996 och en separat uppskattning för bostadsrätter),
+boendeformer och kötid (894 592 registrerade i Stockholms bostadskö),
 skatterutorna som plockades bort (fastighetsskatten 2008) och banken
 (5 530 miljarder i hushållsskulder).
 
@@ -74,14 +74,14 @@ sidan. I korthet:
 
 - **Dyraste gator, kr/kvm** — Fastighetsbyrån på siffror från Svensk
   Mäklarstatistik, försäljningar apr 2025–mar 2026
-- **Prisutveckling 1996–2025** — Ekonomifokus sammanställning av
-  SCB / Svensk Mäklarstatistik (villor +366 %, bostadsrätter +789 %)
+- **Prisutveckling 1996–2025** — SCB FASTPI (villor +412 %) och en tydligt
+  märkt sekundär uppskattning från Ekonomifokus (bostadsrätter +789 %)
 - **Styrräntan** — Riksbanken (topp 4,00 % sep 2023; 1,75 % jun 2026)
 - **Utanför brädet** — SCB (boendeformer; boendeutgifter per
   upplåtelseform), Bostadsförmedlingen i Stockholm (kötider),
   Hyresgästföreningen (Unga vuxnas boende 2025)
-- **Skatterna** — Skatteverket (fastighetsavgiftens tak 10 074 kr),
-  SNS/LO-sammanställningar av OECD-data (egendomsskatt som andel av BNP)
+- **Skatterna** — Skatteverket (fastighetsavgiftens tak 10 425 kr för inkomståret 2026),
+  OECD Revenue Statistics 2024 (bred kategori för skatter på egendom, data 2022)
 - **Skulderna** — SCB/SEB (5 530 mdkr Q1 2026), Ekonomifakta/Riksbanken
   (skuldkvot ≈173 %, topp ≈200 % 2021), Regeringen/Finansinspektionen
   (bolåneregler apr 2026)

@@ -35,10 +35,10 @@
       Sverige, till nationalekonomi.
     </p>
     <p>
-      Det svenska partiet följde nämligen hennes regelbok punkt för punkt.
-      Rutpriserna steg, ägarna inkasserade varje varv, skatterutorna plockades
-      bort, banken sa alltid ja, och en tredjedel av spelarna fick aldrig något
-      startkapital. Ett brädspel tar slut när de sista går i konkurs och en
+      Jämförelsen är inte bokstavlig, men den synliggör ett mönster: bostadspriserna
+      steg kraftigt, ägare fick del av värdeökningen, flera skatter på ägande
+      avskaffades och hushållens skulder växte. Många hyresgäster fick inte del
+      av samma bostadskapital. Ett brädspel tar slut när de sista går i konkurs och en
       vinnare räknar sedlar. Ett land kan inte sluta så. Här måste även nästa
       generation få plats runt bordet. Efter trettio vilda år är frågan inte
       vem som vann, för det vet vi. Frågan är vilka regler nästa parti ska
@@ -51,65 +51,65 @@
   <div class="sources-inner">
     <h2>Metod &amp; källor</h2>
     <p class="sources-intro">
-      Varje siffra på den här sidan är en <strong>approximation, avrundad för
-      läsbarhet</strong>. Det här är en förklarande berättelse, inte
-      primärstatistik — läs varje tal som "ungefär", inte "exakt".
+      Siffrorna nedan är antingen officiella värden, sekundära uppskattningar
+      eller illustrativa räkneexempel. Varje diagram anger vilket. Årtal,
+      population och mått redovisas för att jämförelserna ska gå att kontrollera.
     </p>
     <ul>
       <li>
         <strong>Spelplanen</strong> — det klassiska svenska Monopol-brädet
-        (Stockholmsgator), utgivet av Åhlén &amp; Åkerlunds förlag 1937 — två år
-        efter Parker Brothers amerikanska Monopoly (1935). Det var Albert
+        (Stockholmsgator), utgivet av Åhlén &amp; Åkerlunds förlag vid årsskiftet
+        1936/37. Källor anger både 1936 och 1937; sidan använder därför båda
+        årtalen. Det var Albert
         Bonnier Jr, teknisk chef på förlaget, som lät en medarbetare vandra runt
         i Stockholm och välja gatorna; Norrmalmstorg blev dyrast (Di Weekend,
         "Åttio år i centrum", Johanna Lundsgård). Priserna är avlästa direkt
         från ett tidigt bräde i Nordiska museets samling (DigitaltMuseum, id
         021028370534): köpesummor 1&nbsp;000–8&nbsp;000 spel-kronor med
         Norrmalmstorg dyrast (8&nbsp;000) och Västerlånggatan/Hornsgatan
-        billigast (1&nbsp;000), rutorna Inkomstskatt (betala 4&nbsp;000) och
-        Extra skatt (betala 2&nbsp;000) samt regeln "avlöning 1&nbsp;000 kr när
-        du passerar GÅ". (Senare svenska utgåvor använder valörerna 60–400.)
+        billigast (1&nbsp;000), samt rutorna Inkomstskatt (betala 4&nbsp;000)
+        och Extra skatt (betala 2&nbsp;000). Senare svenska utgåvor använder
+        andra valörer.
       </li>
       <li>
-        <strong>Dyraste gator</strong> — Fastighetsbyråns kartläggning på
+        <strong>Dyraste gator</strong> — <a href="https://www.mynewsdesk.com/se/fastighetsbyran/pressreleases/sveriges-dyraste-gator-adresserna-laen-foer-laen-3445561">Fastighetsbyråns kartläggning</a> på
         siffror från Svensk Mäklarstatistik, försäljningar april 2025–mars
         2026 (gator med färre än fem affärer exkluderade): Strandvägen
-        168&nbsp;360 kr/kvm, Bältgatan 161&nbsp;597, Lützengatan 159&nbsp;333;
-        Lodjursstråket Göteborg 82&nbsp;432; Vikingagatan Malmö 75&nbsp;572;
-        Årevägen Åre 83&nbsp;436. Kvadratmeterpriser för brädets gator är
+        168&nbsp;360 kr/kvm; Kjellmansgatan i Göteborg 89&nbsp;689;
+        Kattviksvägen i Båstad 87&nbsp;854; Kungsgatan i Växjö 34&nbsp;691.
+        Rapportens nationella topp tio består samtidigt helt av Stockholmsgator.
+        Stapeldiagrammet visar däremot utvalda länstoppar, inte den nationella listan.
+        Kvadratmeterpriser för brädets övriga gator är
         ungefärliga områdesnivåer (Svensk Mäklarstatistik-baserad rapportering)
-        — endast Strandvägens siffra är exakt. Notera att "dyraste gata" mäts
-        två olika sätt: den här sidan rangordnar efter <em>kvadratmeterpris</em>,
-        där Strandvägen toppar. Rangordnar man i stället efter <em>snittpris för
-        en hel bostad</em> domineras listan av lyxvillor på strandnära gator i
-        Storstockholm — Dalarö, Danderyd, Lidingö, Nacka — där hela hus säljs för
-        20–27&nbsp;miljoner (Samblas och Fastighetsbyråns kartläggningar 2025–26).
+        — endast Strandvägens siffra är ett observerat gatpris. Resten används
+        som illustration och ska inte läsas som en jämförbar gatprisstatistik.
       </li>
       <li>
-        <strong>Snittpriser per stad</strong> — Svensk
-        Mäklarstatistik-baserade sammanställningar, tidigt 2026: centrala
-        Stockholm ≈119&nbsp;000 kr/kvm, centrala Göteborg ≈69&nbsp;000,
-        centrala Malmö ≈40&nbsp;000, riket (bostadsrätter) ≈46&nbsp;000.
+        <strong>Snittpriser per stad</strong> — <a href="https://mb.cision.com/Main/1330/4332344/4027690.pdf">Svensk Mäklarstatistik, mars 2026</a>:
+        centrala Stockholm 119&nbsp;380 kr/kvm, centrala Göteborg 69&nbsp;159,
+        centrala Malmö 40&nbsp;157 och riket 49&nbsp;089. Samma månad och bostadstyp används.
       </li>
       <li>
-        <strong>Prisutveckling 1996–2025</strong> — Ekonomifokus sammanställning
-        av SCB / Svensk Mäklarstatistik: villor +366&nbsp;%, bostadsrätter
-        +789&nbsp;%; medelvilla ≈700&nbsp;000 kr (1995) → ≈4,8 Mkr (2025);
-        korrigeringen 2022–23 ≈−15&nbsp;% från toppen. Årsvärdena i diagrammet
-        är interpolerade mot dessa ankare.
+        <strong>Prisutveckling 1996–2025</strong> — villaindexet är omräknat
+        direkt från <a href="https://www.scb.se/hitta-statistik/statistik-efter-amne/boende-bebyggelse-och-mark/fastigheter/fastighetspriser-och-lagfarter/pong/tabell-och-diagram/fastighetsprisindex-fastpi/">SCB FASTPI</a>:
+        185 år 1996 och 948 år 2025, alltså +412&nbsp;%. Genomsnittspris för
+        permanenta småhus: cirka 651&nbsp;000 kr 1995 och 3,913 Mkr 2025.
+        Bostadsrättskurvan (+789&nbsp;%) är en separat sekundär uppskattning från
+        Ekonomifokus; mellanliggande värden är interpolerade och märks så i diagrammet.
       </li>
       <li>
-        <strong>Styrräntan</strong> — Riksbanken: minusränta 2015–2019, toppen
-        4,00&nbsp;% september 2023, 1,75&nbsp;% vid beslutet i juni 2026.
+        <strong>Styrräntan</strong> — <a href="https://www.riksbank.se/sv/penningpolitik/penningpolitisk-rapport/2026/penningpolitiskt-beslut-juni-2026/">Riksbanken</a>:
+        minusränta 2015–2019, toppen 4,00&nbsp;% september 2023 och 1,75&nbsp;%
+        från 24 juni 2026. Nästa besked kommer 20 augusti 2026.
       </li>
       <li>
-        <strong>Utanför brädet</strong> — boendeformer: ungefär två
-        tredjedelar av hushållen äger (villa eller bostadsrätt), en tredjedel
-        hyr (SCB, Boende i Sverige, 2024). Boendeutgift som andel av
-        disponibel inkomst: hyresrätt 27&nbsp;%, bostadsrätt 21&nbsp;%, ägt
-        småhus 18&nbsp;% (SCB, hushållens boendeutgifter 2024). Bostadskön:
+        <strong>Utanför brädet</strong> — <a href="https://www.scb.se/hitta-statistik/statistik-efter-amne/boende-bebyggelse-och-mark/bostader-och-boende/hushallens-boende/pong/statistiknyhet/hushallens-boende-2024/">SCB:s boendeformer 2024</a>:
+        38&nbsp;% ägt småhus, 29&nbsp;% hyresrätt i flerbostadshus, 21&nbsp;%
+        bostadsrätt i flerbostadshus och 12&nbsp;% övrigt. <a href="https://www.scb.se/hitta-statistik/statistik-efter-amne/hushallens-ekonomi/hushallens-utgifter/hushallens-boendeutgifter/pong/statistiknyhet/hushallens-boendeutgifter-20242/">Medianandel av disponibel inkomst</a>:
+        hyresrätt 27&nbsp;%, bostadsrätt 21&nbsp;%, ägt småhus 18&nbsp;%. Bostadskön:
         894&nbsp;592 registrerade hos Bostadsförmedlingen i Stockholm 31 dec
-        2025; genomsnittlig kötid 9,0 år under 2025, ≈21 år för innerstan.
+        2025; vanliga förmedlade bostäder hade 9,0 års genomsnittlig kötid,
+        eller 12,4 år i Stockholms kommun. Det är inte återstående väntetid.
         Unga vuxna 20–27 år: 21&nbsp;% (204&nbsp;000 av 963&nbsp;600) bor kvar
         hemma, 9 av 10 ofrivilligt, 184&nbsp;000 vill flytta men kan inte
         (Hyresgästföreningen, Unga vuxnas boende 2025).
@@ -117,28 +117,33 @@
       <li>
         <strong>Skatterna</strong> — arvs- och gåvoskatt avskaffad 2004,
         förmögenhetsskatt 2007, statlig fastighetsskatt på bostäder 2008;
-        kommunal fastighetsavgift 0,75&nbsp;% av taxeringsvärdet, max
-        10&nbsp;074 kr (deklarationen 2026, Skatteverket). Egendomsskatter som
-        andel av BNP: Sverige ≈1&nbsp;%, EU-15 ≈2,3&nbsp;% (SNS/LO-sammanställningar
-        av OECD-data, publicerade omkring 2020 — nivåskillnaden är väl belagd,
-        men mätåret är sidans sämst daterade uppgift och diagrammet säger det).
+        <a href="https://www.skatteverket.se/privat/fastigheterochbostad/fastighetsavgiftochfastighetsskatt.4.69ef368911e1304a625800013531.html">kommunal fastighetsavgift</a>
+        0,75&nbsp;% av taxeringsvärdet, max 10&nbsp;425 kr för inkomståret 2026.
+        Taket nås vid 1,39 Mkr i taxeringsvärde. OECD Revenue Statistics 2024,
+        data för 2022: Sverige 0,9&nbsp;% av BNP i den breda kategorin
+        <a href="https://www.oecd.org/en/publications/revenue-statistics-2024_c87a3da5-en/full-report/component-5.html">taxes on property</a>;
+        EU-15 cirka 2,1&nbsp;% som oviktat medel från landtabellen.
         Ränteavdrag 30&nbsp;% upp till 100&nbsp;000 kr/år, 21&nbsp;% därutöver
         (regler 2026).
       </li>
       <li>
-        <strong>Skulderna</strong> — SCB finansräkenskaper via SEB: hushållens
-        skulder ≈5&nbsp;530 miljarder kr Q1 2026; skuldkvot ≈173&nbsp;% av
+        <strong>Skulderna</strong> — <a href="https://www.scb.se/hitta-statistik/statistik-efter-amne/nationalrakenskaper/finansrakenskaper/sparbarometern/pong/tabell-och-diagram/hushallens-finansiella-stallningsvarden-2025-kv12026-kv1/">SCB:s finansräkenskaper</a>:
+        skulder exklusive periodiseringar 5&nbsp;530,49 miljarder kr Q1 2026,
+        cirka 83&nbsp;% av Sveriges BNP 2025; skuldkvot ≈173&nbsp;% av
         disponibel inkomst 2025, topp ≈200&nbsp;% 2021 (Ekonomifakta,
         Riksbanken). Regleringar: bolånetak 85&nbsp;% (2010), amorteringskrav
         (2016), skärpt krav (2018); från 1 april 2026 tak 90&nbsp;%, slopad
-        skärpning, max 2&nbsp;%/år (Regeringen, Finansinspektionen). Spartid
+        skärpning, max 2&nbsp;%/år. Vid köp får belåningsgraden vara 90&nbsp;%,
+        medan tilläggslån begränsas till 80&nbsp;% (<a href="https://www.regeringen.se/rattsliga-dokument/proposition/2026/02/prop.-202526119">prop. 2025/26:119</a>). Spartid
         för kontantinsats: SBAB/SEB-beräkningar (≈12 år → ≈7 år i Stockholm).
       </li>
       <li>
         <strong>Räkneexemplet i akt två</strong> är illustrativt: en etta köpt
-        1999 vars värde följer bostadsrättsindexet, mot ett banksparande på
-        1&nbsp;500 kr/mån. Räntor, avgifter, hyra och amortering ingår inte —
-        exemplet visar mekanismen, inte en kalkyl.
+        1999 vars värde följer den sekundära bostadsrättsserien, mot ett banksparande på
+        1&nbsp;500 kr/mån. Räntor, avgifter, hyra, amortering och avkastning på
+        sparandet ingår inte — exemplet visar mekanismen, inte en privatekonomisk kalkyl.
+        Barnbidragsrutan visar 1&nbsp;250 kr × 144 månader = 180&nbsp;000 kr:
+        dagens nivå i tolv år, inte vad som historiskt betalats ut under en viss tolårsperiod.
       </li>
       <li>
         <strong>The Landlord's Game</strong> — Lizzie Magie, patent 1904;

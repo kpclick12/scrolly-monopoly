@@ -10,7 +10,7 @@
   const tiles = [
     { num: "12 år", label: "tog det att spara ihop kontantinsatsen till en etta i Stockholm, innan reglerna lättades", accent: "var(--series-red)" },
     { num: "7 år", label: "tar det med de nya reglerna från april 2026. Fortfarande en lång väntan", accent: "var(--series-blue)" },
-    { num: "360 000 kr", label: "har den som sparat hela barnbidraget i tolv år. Ungefär vad en kontantinsats kostar", accent: "var(--series-amber)" },
+    { num: "180 000 kr", label: "blir tolv år med dagens barnbidrag på 1 250 kr/mån, utan avkastning", accent: "var(--series-amber)" },
     { num: "10 %", label: "räcker i kontantinsats sedan april 2026, mot 15 tidigare. Tröskeln sänktes men finns kvar", accent: "var(--series-green)" },
   ];
 </script>
@@ -47,11 +47,13 @@
 
     <section class="scrolly-step">
       <p class="kicker">De vilda åren</p>
-      <h3>+789 procent</h3>
+      <h3>Villor: +412 procent</h3>
       <p>
-        Sedan 1996 har villapriserna stigit <strong>366&nbsp;procent</strong>
-        och bostadsrätterna <strong>789&nbsp;procent</strong>. En medelvilla
-        gick för 700&nbsp;000 kronor 1995. Idag kostar den runt 4,8 miljoner.
+        SCB:s fastighetsprisindex visar att villapriserna steg
+        <strong>412&nbsp;procent</strong> 1996–2025. En genomsnittlig permanent
+        småhusfastighet kostade cirka 651&nbsp;000 kronor 1995 och 3,91 miljoner
+        2025. Den uppskattade bostadsrättsserien i diagrammet har en annan källa
+        och landar nära nio gånger 1996 års nivå.
       </p>
       <p>
         Lönerna hängde inte med i närheten. Men något annat gjorde det:
@@ -61,11 +63,12 @@
 
     <section class="scrolly-step">
       <p class="kicker">Bränslet</p>
-      <h3>Pengar blev gratis</h3>
+      <h3>Pengar blev nästan gratis</h3>
       <p>
-        Titta på den undre panelen. Styrräntan föll i tjugofem år, och 2015
-        hände det otänkbara: den blev <strong>negativ</strong>. I fyra år
-        lönade det sig bokstavligen att låna. Under pandemin drog det iväg
+        Titta på den undre panelen. Styrräntan föll under långa perioder, och 2015
+        hände det otänkbara: den blev <strong>negativ</strong>. Bankernas
+        bolåneräntor var fortfarande positiva, men de historiskt billiga
+        pengarna gav låntagarna större räckvidd. Under pandemin drog det iväg
         ytterligare ett snäpp, med budgivningar via mobilen från sommarstugan.
       </p>
       <div class="callout">
@@ -83,7 +86,7 @@
       <p>
         På arton månader gick styrräntan från noll till
         <strong>4 procent</strong>. Bostadspriserna föll omkring
-        <strong>15 procent</strong>, det största tappet sedan 90-talskrisen.
+        <strong>11 procent</strong> från toppen i diagrammets årsserie.
         Sedan hämtade marknaden andan och räntan sänktes tillbaka mot
         1,75 procent.
       </p>
@@ -113,16 +116,17 @@
       <p class="kicker">Uppväxlingen</p>
       <h3>Etta blir tvåa blir villa</h3>
       <p>
-        Efter tjugofem år står det drygt <strong>2 miljoner</strong> mot en
-        knapp halv. I verkligheten går det ännu fortare än så, för vinsten
-        belånas och växlas upp till nästa gata. Ettan blir tvåa, tvåan blir
-        villa. Det är det vi menar när vi säger <em>bostadskarriär</em>.
+        Efter tjugosex år står det drygt <strong>2,2 miljoner</strong> mot drygt
+        en halv miljon. I verkligheten kan utvecklingen bli både bättre och sämre;
+        i exemplet kan vinsten belånas och växlas upp till nästa gata. Ettan blir
+        tvåa, tvåan blir villa. Det är det vi menar när vi säger
+        <em>bostadskarriär</em>.
       </p>
       <div class="callout">
-        <p class="callout-num">×4,4</p>
+        <p class="callout-num">≈×4,3</p>
         <p class="callout-label">
-          mer än spararen i räkneexemplet, utan en enda extra arbetad timme. På
-          brädet heter samma sak "avlöning 1 000 kr när ni passerar GÅ".
+          mer än spararen i det förenklade räkneexemplet. Räntor, avgifter,
+          hyra, amortering och avkastning på sparandet ingår inte.
         </p>
       </div>
     </section>

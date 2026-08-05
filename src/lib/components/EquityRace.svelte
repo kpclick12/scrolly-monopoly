@@ -1,7 +1,6 @@
 <script>
   import { scaleLinear } from "d3-scale";
 
-  // "Avlöning 1 000 kr när du passerar GÅ" — but only if you own a square.
   // Two people, same year one of them buys: the owner's equity in a small
   // Södermalm one-roomer (value follows the real brf index, minus the
   // original loan) against a renter putting 1 500 kr/month in the bank.
@@ -64,7 +63,7 @@
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
-    aria-label="Linjediagram 1999 till 2025: ägarens eget kapital i en etta köpt för 500 000 kronor växer till cirka 2,2 miljoner, medan spararens konto med 1 500 kronor i månaden når knappt en halv miljon."
+    aria-label="Linjediagram 1999 till 2025: ägarens eget kapital i en etta köpt för 500 000 kronor växer till cirka 2,2 miljoner, medan spararens konto med 1 500 kronor i månaden når drygt en halv miljon."
   >
     {#each [0, 500000, 1000000, 1500000, 2000000] as tick}
       <line class="grid" x1={M.left} x2={W - M.right} y1={y(tick)} y2={y(tick)} />
@@ -91,7 +90,7 @@
   </svg>
   <p class="legend">
     Räkneexempel: etta köpt 1999 för 500 000 kr med 450 000 kr i lån (aldrig amorterat),
-    värdet följer det verkliga bostadsrättsindexet. Ingen hänsyn till räntor, hyra eller avgifter —
+    värdet följer den ungefärliga bostadsrättsserien. Ingen hänsyn till räntor, hyra eller avgifter —
     poängen är mekanismen, inte kronorna.
   </p>
 </figure>

@@ -1,5 +1,5 @@
 {
-  "note": "Property-related taxes. The state fastighetsskatt on homes was abolished 2008 and replaced by the capped kommunal fastighetsavgift: 0.75 % of taxeringsvärde, at most 10 074 kr for småhus (inkomstår 2025 / deklaration 2026; the cap is indexed). Before the reform the state tax ran at 1.0–1.5 % of taxeringsvärde with no cap. Egendomsskatter as share of GDP: Sweden ≈ 1.0 %, EU-15 ≈ 2.3 % (LO/SNS compilations of OECD data). Ränteavdrag: 30 % of interest up to 100 000 kr/yr, 21 % above. Soft hyphens (U+00AD) sit at the compound boundaries of the abolished-tax labels so the narrow three-across squares hyphenate at a real syllable break instead of splitting mid-word; they are invisible unless a break occurs.",
+  "note": "Property-related taxes. The state fastighetsskatt on homes was abolished in 2008 and replaced by the capped kommunal fastighetsavgift: 0.75 % of taxeringsvärde, at most 10,425 kr for small houses (income year 2026 / declaration 2027; the cap is indexed). The two house examples refer explicitly to tax assessment values, not market prices; both are above the 1.39 million threshold for the cap. OECD Revenue Statistics 2024, data for 2022: taxes on property (a broad category including recurrent property taxes, wealth/inheritance taxes and transaction taxes) were 0.9 % of GDP in Sweden; an unweighted EU-15 mean calculated from the country table is about 2.1 %. Ränteavdrag: 30 % of a capital deficit up to 100,000 kr/yr, 21 % above.",
   "abolished": [
     {
       "tax": "Arvs- och gåvo­skatt",
@@ -16,7 +16,7 @@
   ],
   "avgift": {
     "ratePct": 0.75,
-    "capKr": 10074,
+    "capKr": 10425,
     "capYear": 2026
   },
   "oldTax": {
@@ -25,26 +25,26 @@
   },
   "examples": [
     {
-      "home": "Villa i Danderyd",
+      "home": "Taxeringsvärde, villa",
       "value": 20000000,
-      "fee": 10074
+      "fee": 10425
     },
     {
-      "home": "Villa i Hultsfred",
+      "home": "Taxeringsvärde, villa",
       "value": 1500000,
-      "fee": 10074
+      "fee": 10425
     }
   ],
   "gdpShare": [
     {
       "id": "se",
       "name": "Sverige",
-      "pct": 1.0
+      "pct": 0.9
     },
     {
       "id": "eu15",
       "name": "EU-15 (snitt)",
-      "pct": 2.3
+      "pct": 2.1
     }
   ],
   "ranteavdrag": {

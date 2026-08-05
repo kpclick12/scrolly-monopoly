@@ -7,10 +7,10 @@
   let currentStep = $state(0);
 
   const tiles = [
-    { num: "5 530 mdr", label: "kronor i hushållsskulder första kvartalet 2026, mer än hela Sveriges BNP", accent: "var(--series-red)" },
+    { num: "5 530 mdr", label: "kronor i hushållsskulder första kvartalet 2026 — cirka 83 procent av Sveriges BNP 2025", accent: "var(--series-red)" },
     { num: "90 %", label: "av bostadens värde får bolånet täcka sedan april 2026. Kontantinsatsen är nere i 10 procent", accent: "var(--series-blue)" },
     { num: "2 %", label: "per år är det mesta man numera behöver amortera. Skärpningen från 2018 är slopad", accent: "var(--series-green)" },
-    { num: "≈173 %", label: "av disponibel inkomst är hushållens skulder. Det är fortfarande bland de högsta i världen", accent: "var(--series-amber)" },
+    { num: "≈173 %", label: "av disponibel inkomst är hushållens skulder 2025. Nivån är fortfarande hög", accent: "var(--series-amber)" },
   ];
 </script>
 
@@ -77,12 +77,14 @@
       <p>
         Räntechocken 2022–2023 gjorde det inga amorteringskrav lyckats med.
         Skuldkvoten föll från nästan 200 till runt
-        <strong>173 procent</strong>. Inte för att lånen krympte, utan för att
-        nya jättelån helt enkelt blev för dyra att ta.
+        <strong>173 procent</strong>. Skuldstocken fortsatte att växa, men de
+        nominella inkomsterna växte snabbare; det högre ränteläget dämpade
+        samtidigt nyutlåningen.
       </p>
       <p>
-        Vi är ändå ett av världens mest belånade folk. Riksbanken har pekat ut
-        skuldberget som Sveriges största inhemska risk i över tio år.
+        Svenska hushåll är fortfarande högt belånade i ett internationellt
+        perspektiv. Riksbanken har länge beskrivit hushållens skulder som en
+        sårbarhet för svensk ekonomi.
       </p>
     </section>
 
@@ -91,9 +93,9 @@
       <h3>Banken säger ja igen</h3>
       <p>
         Så vändes reglerna åt andra hållet, mitt i partiet. Bolånetaket höjdes
-        till <strong>90 procent</strong>, det skärpta amorteringskravet
-        slopades och nu amorterar man som mest 2 procent om året. Motivet är
-        gott. Det handlar om att släppa in dem som står utanför brädet.
+        till <strong>90 procent</strong> vid köp av ny bostad, det skärpta
+        amorteringskravet slopades och grundkravet är som mest 2 procent om
+        året. Tilläggslån får samtidigt högst nå 80 procents belåningsgrad.
       </p>
       <p>
         Men mekaniken är sig lik. Mer lånekraft möter precis samma gator. Alla

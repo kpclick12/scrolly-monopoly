@@ -1,6 +1,12 @@
 {
-  "note": "The players who never got to join. Tenure split: ~two thirds of Swedish households own their home (villa or bostadsrätt), ~one third rent (SCB, boende i Sverige, 2024). Housing cost share of disposable income by tenure: rental 27 %, bostadsrätt 21 %, owned småhus 18 % (SCB hushållens boendeutgifter 2024). Stockholm queue: 894 592 registered at Bostadsförmedlingen 31 dec 2025; average wait 9.0 years for a regular rental, ~21 years for inner-city Stockholm. Young adults 20–27: 21 % (204 000 of 963 600) live with their parents, 9 of 10 involuntarily — the highest share ever measured (Hyresgästföreningen, Unga vuxnas boende 2025). startCapital is deliberately absent: Monopoly’s equal starting bank is used only as a qualitative comparison, since the 1937 Swedish edition’s starting sum is not sourced here.",
-  "tenure": { "ownPct": 66, "rentPct": 34 },
+  "note": "SCB's 2024 household categories are kept separate rather than forced into a binary owner/renter split: 38 % live in an owner-occupied small house, 21 % in a tenant-owned apartment in a multi-dwelling building, 29 % in a rented apartment in a multi-dwelling building, and 12 % in other forms. The visual groups the first two as 59 % clearly identified ownership categories, while retaining the 12 % other category. Housing-cost shares of disposable income are medians: rental 27 %, tenant-owned apartment 21 %, owner-occupied small house 18 % (SCB 2024). Bostadsförmedlingen: 894,592 registered on 31 Dec 2025; apartments allocated in 2025 had an average queue time of 9.0 years, or 12.4 years in Stockholm municipality. Young-adult figures are from Hyresgästföreningen 2025 and are described as results in that survey, whose method has changed between editions.",
+  "tenure": {
+    "ownedSmallHousePct": 38,
+    "condoApartmentPct": 21,
+    "ownedShownPct": 59,
+    "rentalApartmentPct": 29,
+    "otherPct": 12
+  },
   "costShare": [
     { "id": "rent", "label": "Hyresrätt", "pct": 27 },
     { "id": "brf", "label": "Bostadsrätt", "pct": 21 },
@@ -9,7 +15,7 @@
   "queue": {
     "registered": 894592,
     "avgYears": 9.0,
-    "innerCityYears": 21,
+    "stockholmCityYears": 12.4,
     "asOf": "31 dec 2025"
   },
   "youngAdults": {

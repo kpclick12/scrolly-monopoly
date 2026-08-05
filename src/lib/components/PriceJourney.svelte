@@ -33,7 +33,7 @@
     step === 1
       ? [{ from: 2014, to: 2021, label: "Nollränta och minusränta" }]
       : step >= 2
-        ? [{ from: 2021.6, to: 2023.6, label: "Räntechocken: −15 %" }]
+        ? [{ from: 2021.6, to: 2023.6, label: "Räntechocken: ≈−11 %" }]
         : []
   );
 </script>
@@ -50,7 +50,7 @@
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
-    aria-label="Två paneler med samma tidsaxel 1996 till 2025. Övre: prisindex där bostadsrätter når 889 och villor 466, med en topp 2021–22 och en svacka på cirka 15 procent. Undre: styrräntan, från cirka 4 procent på 1990-talet ner till minusränta 2015–2019, upp till 4 procent 2023 och ner till 1,75 procent."
+    aria-label="Två paneler med samma tidsaxel 1996 till 2025. Övre: en sekundär uppskattning för bostadsrätter når index 889 och SCB:s villaindex når 512, med en svacka på cirka 11 procent i bostadsrättsserien från toppen till 2023. Undre: styrräntan, från cirka 4 procent på 1990-talet ner till minusränta 2015–2019, upp till 4 procent 2023 och ner till 1,75 procent."
   >
     <!-- price panel -->
     {#each [100, 300, 500, 700, 900] as tick}
@@ -87,8 +87,8 @@
     {/each}
   </svg>
   <p class="legend">
-    Ungefärliga årsvärden, förankrade i publicerade totaler (+789 % för bostadsrätter,
-    +366 % för villor 1996–2025). Styrräntan: Riksbanken.
+    Villor: SCB FASTPI, årsdata (+412 % 1996–2025). Bostadsrätter: ungefärlig
+    sekundär sammanställning från Ekonomifokus (+789 %), inte en SCB-serie. Styrränta: Riksbanken.
   </p>
 </figure>
 

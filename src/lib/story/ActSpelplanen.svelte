@@ -19,7 +19,7 @@
     <p class="act-kicker">Akt ett</p>
     <h2>Spelplanen</h2>
     <p class="act-dek">
-      Svenska Monopol kom ut 1937 och är en prisstege genom Stockholm, från
+      Det första svenska Monopol kom vid årsskiftet 1936/37 och är en prisstege genom Stockholm, från
       Gamla stan och Söder upp till paradgatorna. Stegen finns kvar. Priserna
       har sedan dess spelat ett helt eget parti.
     </p>
@@ -38,7 +38,7 @@
     {/snippet}
 
     <section class="scrolly-step">
-      <p class="kicker">1937</p>
+      <p class="kicker">1936/37</p>
       <h3>Hornsgatan kostade 1 000 kronor</h3>
       <p>
         Brädet är en klasskarta över Stockholm. En anställd på Åhlén &amp;
@@ -60,14 +60,15 @@
       <p class="kicker">2026</p>
       <h3>Spelplanen har förändrats</h3>
       <p>
-        Samma gator, dagens priser. Nu stämmer ingenting. Söder är inte längre
-        botten: en kvadratmeter på <strong>Hornsgatan går för runt
-        95&nbsp;000&nbsp;kronor</strong>, ungefär vad du betalar på "fina"
+        Samma gator, illustrerade med dagens områdesnivåer. Söder är inte längre
+        botten: nivån kring <strong>Hornsgatan ligger i den här jämförelsen runt
+        95&nbsp;000&nbsp;kronor per kvadratmeter</strong>, ungefär som kring
         Drottninggatan. Hela stegen har tryckts ihop uppåt.
       </p>
       <p>
-        1937 skilde det åtta gånger mellan billigast och dyrast. Idag inte ens
-        dubbelt. Det finns ingen billig gata kvar att börja på.
+        På det tidiga brädet skilde det åtta gånger mellan billigast och dyrast.
+        I de illustrativa områdesnivåerna är spridningen betydligt mindre. Det
+        är en jämförelse av områden, inte uppmätta priser på varje enskild gata.
       </p>
     </section>
 
@@ -92,13 +93,13 @@
 
     <section class="scrolly-step">
       <p class="kicker">Resten av brädet</p>
-      <h3>Ett Monopol, tre olika spel</h3>
+      <h3>Ett land, flera prisnivåer</h3>
       <p>
-        Byt stad och siffrorna byter storlek. Dyrast i Göteborg är
-        <strong>Lodjursstråket i Hovås</strong>, ungefär halva Strandvägen.
-        Malmös <strong>Vikingagatan i Limhamn</strong> ligger lägre än så. Och
-        utanför storstäderna toppar en gata som inte ens ligger i en stad:
-        <strong>Årevägen</strong> i fjällen.
+        Jämför länens topplaceringar under samma tolvmånadersperiod. I Västra
+        Götalands län toppar <strong>Kjellmansgatan i Göteborg</strong> med
+        89&nbsp;689 kr/kvm. I Skåne toppar <strong>Kattviksvägen i Båstad</strong>
+        med 87&nbsp;854, och i Kronoberg <strong>Kungsgatan i Växjö</strong>
+        med 34&nbsp;691.
       </p>
       <p>
         Samma land, samma regler, tre helt olika partier.
@@ -110,8 +111,8 @@
       <h3>Tre gånger dyrare än Malmö</h3>
       <p>
         Skillnaden syns långt utanför paradgatorna. En central kvadratmeter i
-        Stockholm kostar omkring <strong>119&nbsp;000 kronor</strong>. Det är
-        1,7 gånger Göteborg och tre gånger Malmö.
+        Stockholm kostar <strong>119&nbsp;380 kronor</strong> i mars 2026. Det är
+        1,7 gånger Göteborg och 3,0 gånger Malmö under samma månad.
       </p>
       <p>
         Var du föddes och när du köpte avgör vilken ruta du börjar på. Nästa

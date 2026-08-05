@@ -4,8 +4,7 @@
   // The tax squares of the Swedish game, in four frames:
   //   stamps — the three property-adjacent taxes Sweden abolished, drawn as
   //            board squares with an AVSKAFFAD rubber stamp
-  //   cap    — the flat-fee punchline: a 20-million villa and a 1.5-million
-  //            villa pay the same 10 074 kr
+  //   cap    — two tax assessment values above the cap threshold
   //   gdp    — property taxes as share of GDP, Sweden vs EU-15
   //   chance — ränteavdraget as the Chans card it effectively is
   let { data, view = "stamps" } = $props();
@@ -35,33 +34,33 @@
     </p>
   {:else if view === "cap"}
     <div class="cap">
-      <svg viewBox="0 0 {W} 280" role="img" aria-label="Två villor: en värd 20 miljoner och en värd 1,5 miljoner. Båda betalar samma kommunala fastighetsavgift, 10 074 kronor per år.">
+      <svg viewBox="0 0 {W} 280" role="img" aria-label="Två villor med taxeringsvärden på 20 miljoner respektive 1,5 miljoner kronor. Båda betalar samma kommunala fastighetsavgift, {fmtKr(data.avgift.capKr)} kronor per år.">
         <!-- stor villa -->
         <g transform="translate(120 150)">
           <rect x="-72" y="-52" width="144" height="92" rx="4" class="house big" />
           <path d="M -84 -52 L 0 -118 L 84 -52 Z" class="roof big" />
           <rect x="-14" y="0" width="28" height="40" rx="2" class="door" />
-          <text class="hval" x="0" y="66" text-anchor="middle">Villa, 20 Mkr</text>
-          <text class="hfee" x="0" y="92" text-anchor="middle">10 074 kr/år</text>
+          <text class="hval" x="0" y="66" text-anchor="middle">Taxeringsvärde 20 Mkr</text>
+          <text class="hfee" x="0" y="92" text-anchor="middle">{fmtKr(data.avgift.capKr)} kr/år</text>
         </g>
         <!-- liten villa -->
         <g transform="translate(408 150)">
           <rect x="-34" y="-16" width="68" height="56" rx="3" class="house small" />
           <path d="M -42 -16 L 0 -50 L 42 -16 Z" class="roof small" />
           <rect x="-8" y="16" width="16" height="24" rx="2" class="door" />
-          <text class="hval" x="0" y="66" text-anchor="middle">Villa, 1,5 Mkr</text>
-          <text class="hfee" x="0" y="92" text-anchor="middle">10 074 kr/år</text>
+          <text class="hval" x="0" y="66" text-anchor="middle">Taxeringsvärde 1,5 Mkr</text>
+          <text class="hfee" x="0" y="92" text-anchor="middle">{fmtKr(data.avgift.capKr)} kr/år</text>
         </g>
         <text class="eq" x="264" y="140" text-anchor="middle">=</text>
       </svg>
       <p class="legend">
         Avgiften är 0,75 % av taxeringsvärdet — men aldrig mer än {fmtKr(data.avgift.capKr)} kr
-        ({data.avgift.capYear}). Ovanför taket spelar husets värde ingen roll.
+        ({data.avgift.capYear}). Ovanför taket påverkar taxeringsvärdet inte avgiften.
       </p>
     </div>
   {:else if view === "gdp"}
-    <p class="cap">Egendomsskatter som andel av BNP</p>
-    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Stapeldiagram: egendomsskatter som andel av BNP — Sverige cirka 1 procent, EU-15 cirka 2,3 procent.">
+    <p class="cap">Skatter på egendom, 2022 — andel av BNP</p>
+    <svg viewBox="0 0 {W} {H}" role="img" aria-label="Stapeldiagram: skatter på egendom som andel av BNP 2022 — Sverige 0,9 procent, EU-15 i genomsnitt cirka 2,1 procent.">
       {#each [0, 1, 2] as tick}
         <line class="grid" x1="70" x2={W - 24} y1={y(tick)} y2={y(tick)} />
         <text class="tick" x="62" y={y(tick) + 4} text-anchor="end">{tick} %</text>
@@ -84,21 +83,21 @@
       <line class="axis" x1="70" x2={W - 24} y1={y(0)} y2={y(0)} />
     </svg>
     <p class="legend">
-      Ungefärliga nivåer. LO- och SNS-sammanställningar av OECD-data, publicerade
-      omkring 2020. Det här är sidans minst exakt daterade siffra — nivåskillnaden
-      är väl belagd, men mätåret är det inte.
+      OECD Revenue Statistics 2024, data för 2022. EU-15 är ett oviktat snitt
+      beräknat från landtabellen. Kategorien är bred och omfattar bland annat
+      löpande fastighetsskatt, arv/förmögenhet och transaktionsskatter.
     </p>
   {:else}
     <div class="chance">
       <p class="chance-head">CHANS</p>
       <p class="chance-q">?</p>
       <p class="chance-body">
-        Banken betalar tillbaka <strong>{data.ranteavdrag.pct} %</strong> av din ränta.
+        Staten minskar din skatt med upp till <strong>{data.ranteavdrag.pct} %</strong> av ränteutgiften.
       </p>
-      <p class="chance-sub">Gäller alla spelare, varje år, hur stort lånet än är.*</p>
+      <p class="chance-sub">Gäller lån med godkänd säkerhet och förutsätter tillräcklig skatt att reducera.*</p>
       <p class="chance-fine">
-        *Ränteavdraget, regler {data.avgift.capYear}: 30 % upp till 100 000 kr per år,
-        21 % därutöver.
+        *Regler {data.avgift.capYear}: 30 % på kapitalunderskott upp till 100 000 kr,
+        21 % på den del som ligger över gränsen.
       </p>
     </div>
   {/if}

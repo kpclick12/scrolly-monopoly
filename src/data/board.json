@@ -1,7 +1,6 @@
 {
-  "note": "The early Swedish Monopol board (Stockholm streets, Åhlén & Åkerlunds förlag, late 1930s — catalogued at Nordiska museet / DigitaltMuseum, id 021028370534). boardPrice = the printed purchase price in spel-kronor, read directly off that board (KR.1000–KR.8000). realToday = approximate price per square meter (kr/kvm) for bostadsrätter on/around that street, rounded area-level figures consistent with Svensk Mäklarstatistik / Fastighetsbyrån reporting for apr 2025–mar 2026. Strandvägen's figure is the exact published number (Sveriges dyraste gata). Real-price figures are approximations for storytelling, not listings data.",
+  "note": "The early Swedish Monopol board with Stockholm streets, issued around the turn of 1936/37 by Åhlén & Åkerlunds förlag (Nordiska museet / DigitaltMuseum, id 021028370534). boardPrice is the printed purchase price in game currency, read from that board (KR.1000–KR.8000). realToday is an illustrative, rounded apartment-area level around each street, not an observed street price. Strandvägen is the exception: its 168,360 kr/kvm is the published street-level result for sales April 2025–March 2026. The area estimates are used only to show the changed ordering and must not be read as a comparable street-price dataset.",
   "tagline": "Spelet där du gör snabba fastighetsaffärer",
-  "gaBonus": 1000,
   "groups": [
     { "id": "brown", "name": "Bruna", "color": "--grp-brown", "boardPrice": 1000, "street": "Hornsgatan", "second": "Västerlånggatan", "area": "Södermalm / Gamla stan", "realToday": 95000 },
     { "id": "lightblue", "name": "Ljusblå", "color": "--grp-lightblue", "boardPrice": 2000, "street": "Götgatan", "second": "Folkungag. · Ringvägen", "area": "Södermalm", "realToday": 98000 },

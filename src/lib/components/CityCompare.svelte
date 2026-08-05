@@ -1,9 +1,8 @@
 <script>
   import { scaleBand, scaleLinear } from "d3-scale";
 
-  // Stockholm vs Göteborg vs Malmö vs riket — one measure at a time (never a
-  // dual axis): either each city's dearest street, or the central-average
-  // kr/kvm. Four fixed categorical hues, one per city, direct-labeled.
+  // Two comparisons with matching definitions and vintages: selected county
+  // leaders (Apr 2025–Mar 2026), or central-city averages (March 2026).
   let { data, view = "dearest" } = $props();
 
   const W = 600;
@@ -13,42 +12,46 @@
   const cityColor = {
     sthlm: "var(--series-blue)",
     gbg: "var(--series-red)",
+    bastad: "var(--series-amber)",
+    vaxjo: "var(--series-green)",
     malmo: "var(--series-amber)",
     riket: "var(--series-green)",
   };
   const inkColor = {
     sthlm: "var(--ink-blue)",
     gbg: "var(--ink-red)",
+    bastad: "var(--ink-amber)",
+    vaxjo: "var(--ink-green)",
     malmo: "var(--ink-amber)",
     riket: "var(--ink-green)",
   };
 
-  const cities = $derived(data.cities);
-  const x = $derived(scaleBand(cities.map((c) => c.id), [M.left, W - M.right]).padding(0.32));
+  const rows = $derived(view === "dearest" ? data.dearestByCounty : data.central);
+  const x = $derived(scaleBand(rows.map((c) => c.id), [M.left, W - M.right]).padding(0.32));
   const y = $derived(scaleLinear([0, 175000], [H - M.bottom, M.top]));
-  const val = (c) => (view === "dearest" ? c.dearestKvm : c.central);
+  const val = (c) => c.kvm;
   const fmtKr = (n) => n.toLocaleString("sv-SE");
 </script>
 
 <figure class="chart">
   <figcaption>
     {view === "dearest"
-      ? "Dyraste gatan i varje stad — kr/kvm, sålda bostäder apr 2025–mar 2026"
-      : "Snittpris i centrala staden — kr/kvm, bostadsrätter, början av 2026 (ungefärligt)"}
+      ? "Exempel på länens dyraste gator — kr/kvm, apr 2025–mar 2026"
+      : "Snittpris — kr/kvm, bostadsrätter, mars 2026"}
   </figcaption>
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
     aria-label={view === "dearest"
-      ? "Stapeldiagram över dyraste gatan per stad: Strandvägen i Stockholm 168 360 kr/kvm, Lodjursstråket i Göteborg 82 432, Vikingagatan i Malmö 75 572 och Årevägen i Åre 83 436."
-      : "Stapeldiagram över centrala snittpriser: Stockholm cirka 119 000 kr/kvm, Göteborg 69 000, Malmö 40 000 och riket 46 000."}
+      ? "Stapeldiagram med exempel på länstoppar: Strandvägen i Stockholm 168 360 kronor per kvadratmeter, Kjellmansgatan i Göteborg 89 689, Kattviksvägen i Båstad 87 854 och Kungsgatan i Växjö 34 691."
+      : "Stapeldiagram över snittpriser i mars 2026: centrala Stockholm 119 380 kronor per kvadratmeter, centrala Göteborg 69 159, centrala Malmö 40 157 och riket 49 089."}
   >
     {#each [0, 50000, 100000, 150000] as tick}
       <line class="grid" x1={M.left} x2={W - M.right} y1={y(tick)} y2={y(tick)} />
       <text class="tick" x={M.left - 8} y={y(tick) + 4} text-anchor="end">{tick / 1000}{tick ? " tkr" : ""}</text>
     {/each}
 
-    {#each cities as c (c.id)}
+    {#each rows as c (c.id)}
       <rect
         class="bar"
         x={x(c.id)}
@@ -58,13 +61,13 @@
         rx="4"
         style="fill: {cityColor[c.id]};"
       >
-        <title>{c.name} — {view === "dearest" ? `${c.dearestStreet}: ${fmtKr(c.dearestKvm)} kr/kvm` : `centralt snitt ≈${fmtKr(c.central)} kr/kvm`}</title>
+        <title>{c.name} — {view === "dearest" ? `${c.street}: ${fmtKr(c.kvm)} kr/kvm` : `snitt ${fmtKr(c.kvm)} kr/kvm`}</title>
       </rect>
       <text class="value" x={x(c.id) + x.bandwidth() / 2} y={y(val(c)) - 22} text-anchor="middle" style="fill: {inkColor[c.id]};">
-        {view === "dearest" ? fmtKr(c.dearestKvm) : `≈${fmtKr(val(c))}`}
+        {fmtKr(val(c))}
       </text>
       <text class="value-sub" x={x(c.id) + x.bandwidth() / 2} y={y(val(c)) - 8} text-anchor="middle">
-        {view === "dearest" ? c.dearestStreet : "kr/kvm"}
+        {view === "dearest" ? c.street : "kr/kvm"}
       </text>
       <text class="tick city" x={x(c.id) + x.bandwidth() / 2} y={H - M.bottom + 22} text-anchor="middle">
         {c.name}
@@ -74,8 +77,8 @@
   </svg>
   <p class="legend">
     {view === "dearest"
-      ? "Gator med färre än fem försäljningar räknas inte. Hela topp-10-listan ligger i Stockholm; utanför storstäderna toppar Årevägen i Åre."
-      : "Ungefärliga, avrundade nivåer. Centrala Stockholm kostar ~1,7× centrala Göteborg och ~3× centrala Malmö."}
+      ? "Varje stapel är en länstopp, inte en nationell topplista. Minst fem försäljningar krävs. Fastighetsbyrån/Svensk Mäklarstatistik."
+      : "Samma mätmånad och bostadstyp. Centrala Stockholm ligger 1,7× centrala Göteborg och 3,0× centrala Malmö."}
   </p>
 </figure>
 

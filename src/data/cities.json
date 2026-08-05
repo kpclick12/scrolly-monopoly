@@ -1,11 +1,16 @@
 {
-  "note": "Approximate price levels, rounded. central = average kr/kvm for bostadsrätter in the central parts of each city (Svensk Mäklarstatistik-based reporting, early 2026). dearestStreet = the city's most expensive street, kr/kvm, sales apr 2025–mar 2026 (Fastighetsbyrån / Svensk Mäklarstatistik; streets with <5 sales excluded). riket = whole-country average for bostadsrätter, approximate.",
-  "cities": [
-    { "id": "sthlm", "name": "Stockholm", "central": 119000, "dearestStreet": "Strandvägen", "dearestKvm": 168360 },
-    { "id": "gbg", "name": "Göteborg", "central": 69000, "dearestStreet": "Lodjursstråket", "dearestKvm": 82432 },
-    { "id": "malmo", "name": "Malmö", "central": 40000, "dearestStreet": "Vikingagatan (Limhamn)", "dearestKvm": 75572 },
-    { "id": "riket", "name": "Riket (snitt)", "central": 46000, "dearestStreet": "Årevägen, Åre", "dearestKvm": 83436 }
+  "note": "Two separate, consistently dated comparisons. dearestByCounty contains examples of the highest-priced street in selected counties, based on apartment sales April 2025–March 2026 (Fastighetsbyrån / Svensk Mäklarstatistik; at least five sales). central contains March 2026 average kr/kvm for apartments in the three central-city areas and Sweden as a whole (Svensk Mäklarstatistik).",
+  "dearestByCounty": [
+    { "id": "sthlm", "name": "Stockholm", "region": "Stockholms län", "street": "Strandvägen", "kvm": 168360 },
+    { "id": "gbg", "name": "Göteborg", "region": "Västra Götalands län", "street": "Kjellmansgatan", "kvm": 89689 },
+    { "id": "bastad", "name": "Båstad", "region": "Skåne län", "street": "Kattviksvägen", "kvm": 87854 },
+    { "id": "vaxjo", "name": "Växjö", "region": "Kronobergs län", "street": "Kungsgatan", "kvm": 34691 }
   ],
-  "topTenAllStockholm": true,
-  "dearestOutsideStockholm": { "street": "Årevägen", "city": "Åre", "kvm": 83436 }
+  "central": [
+    { "id": "sthlm", "name": "Stockholm", "kvm": 119380 },
+    { "id": "gbg", "name": "Göteborg", "kvm": 69159 },
+    { "id": "malmo", "name": "Malmö", "kvm": 40157 },
+    { "id": "riket", "name": "Riket", "kvm": 49089 }
+  ],
+  "topTenAllStockholm": true
 }

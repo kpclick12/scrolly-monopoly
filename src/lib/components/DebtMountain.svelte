@@ -58,8 +58,8 @@
 
     {#if step >= 2}
       <circle class="dot" cx={x(peak.year)} cy={y(peak.pct)} r="5" />
-      <text class="peak-lbl" x={x(peak.year)} y={y(peak.pct) - 26} text-anchor="end">Toppen {peak.year}:</text>
-      <text class="peak-lbl strong" x={x(peak.year)} y={y(peak.pct) - 11} text-anchor="end">≈{peak.pct} %</text>
+      <text class="peak-lbl" x={x(peak.year) - 7} y={y(peak.pct) + 25} text-anchor="end">Toppen {peak.year}:</text>
+      <text class="peak-lbl strong" x={x(peak.year) - 7} y={y(peak.pct) + 41} text-anchor="end">≈{peak.pct} %</text>
       <text class="peak-lbl" x={x(last.year) - 4} y={y(last.pct) + 22} text-anchor="end">{last.year}: ≈{last.pct} %</text>
     {/if}
 
@@ -67,10 +67,10 @@
       {@const lift = f.year === 2018 ? 56 : 26}
       {@const fy = y(pctAt(Math.min(f.year, 2025))) - 14}
       <g class="flag" class:ease={f.dir === "lättnad"}>
-        <line x1={x(Math.min(f.year, 2025.6))} x2={x(Math.min(f.year, 2025.6))} y1={fy + 14} y2={fy - lift} />
-        <circle cx={x(Math.min(f.year, 2025.6))} cy={fy - lift - 4} r="4" />
+        <line x1={x(f.year)} x2={x(f.year)} y1={fy + 14} y2={fy - lift} />
+        <circle cx={x(f.year)} cy={fy - lift - 4} r="4" />
         <text
-          x={x(Math.min(f.year, 2025.6)) + (f.year >= 2016 ? -8 : 8)}
+          x={x(f.year) + (f.year >= 2016 ? -8 : 8)}
           y={fy - lift - 12}
           text-anchor={f.year >= 2016 ? "end" : "start"}
         >{f.label}</text>
@@ -79,7 +79,8 @@
     <line class="axis" x1={M.left} x2={W - M.right} y1={H - M.bottom} y2={H - M.bottom} />
   </svg>
   <p class="legend">
-    Ungefärliga årsvärden (SCB, Riksbanken, SEB). I kronor: {(data.totalDebtMdkr).toLocaleString("sv-SE")} miljarder
+    Ungefärliga årsvärden (SCB, Riksbanken, SEB). 2026-markören ligger efter
+    seriens sista observation 2025. I kronor: {(data.totalDebtMdkr).toLocaleString("sv-SE")} miljarder
     i skulder första kvartalet 2026, varav {data.mortgageShare} är bolån.
   </p>
 </figure>

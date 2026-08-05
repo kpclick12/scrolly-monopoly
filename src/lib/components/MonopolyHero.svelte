@@ -18,7 +18,7 @@
   let { groups = [] } = $props();
 
   let wrap;
-  let canvas;
+  let canvas = $state();
   let cardEls = [];
   let chipEls = [];
   let webglFailed = $state(false);
@@ -203,7 +203,7 @@
     cardPile("#e2882a", "?", 2.1, -2.1, Math.PI / 4);
     cardPile("#9ecbe8", "?", -2.1, 2.1, Math.PI / 4);
 
-    // --- The 40 squares of the 1937 board, with the real street names and
+    // --- The 40 squares of the early 1936/37 board, with the real street names and
     // prices printed on them — read off the Åhlén & Åkerlunds board in
     // Nordiska museets samling. Each side runs from the leading corner:
     // bottom (right→left), left (bottom→top), top (left→right), right
@@ -415,7 +415,7 @@
       g.fill();
       g.fillStyle = INK;
       g.font = "700 21px Georgia, serif";
-      g.fillText("AVLÖNING KR.1000", 0, -70);
+      g.fillText("AVLÖNING", 0, -70);
       g.fillText("NÄR NI PASSERAR", 0, -44);
       g.restore();
     }, B - CORNER / 2, B - CORNER / 2);

@@ -1,8 +1,8 @@
 <script>
   import { scaleBand, scaleLinear } from "d3-scale";
 
-  // The board's own price ladder (60 → 400 spel-kronor), morphing into the
-  // same streets' REAL price per m² today. Same rows, same colors — only the
+  // The early board's own price ladder, morphing into illustrative current
+  // area levels around the same streets. Same rows, same colors — only the
   // scale changes, which is the whole point: on the board the dearest group
   // costs 6.7× the cheapest; in 2026 the whole city has compressed into
   // luxury. Group colors are identity (the board's own), and every bar
@@ -26,15 +26,15 @@
 <figure class="chart">
   <figcaption>
     {mode === "board"
-      ? "Spelplanens prisstege — köpesumma i spel-kronor (svenska Monopol, 1937)"
-      : "Samma gator idag — ungefärligt kvadratmeterpris, kr/kvm (2026)"}
+      ? "Spelplanens prisstege — köpesumma i spel-kronor (svenska Monopol, 1936/37)"
+      : "Områdesnivåer kring samma gator — illustrativt, kr/kvm (2026)"}
   </figcaption>
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
     aria-label={mode === "board"
       ? "Liggande stapeldiagram: Monopolbrädets åtta färggrupper från Hornsgatan 1 000 kronor till Norrmalmstorg 8 000 kronor."
-      : "Liggande stapeldiagram: samma gator med dagens kvadratmeterpriser, från cirka 95 000 kr/kvm på Hornsgatan till 168 360 kr/kvm på Strandvägen."}
+      : "Liggande stapeldiagram med illustrativa områdesnivåer kring brädets gator, från cirka 95 000 kr/kvm kring Hornsgatan till det uppmätta gatpriset 168 360 kr/kvm på Strandvägen."}
   >
     {#each ticks as tick}
       <line class="grid" x1={x(tick)} x2={x(tick)} y1={M.top - 6} y2={H - M.bottom} />
@@ -80,8 +80,8 @@
   </svg>
   <p class="legend">
     {mode === "board"
-      ? "Brädet kom ut 1937: Gamla stans och Söders gator billigast, paradgatorna dyrast."
-      : "Områdesnivåer, avrundade (Svensk Mäklarstatistik apr 2025–mar 2026). Strandvägen är exakt: 168 360 kr/kvm."}
+      ? "Den första svenska utgåvan kom vid årsskiftet 1936/37: Gamla stans och Söders gator billigast, paradgatorna dyrast."
+      : "Illustrativa områdesnivåer, inte observerade gatpriser. Strandvägen är undantaget: 168 360 kr/kvm i försäljningar apr 2025–mar 2026."}
   </p>
 </figure>
 

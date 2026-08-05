@@ -1,5 +1,5 @@
 {
-  "note": "Household debt as % of disposable income (skuldkvot), approximate yearly values consistent with SCB / Riksbanken / SEB reporting: from ~90 % in the mid-1990s to a peak of ~200 % in late 2021, down to ~173 % in 2025. totalDebt = total household debt, mdkr, Q1 2026 (SCB financial accounts via SEB). Regulation timeline: bolånetak 85 % (2010), amorteringskrav (2016), skärpt amorteringskrav (2018), and the April 2026 easing (tak 90 %, skärpning slopad, max amortering 2 %/år).",
+  "note": "Household debt as % of disposable income (skuldkvot), approximate yearly values consistent with SCB / Riksbanken / SEB reporting: from ~90 % in the mid-1990s to a peak of ~200 % in late 2021, down to ~173 % in 2025. Total debt excluding accruals is 5,530.49 bn SEK in Q1 2026 (SCB financial accounts), about 83 % of 2025 GDP. Regulation timeline: mortgage cap 85 % (2010), amortisation requirement (2016), enhanced requirement (2018), and April 2026 changes. For a new purchase the cap is 90 %; later top-up loans are capped at 80 %. The enhanced income-based requirement is removed while the base requirement remains up to 2 %/yr depending on loan-to-value.",
   "ratio": [
     { "year": 1996, "pct": 90 },
     { "year": 2000, "pct": 100 },

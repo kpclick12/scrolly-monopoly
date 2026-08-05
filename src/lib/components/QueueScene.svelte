@@ -1,11 +1,8 @@
 <script>
   import { scaleLinear } from "d3-scale";
 
-  // Stockholms bostadskö, drawn as what it actually is: one single-file
-  // line toward one green door, where your place in the line is measured
-  // in YEARS. The queue and the time axis are the same thing — distance
-  // from the door = waiting time. Two queuers are picked out: the average
-  // wait (blue) and the inner-city wait (red), labeled directly.
+  // Average queue times for homes actually allocated in 2025. They do not
+  // measure how long today's average registered person has left to wait.
   let { data } = $props();
 
   const W = 620;
@@ -13,29 +10,29 @@
   const q = $derived(data.queue);
   const fmt = (n) => n.toLocaleString("sv-SE");
 
-  // Years → x. The door stands at year 0; the line stretches to 22+ years.
+  // Years → x. The markers are observed averages for allocated homes.
   const X0 = 118;
   const X1 = 578;
-  const x = scaleLinear([0, 22], [X0, X1]);
+  const x = scaleLinear([0, 14], [X0, X1]);
   const QY = 168; // the queue's baseline
 
   // One pawn every ~7 months of waiting keeps the line dense enough to
   // read as a crowd but never as noise. The two highlighted years get
   // their pawn drawn separately, bigger.
-  const AVG = 9;
-  const INNER = 21;
-  const pawns = Array.from({ length: 37 }, (_, i) => {
-    const yr = 0.35 + (i * 22) / 37;
+  const AVG = $derived(q.avgYears);
+  const CITY = $derived(q.stockholmCityYears);
+  const pawns = $derived(Array.from({ length: 31 }, (_, i) => {
+    const yr = 0.25 + (i * 14) / 31;
     return { id: i, yr, x: x(yr) };
-  }).filter((p) => Math.abs(p.yr - AVG) > 0.42 && Math.abs(p.yr - INNER) > 0.42);
+  }).filter((p) => Math.abs(p.yr - AVG) > 0.32 && Math.abs(p.yr - CITY) > 0.32));
 </script>
 
 <figure class="chart">
-  <figcaption>Bostadskön i Stockholm — avståndet till dörren mäts i år</figcaption>
+  <figcaption>Kötid för vanliga hyresrätter som förmedlades under 2025</figcaption>
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
-    aria-label="En enda kö av spelpjäser leder till en grön dörr märkt hyreskontrakt. Kön är samtidigt en tidsaxel: den genomsnittliga köaren står nio år från dörren, innerstadsköaren cirka 21 år bort. 894 592 personer stod i kön vid årsskiftet 2025/26."
+    aria-label="Tidsaxel för vanliga hyresrätter som förmedlades under 2025: den genomsnittliga kötiden var 9 år och i Stockholms kommun 12,4 år. 894 592 personer var registrerade den 31 december 2025."
   >
     <!-- the door: one rental contract, at year zero -->
     <g transform="translate(64 {QY - 22})">
@@ -58,22 +55,22 @@
       <line y1="-58" y2="-30" />
       <circle cx="0" cy="-19.5" r="6" class="head" />
       <path d="M -7.4 0 C -7.4 -12.5 7.4 -12.5 7.4 0 Z" class="body" />
-      <text y="-80" text-anchor="middle">Snittköaren</text>
-      <text class="strong" y="-64" text-anchor="middle">9 år kvar</text>
+      <text y="-96" text-anchor="middle">Alla förmedlade</text>
+      <text class="strong" y="-80" text-anchor="middle">9,0 års kötid</text>
     </g>
 
-    <!-- the inner-city queuer -->
-    <g class="mark inner" transform="translate({x(INNER)} {QY})">
-      <line y1="-58" y2="-30" />
+    <!-- Stockholm municipality -->
+    <g class="mark inner" transform="translate({x(CITY)} {QY})">
+      <line y1="-36" y2="-30" />
       <circle cx="0" cy="-19.5" r="6" class="head" />
       <path d="M -7.4 0 C -7.4 -12.5 7.4 -12.5 7.4 0 Z" class="body" />
-      <text y="-80" text-anchor="end" x="8">Kön till innerstan</text>
-      <text class="strong" y="-64" text-anchor="end" x="8">≈21 år kvar</text>
+      <text y="-58" text-anchor="end" x="8">Stockholms kommun</text>
+      <text class="strong" y="-42" text-anchor="end" x="8">12,4 års kötid</text>
     </g>
 
     <!-- year axis = the floor the queue stands on -->
     <line class="axis" x1={X0 - 26} x2={X1 + 14} y1={QY + 2} y2={QY + 2} />
-    {#each [0, 5, 10, 15, 20] as yr}
+    {#each [0, 3, 6, 9, 12] as yr}
       <line class="rt" x1={x(yr)} x2={x(yr)} y1={QY + 2} y2={QY + 9} />
       <text class="rt-lbl" x={x(yr)} y={QY + 26} text-anchor="middle">{yr} år</text>
     {/each}
@@ -83,9 +80,9 @@
     <text class="big-sub" x={X0 - 26} y={QY + 100}>— fler än det bor i hela Göteborg</text>
   </svg>
   <p class="legend">
-    Bostadsförmedlingen i Stockholm: genomsnittlig kötid för en vanlig hyresrätt under
-    2025 var 9 år, för innerstadens lägenheter drygt 20. Kön leder till ett hyreskontrakt —
-    inte till en egen ruta på brädet.
+    Bostadsförmedlingen i Stockholm: vanliga hyresrätter som förmedlades under 2025
+    krävde i genomsnitt 9,0 års kötid; i Stockholms kommun var snittet 12,4 år.
+    Det är utfall för förmedlade bostäder, inte återstående väntetid för den som står i kön.
   </p>
 </figure>
 

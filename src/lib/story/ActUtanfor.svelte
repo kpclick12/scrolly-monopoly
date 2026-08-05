@@ -7,12 +7,11 @@
   let { data } = $props();
   let currentStep = $state(0);
 
-  const ya = data.outside.youngAdults;
   const tiles = [
     { num: "204 000", label: "unga vuxna mellan 20 och 27 år bor kvar hemma hos föräldrarna, 21 procent av alla (2025)", accent: "var(--series-red)" },
-    { num: "9 av 10", label: "av dem bor kvar ofrivilligt (2025). Så hög har andelen aldrig varit", accent: "var(--series-amber)" },
+    { num: "9 av 10", label: "av dem uppger i Hyresgästföreningens mätning 2025 att de bor kvar ofrivilligt", accent: "var(--series-amber)" },
     { num: "184 000", label: "vill flytta hemifrån men kan inte (2025)", accent: "var(--series-blue)" },
-    { num: "0 kr", label: "i startkapital delades ut i verkligheten. Den som inte kunde låna till kontantinsatsen hemma fick vänta", accent: "var(--series-green)" },
+    { num: "Olika start", label: "inkomst, sparande och familjehjälp påverkade vem som kunde köpa; Monopol-liknelsen är inte en statistisk mätning", accent: "var(--series-green)" },
   ];
 
   const waffleView = $derived(currentStep === 0 ? "all" : currentStep === 1 ? "split" : "rent");
@@ -65,17 +64,16 @@
 
     <section class="scrolly-step">
       <p class="kicker">Ägandet</p>
-      <h3>En tredjedel äger ingenting</h3>
+      <h3>Boendeformerna är fler än två</h3>
       <p>
-        Ungefär <strong>två tredjedelar</strong> av hushållen äger sitt boende.
-        Drygt vart tredje hyr. De betalar varje månad till någon som äger, men
-        äger ingenting själva.
+        SCB:s huvudkategorier visar att 38 procent bor i ägt småhus och 21
+        procent i bostadsrätt i flerbostadshus. 29 procent bor i hyresrätt i
+        flerbostadshus och 12 procent i andra boendeformer. Därför visar vi
+        inte statistiken som ett förenklat tvådelat äga–hyra-tal.
       </p>
       <p>
-        När bostadsrätterna steg 789 procent gick varenda krona av
-        värdestegringen till de <span class="badge badge-blue">blå</span>
-        rutorna. De <span class="badge badge-amber">gula</span> fick
-        hyreshöjningarna.
+        Den som hyr bygger inget eget bostadskapital genom hyran och fick inte
+        del av bostädernas prisuppgång på samma sätt som en ägare.
       </p>
     </section>
 
@@ -84,10 +82,9 @@
       <h3>Dyrast för den som har minst</h3>
       <p>
         Hyresgästerna lägger i snitt <strong>27 procent</strong> av sin
-        disponibla inkomst på boendet. Villaägaren, som har lägst
-        boendekostnad och trettio års värdestegring i ryggen, lägger 18. Det
-        beror inte på att hyrorna är högre. Det beror på att hyresgästerna
-        tjänar mindre.
+        disponibla inkomst på boendet. För ägt småhus är motsvarande medianandel
+        18 procent. Det jämför andelar av inkomsten, inte boendekostnader i kronor,
+        och skillnaden påverkas både av kostnader och av hushållens inkomster.
       </p>
       <div class="callout">
         <p class="callout-num">0 kr</p>
@@ -104,14 +101,14 @@
       <p>
         Alternativet till att köpa är att köa. Vid årsskiftet stod nästan
         <strong>900 000 personer</strong> i Stockholms bostadskö, fler än det
-        bor i hela Göteborg. Snittet är <strong>9 års</strong> väntan. Vill du
-        ha en lägenhet i innerstan får du räkna med drygt
-        <strong>20 år</strong>.
+        bor i hela Göteborg. De vanliga hyresrätter som förmedlades under 2025
+        hade i snitt <strong>9,0 års kötid</strong>; i Stockholms kommun var
+        genomsnittet <strong>12,4 år</strong>.
       </p>
       <p>
-        Tjugo år i kö, och då inte för att få köpa en ruta utan för att få
-        <em>hyra</em> en. Någon sådan regel finns inte i Monopol. Ingen hade
-        gått med på den.
+        Det är utfall för bostäder som faktiskt förmedlades, inte ett mått på
+        hur många år dagens genomsnittliga kömedlem har kvar. Kontraktet gäller
+        dessutom en hyresrätt, inte en ägd ruta.
       </p>
     </section>
 
@@ -121,9 +118,10 @@
       <p>
         Där kön och priserna möts uppstår ett väntrum.
         <strong>204 000 unga vuxna</strong> bor kvar hos sina föräldrar, nio av
-        tio ofrivilligt. Så hög har andelen aldrig varit. De sparar mot en
-        kontantinsats som växer fortare än sparandet, i en kö som mäts i
-        decennier.
+        tio ofrivilligt i Hyresgästföreningens mätning 2025. Organisationen
+        beskriver nivån som den högsta i sin mätserie, men metoden har ändrats
+        mellan upplagor. De sparar mot en kontantinsats som kan flytta sig med
+        priserna, samtidigt som kötiderna mäts i år.
       </p>
       <p>
         Det är den gruppen de nya lånereglerna från 2026 säger sig vilja hjälpa
