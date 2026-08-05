@@ -1,7 +1,7 @@
 <script>
   import { scaleLinear } from "d3-scale";
 
-  // The thirty wild years: price indices for bostadsrätter and villor
+  // The wild years: price indices for bostadsrätter and villor
   // (1996 = 100) in the main panel, and Riksbankens styrränta in its own
   // small panel below — two measures of different scale, so two charts
   // sharing one x-axis, never a dual axis.
@@ -15,17 +15,22 @@
   const GAP = 34; // between panels
 
   const years = $derived(data.years);
+  const brfYears = $derived(years.filter((d) => Number.isFinite(d.brf)));
+  const villaYears = $derived(years.filter((d) => Number.isFinite(d.villa)));
+  const rateYears = $derived(years.filter((d) => Number.isFinite(d.rate)));
   const x = $derived(scaleLinear([1996, 2025], [M.left, W - M.right]));
   const yP = $derived(scaleLinear([0, 950], [H1 - 10, M.top]));
   const yR = $derived(scaleLinear([-1, 4.5], [H - M.bottom, H1 + GAP]));
 
-  function line(key, yScale) {
-    return years.map((d, i) => `${i ? "L" : "M"}${x(d.year).toFixed(1)},${yScale(d[key]).toFixed(1)}`).join("");
+  function line(list, key, yScale) {
+    return list.map((d, i) => `${i ? "L" : "M"}${x(d.year).toFixed(1)},${yScale(d[key]).toFixed(1)}`).join("");
   }
-  const brfPath = $derived(line("brf", yP));
-  const villaPath = $derived(line("villa", yP));
-  const ratePath = $derived(line("rate", yR));
-  const last = $derived(years[years.length - 1]);
+  const brfPath = $derived(line(brfYears, "brf", yP));
+  const villaPath = $derived(line(villaYears, "villa", yP));
+  const ratePath = $derived(line(rateYears, "rate", yR));
+  const brfLast = $derived(brfYears[brfYears.length - 1]);
+  const villaLast = $derived(villaYears[villaYears.length - 1]);
+  const rateLast = $derived(rateYears[rateYears.length - 1]);
 
   // Which era the current step spotlights: 1 = the cheap-money years,
   // 2 = the rate shock.
@@ -33,14 +38,14 @@
     step === 1
       ? [{ from: 2014, to: 2021, label: "Nollränta och minusränta" }]
       : step >= 2
-        ? [{ from: 2021.6, to: 2023.6, label: "Räntechocken: ≈−11 %" }]
+        ? [{ from: 2021.6, to: 2023.6, label: "Ränteuppgången: ≈−11 %" }]
         : []
   );
 </script>
 
 <figure class="chart">
   <figcaption>
-    Bostadspriser (index, 1996 = 100) och styrräntan som eldade på dem, 1996–2025
+    Bostadspriser (index, 1996 = 100) och styrränta
   </figcaption>
   <p class="key" aria-hidden="true">
     <span><i class="sw sw-blue"></i>Bostadsrätter</span>
@@ -50,7 +55,7 @@
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
-    aria-label="Två paneler med samma tidsaxel 1996 till 2025. Övre: en sekundär uppskattning för bostadsrätter når index 889 och SCB:s villaindex når 512, med en svacka på cirka 11 procent i bostadsrättsserien från toppen till 2023. Undre: styrräntan, från cirka 4 procent på 1990-talet ner till minusränta 2015–2019, upp till 4 procent 2023 och ner till 1,75 procent."
+    aria-label="Två paneler med samma tidsaxel 1996 till 2025. Övre: det nationella genomsnittspriset per kvadratmeter för bostadsrätter når index 889 år 2024 och SCB:s villaindex når 512 år 2025, med en svacka på cirka 11 procent i bostadsrättsserien från toppen till 2023. Undre: styrräntan, från cirka 4 procent på 1990-talet ner till minusränta 2015–2019, upp till 4 procent 2023 och ner till 1,75 procent."
   >
     <!-- price panel -->
     {#each [100, 300, 500, 700, 900] as tick}
@@ -65,10 +70,10 @@
 
     <path class="traj brf" d={brfPath} />
     <path class="traj villa" d={villaPath} />
-    <circle class="dot brf-dot" cx={x(last.year)} cy={yP(last.brf)} r="4.5" />
-    <circle class="dot villa-dot" cx={x(last.year)} cy={yP(last.villa)} r="4.5" />
-    <text class="serie brf-ink" x={x(last.year) + 10} y={yP(last.brf) + 4}>+{data.totals.brfPct} %</text>
-    <text class="serie villa-ink" x={x(last.year) + 10} y={yP(last.villa) + 4}>+{data.totals.villaPct} %</text>
+    <circle class="dot brf-dot" cx={x(brfLast.year)} cy={yP(brfLast.brf)} r="4.5" />
+    <circle class="dot villa-dot" cx={x(villaLast.year)} cy={yP(villaLast.villa)} r="4.5" />
+    <text class="serie brf-ink" x={x(brfLast.year) + 10} y={yP(brfLast.brf) + 4}>+{data.totals.brfPct} %</text>
+    <text class="serie villa-ink" x={x(villaLast.year) + 10} y={yP(villaLast.villa) + 4}>+{data.totals.villaPct} %</text>
     <text class="serie brf-ink" x={x(2013)} y={yP(600)} text-anchor="end">Bostadsrätter</text>
     <text class="serie villa-ink" x={x(2016)} y={yP(300)} text-anchor="start">Villor</text>
 
@@ -80,15 +85,16 @@
     {/each}
     <line class="zero" x1={M.left} x2={W - M.right} y1={yR(0)} y2={yR(0)} />
     <path class="traj rate" d={ratePath} />
-    <text class="serie rate-ink" x={x(last.year) + 10} y={yR(last.rate) + 4}>{String(last.rate).replace(".", ",")} %</text>
+    <text class="serie rate-ink" x={x(rateLast.year) + 10} y={yR(rateLast.rate) + 4}>{String(rateLast.rate).replace(".", ",")} %</text>
 
     {#each [2000, 2010, 2020] as tick}
       <text class="tick" x={x(tick)} y={H - M.bottom + 18} text-anchor="middle">{tick}</text>
     {/each}
   </svg>
   <p class="legend">
-    Villor: SCB FASTPI, årsdata (+412 % 1996–2025). Bostadsrätter: ungefärlig
-    sekundär sammanställning från Ekonomifokus (+789 %), inte en SCB-serie. Styrränta: Riksbanken.
+    Villor: SCB FASTPI, årsdata (+412 % 1996–2025). Bostadsrätter: nationellt
+    genomsnittligt kr/kvm, Svensk Mäklarstatistik via Stockholms Handelskammare
+    (+789 % 1996–2024); mellanåren är ungefärliga. Styrränta: Riksbanken.
   </p>
 </figure>
 

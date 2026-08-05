@@ -17,9 +17,9 @@
     <p class="act-kicker">Akt fyra</p>
     <h2>Skatterutorna</h2>
     <p class="act-dek">
-      På brädet finns två rutor som ingen vill hamna på. Inkomstskatt, betala
-      4 000. Extra skatt, betala 2 000. I verkligheten gjorde vi tvärtom och
-      plockade bort dem.
+      På det tidiga brädet finns rutorna Inkomstskatt och Extra skatt. I den
+      här akten visas hur några svenska skatter på ägande har förändrats över
+      tid och hur den kommunala fastighetsavgiften är utformad i dag.
     </p>
   </div>
 
@@ -42,8 +42,8 @@
         politiskt laddad debatt om skatten.
       </p>
       <p>
-        Kvar blev bara en liten avgift. Och det är den avgiften som är
-        intressant.
+        För bostäder ersattes den statliga fastighetsskatten av en kommunal
+        fastighetsavgift med ett årligt tak.
       </p>
     </section>
 
@@ -60,16 +60,15 @@
       <div class="callout">
         <p class="callout-num">10 425 kr</p>
         <p class="callout-label">
-          är maxavgiften 2026. Ungefär en månadsavgift för en vanlig
-          bostadsrättstvåa, för att äga ett hus som får kosta hur mycket som
-          helst.
+          är högsta kommunala fastighetsavgiften för småhus under inkomståret
+          2026. Taket nås vid ett taxeringsvärde på 1,39 miljoner kronor.
         </p>
       </div>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Jämförelsen</p>
-      <h3>Bland de lägsta i västvärlden</h3>
+      <h3>Lägre än EU-15-snittet</h3>
       <p>
         I OECD:s breda kategori motsvarade Sveriges skatter på egendom
         <strong>0,9 procent av BNP</strong> 2022. Ett oviktat snitt för EU-15
@@ -77,28 +76,21 @@
         fastighetsavgiften och ska därför inte läsas som ett direkt mått på
         villaägarens skatt.
       </p>
-      <p>
-        OECD bedömer återkommande skatt på fast egendom som mindre skadlig för
-        tillväxt än många alternativ. Hur en sådan skatt bör utformas och
-        fördelas är däremot en politisk fråga. Den svenska avgiften har ett tak,
-        vilket gör den mindre proportionell ju högre taxeringsvärdet blir.
-      </p>
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">Chans-kortet</p>
-      <h3>Staten tar en del av räntekostnaden</h3>
+      <p class="kicker">Ränteavdraget</p>
+      <h3>Skattereduktion för kapitalunderskott</h3>
       <p>
-        Spelet ger inte bara rabatt på ägandet. Det subventionerar själva
-        lånandet. <strong>Ränteavdraget</strong> ger 30 procents skattereduktion
-        på kapitalunderskott upp till 100&nbsp;000 kronor per år och 21 procent
-        på den del som ligger över gränsen.
+        <strong>Ränteavdraget</strong> innebär en skattereduktion på
+        kapitalunderskott: 30 procent upp till 100&nbsp;000 kronor per år och
+        21 procent på den del som ligger över gränsen. Från inkomstår 2026
+        måste lånet uppfylla kraven på säkerhet och maximal belåningsgrad.
       </p>
       <p>
-        Lägg ihop det hela. En kommunal fastighetsavgift med tak, ingen
-        förmögenhetsskatt, ingen arvsskatt och dessutom avdrag på räntan. Då
-        behöver ingen undra varför det blev så attraktivt att äga sitt boende.
-        Återstår frågan var pengarna kom ifrån. Det handlar nästa akt om.
+        Reglerna ovan beskriver olika delar av beskattningen av boende,
+        ägande och kapital. Nästa akt handlar om hushållens skulder och
+        bolåneregler.
       </p>
     </section>
   </Scrolly>

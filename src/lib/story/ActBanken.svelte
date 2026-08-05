@@ -7,10 +7,10 @@
   let currentStep = $state(0);
 
   const tiles = [
-    { num: "5 530 mdr", label: "kronor i hushållsskulder första kvartalet 2026 — cirka 83 procent av Sveriges BNP 2025", accent: "var(--series-red)" },
+    { num: "5 530 mdr", label: "i hushållsskulder exklusive periodiseringar första kvartalet 2026", accent: "var(--series-red)" },
     { num: "90 %", label: "av bostadens värde får bolånet täcka sedan april 2026. Kontantinsatsen är nere i 10 procent", accent: "var(--series-blue)" },
     { num: "2 %", label: "per år är det mesta man numera behöver amortera. Skärpningen från 2018 är slopad", accent: "var(--series-green)" },
-    { num: "≈173 %", label: "av disponibel inkomst är hushållens skulder 2025. Nivån är fortfarande hög", accent: "var(--series-amber)" },
+    { num: ">80 %", label: "av hushållens skulder är bolån enligt 2026 års ekonomiska vårproposition", accent: "var(--series-amber)" },
   ];
 </script>
 
@@ -23,9 +23,9 @@
     <p class="act-kicker">Akt fem</p>
     <h2>Banken</h2>
     <p class="act-dek">
-      I Monopol kan den som hamnar i knipa alltid inteckna sina gator. Banken
-      säger aldrig nej, den finns ju till för att spelet ska rulla vidare.
-      Sverige byggde sin bostadsmarknad på samma husregel.
+      I Monopol kan fastigheter intecknas för att frigöra kapital. På den svenska
+      bostadsmarknaden har lån en central roll: över 80 procent av hushållens
+      skulder är bolån.
     </p>
   </div>
 
@@ -42,65 +42,62 @@
     {/snippet}
 
     <section class="scrolly-step">
-      <p class="kicker">Inteckningarna</p>
-      <h3>Skuldberget</h3>
+      <p class="kicker">Skuldstocken</p>
+      <h3>5 530 miljarder kronor</h3>
       <p>
-        För varje uppköpt gata växte lånestocken. I mitten av 90-talet låg
-        hushållens skulder på omkring <strong>90 procent</strong> av en
-        årsinkomst. På toppen 2021 var de uppe i nästan
-        <strong>200 procent</strong>. Stigande priser kräver större lån, och
-        större lån driver upp priserna. Varv efter varv.
+        Första kvartalet 2026 uppgick hushållens skulder exklusive
+        periodiseringar till <strong>5&nbsp;530,49 miljarder kronor</strong>.
+        Det är ett ställningsvärde vid kvartalets slut, inte ett årsflöde.
+        Enligt 2026 års ekonomiska vårproposition är över 80 procent bolån.
       </p>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Regleringarna</p>
-      <h3>Nya regler mitt i partiet</h3>
+      <h3>Bolåneregler 2010–2018</h3>
       <p>
-        Myndigheterna försökte bromsa utan att välta brädet.
-        <strong>Bolånetak</strong> 2010, där max 85 procent fick lånas.
-        <strong>Amorteringskrav</strong> 2016. <strong>Skärpt krav</strong>
-        2018 för dem som lånat allra mest.
+        Tre nationella åtgärder infördes mellan 2010 och 2018:
+        <strong>bolånetak</strong> 2010, där max 85 procent fick lånas,
+        <strong>amorteringskrav</strong> 2016 och
+        <strong>skärpt amorteringskrav</strong> 2018 för dem som lånat allra mest.
       </p>
       <div class="callout">
         <p class="callout-num">3 st</p>
         <p class="callout-label">
-          åtstramningar på åtta år. Skuldkvoten fortsatte ändå uppåt, ända tills
-          något helt annat tog i handbromsen.
+          åtgärder som begränsade belåning eller krävde amortering infördes på
+          åtta år.
         </p>
       </div>
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">Handbromsen</p>
-      <h3>Räntan klarade det reglerna inte klarade</h3>
+      <p class="kicker">Sammansättningen</p>
+      <h3>Bolån står för merparten</h3>
       <p>
-        Räntechocken 2022–2023 gjorde det inga amorteringskrav lyckats med.
-        Skuldkvoten föll från nästan 200 till runt
-        <strong>173 procent</strong>. Skuldstocken fortsatte att växa, men de
-        nominella inkomsterna växte snabbare; det högre ränteläget dämpade
-        samtidigt nyutlåningen.
+        Eftersom över 80 procent av skulderna är bolån påverkas många hushåll av
+        förändrade bolåneräntor. Skuldstocken visar hur mycket hushållen är
+        skyldiga totalt, men inte hur skulder och betalningsförmåga är fördelade
+        mellan olika hushåll.
       </p>
       <p>
-        Svenska hushåll är fortfarande högt belånade i ett internationellt
-        perspektiv. Riksbanken har länge beskrivit hushållens skulder som en
-        sårbarhet för svensk ekonomi.
+        Riksbanken beskriver hushållens höga skuldsättning och korta
+        räntebindningstider som en sårbarhet för svensk ekonomi.
       </p>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">April 2026</p>
-      <h3>Banken säger ja igen</h3>
+      <h3>Reglerna ändrades 2026</h3>
       <p>
-        Så vändes reglerna åt andra hållet, mitt i partiet. Bolånetaket höjdes
-        till <strong>90 procent</strong> vid köp av ny bostad, det skärpta
+        Från den 1 april 2026 höjdes bolånetaket till
+        <strong>90 procent</strong> vid köp av ny bostad, det skärpta
         amorteringskravet slopades och grundkravet är som mest 2 procent om
         året. Tilläggslån får samtidigt högst nå 80 procents belåningsgrad.
       </p>
       <p>
-        Men mekaniken är sig lik. Mer lånekraft möter precis samma gator. Alla
-        som spelat Monopol vet vad som händer med priset på en ruta när fler
-        spelare får mer pengar i näven.
+        Förändringarna ökar det möjliga låneutrymmet vid köp. Effekten på priser
+        och skulder beror samtidigt på bland annat inkomster, räntor och utbudet
+        av bostäder.
       </p>
     </section>
   </Scrolly>

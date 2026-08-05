@@ -1,15 +1,16 @@
 {
-  "note": "The early Swedish Monopol board with Stockholm streets, issued around the turn of 1936/37 by Åhlén & Åkerlunds förlag (Nordiska museet / DigitaltMuseum, id 021028370534). boardPrice is the printed purchase price in game currency, read from that board (KR.1000–KR.8000). realToday is an illustrative, rounded apartment-area level around each street, not an observed street price. Strandvägen is the exception: its 168,360 kr/kvm is the published street-level result for sales April 2025–March 2026. The area estimates are used only to show the changed ordering and must not be read as a comparable street-price dataset.",
+  "note": "The early Swedish Monopol board with Stockholm streets, issued in 1937 by Åhlén & Åkerlunds förlag (Nordiska museet / DigitaltMuseum, id 021028370534). The museum describes it as probably the first Swedish edition and estimates production to 1937–1938. boardPrice is the printed purchase price in game currency, read from that board (KR.1000–KR.8000); the GO square says salary KR.4000 when passing. For Hornsgatan, Götgatan, Odengatan, Karlavägen, Kungsgatan and Drottninggatan, realToday is the rounded median kr/m² among listed apartment sales in calendar year 2025 (Hemnet for the first three streets; Booli for the latter three). Strandvägen is the published street-level mean for sales April 2025–March 2026 from Svensk Mäklarstatistik. Norrmalmstorg has no registered apartment sales and therefore uses the rounded 12-month mean for the wider Vasastan–Norrmalm area, updated July 2026. The chart labels this value as an area proxy.",
   "tagline": "Spelet där du gör snabba fastighetsaffärer",
+  "gaBonus": 4000,
   "groups": [
-    { "id": "brown", "name": "Bruna", "color": "--grp-brown", "boardPrice": 1000, "street": "Hornsgatan", "second": "Västerlånggatan", "area": "Södermalm / Gamla stan", "realToday": 95000 },
-    { "id": "lightblue", "name": "Ljusblå", "color": "--grp-lightblue", "boardPrice": 2000, "street": "Götgatan", "second": "Folkungag. · Ringvägen", "area": "Södermalm", "realToday": 98000 },
-    { "id": "pink", "name": "Rosa", "color": "--grp-pink", "boardPrice": 2500, "street": "Odengatan", "second": "S:t Eriksg. · Valhallav.", "area": "Vasastan", "realToday": 103000 },
-    { "id": "orange", "name": "Orange", "color": "--grp-orange", "boardPrice": 3500, "street": "Karlavägen", "second": "Stureg. · Narvavägen", "area": "Östermalm", "realToday": 125000 },
-    { "id": "red", "name": "Röda", "color": "--grp-red", "boardPrice": 4200, "street": "Strandvägen", "second": "Kungsträdg. · Hamng.", "area": "Östermalm / City", "realToday": 168360 },
-    { "id": "yellow", "name": "Gula", "color": "--grp-yellow", "boardPrice": 5000, "street": "Kungsgatan", "second": "Vasagatan · Stureplan", "area": "City / Norrmalm", "realToday": 100000 },
-    { "id": "green", "name": "Gröna", "color": "--grp-green", "boardPrice": 6000, "street": "Drottninggatan", "second": "G. Adolfs torg m.fl.", "area": "City / Norrmalm", "realToday": 96000 },
-    { "id": "darkblue", "name": "Mörkblå", "color": "--grp-darkblue", "boardPrice": 8000, "street": "Norrmalmstorg", "second": "Centrum", "area": "City", "realToday": 140000 }
+    { "id": "brown", "name": "Bruna", "color": "--grp-brown", "boardPrice": 1000, "street": "Hornsgatan", "second": "Västerlånggatan", "area": "Södermalm / Gamla stan", "realToday": 110300, "basis": "gatmedian 2025 · n=68" },
+    { "id": "lightblue", "name": "Ljusblå", "color": "--grp-lightblue", "boardPrice": 2000, "street": "Götgatan", "second": "Folkungag. · Ringvägen", "area": "Södermalm", "realToday": 98600, "basis": "gatmedian 2025 · n=44" },
+    { "id": "pink", "name": "Rosa", "color": "--grp-pink", "boardPrice": 2500, "street": "Odengatan", "second": "S:t Eriksg. · Valhallav.", "area": "Vasastan", "realToday": 134600, "basis": "gatmedian 2025 · n=23" },
+    { "id": "orange", "name": "Orange", "color": "--grp-orange", "boardPrice": 3500, "street": "Karlavägen", "second": "Stureg. · Narvavägen", "area": "Östermalm", "realToday": 143900, "basis": "gatmedian 2025 · n=43" },
+    { "id": "red", "name": "Röda", "color": "--grp-red", "boardPrice": 4200, "street": "Strandvägen", "second": "Kungsträdg. · Hamng.", "area": "Östermalm / City", "realToday": 168360, "basis": "gatusnitt · 12 mån" },
+    { "id": "yellow", "name": "Gula", "color": "--grp-yellow", "boardPrice": 5000, "street": "Kungsgatan", "second": "Vasagatan · Stureplan", "area": "City / Norrmalm", "realToday": 125100, "basis": "gatmedian 2025 · n=12" },
+    { "id": "green", "name": "Gröna", "color": "--grp-green", "boardPrice": 6000, "street": "Drottninggatan", "second": "G. Adolfs torg m.fl.", "area": "City / Norrmalm", "realToday": 117300, "basis": "gatmedian 2025 · n=22" },
+    { "id": "darkblue", "name": "Mörkblå", "color": "--grp-darkblue", "boardPrice": 8000, "street": "Norrmalmstorg", "second": "Centrum", "area": "City", "realToday": 127700, "basis": "områdesproxy · 12 mån" }
   ],
   "taxSquares": [
     { "name": "Inkomstskatt", "pay": 4000 },

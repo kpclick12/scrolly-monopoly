@@ -1,87 +1,56 @@
 <script>
-  import { scaleLinear } from "d3-scale";
-
-  // The mortgage mountain: household debt as share of disposable income,
-  // 1996–2025, with the regulation flags planted where each rule landed.
-  // One series — the area is the story — so no legend box; the title
-  // names it.
   let { data, step = 0 } = $props();
 
-  const W = 620;
-  const H = 430;
-  const M = { top: 40, right: 30, bottom: 40, left: 52 };
+  const fmtMdkr = (n) =>
+    n.toLocaleString("sv-SE", { maximumFractionDigits: 0 });
 
-  const ratio = $derived(data.ratio);
-  const x = $derived(scaleLinear([1996, 2026], [M.left, W - M.right]));
-  const y = $derived(scaleLinear([0, 220], [H - M.bottom, M.top]));
-
-  const linePath = $derived(
-    ratio.map((d, i) => `${i ? "L" : "M"}${x(d.year).toFixed(1)},${y(d.pct).toFixed(1)}`).join("")
-  );
-  const areaPath = $derived(
-    `${linePath}L${x(ratio[ratio.length - 1].year).toFixed(1)},${y(0)}L${x(ratio[0].year).toFixed(1)},${y(0)}Z`
-  );
-  const peak = $derived(ratio.reduce((a, b) => (b.pct > a.pct ? b : a)));
-  const last = $derived(ratio[ratio.length - 1]);
-
-  // Regulations appear from step 1; the 2026 easing flag from step 2.
-  const flags = $derived(
-    data.regulations.filter((r) => (step >= 2 ? true : step >= 1 ? r.dir === "åtstramning" : false))
-  );
-  const pctAt = (yr) => {
-    for (let i = 0; i < ratio.length - 1; i++) {
-      const a = ratio[i];
-      const b = ratio[i + 1];
-      if (yr >= a.year && yr <= b.year) return a.pct + ((b.pct - a.pct) * (yr - a.year)) / (b.year - a.year || 1);
-    }
-    return ratio[ratio.length - 1].pct;
-  };
+  const isVisible = (regulation) =>
+    step >= 2 || (step >= 1 && regulation.dir === "åtstramning");
 </script>
 
 <figure class="chart">
-  <figcaption>Hushållens skulder i procent av disponibel inkomst, 1996–2025</figcaption>
-  <svg
-    viewBox="0 0 {W} {H}"
+  <figcaption>Hushållens skulder, första kvartalet 2026</figcaption>
+
+  <div
+    class="summary"
     role="img"
-    aria-label="Ytdiagram 1996 till 2025: hushållens skuldkvot stiger från cirka 90 procent till en topp på nästan 200 procent 2021 och faller sedan tillbaka till cirka 173 procent. Flaggor markerar bolånetaket 2010, amorteringskraven 2016 och 2018 samt lättnaderna 2026."
+    aria-label="Hushållens skulder exklusive periodiseringar var 5 530 miljarder kronor första kvartalet 2026. Över 80 procent av skulderna var bolån."
   >
-    {#each [0, 50, 100, 150, 200] as tick}
-      <line class="grid" x1={M.left} x2={W - M.right} y1={y(tick)} y2={y(tick)} />
-      <text class="tick" x={M.left - 8} y={y(tick) + 4} text-anchor="end">{tick} %</text>
-    {/each}
-    {#each [2000, 2010, 2020] as tick}
-      <text class="tick" x={x(tick)} y={H - M.bottom + 20} text-anchor="middle">{tick}</text>
-    {/each}
+    <div class="metric total">
+      <p class="eyebrow">Skulder exklusive periodiseringar</p>
+      <p class="number">{fmtMdkr(data.totalDebtMdkr)}</p>
+      <p class="unit">miljarder kronor</p>
+      <p class="date">Första kvartalet 2026</p>
+    </div>
 
-    <path class="area" d={areaPath} />
-    <path class="traj" d={linePath} />
+    <div class="metric share">
+      <p class="eyebrow">Skuldens sammansättning</p>
+      <p class="number">över 80 %</p>
+      <p class="unit">är bolån</p>
+      <p class="date">2026 års ekonomiska vårproposition</p>
+    </div>
+  </div>
 
-    {#if step >= 2}
-      <circle class="dot" cx={x(peak.year)} cy={y(peak.pct)} r="5" />
-      <text class="peak-lbl" x={x(peak.year) - 7} y={y(peak.pct) + 25} text-anchor="end">Toppen {peak.year}:</text>
-      <text class="peak-lbl strong" x={x(peak.year) - 7} y={y(peak.pct) + 41} text-anchor="end">≈{peak.pct} %</text>
-      <text class="peak-lbl" x={x(last.year) - 4} y={y(last.pct) + 22} text-anchor="end">{last.year}: ≈{last.pct} %</text>
-    {/if}
+  <div class="rules" aria-label="Tidslinje över bolåneregler">
+    <p class="rules-title">Bolåneregler</p>
+    <ol class="timeline">
+      {#each data.regulations as regulation}
+        <li
+          class:visible={isVisible(regulation)}
+          class:ease={regulation.dir === "lättnad"}
+          aria-hidden={!isVisible(regulation)}
+        >
+          <span class="dot"></span>
+          <span class="year">{regulation.year}</span>
+          <span class="event">{regulation.label}</span>
+        </li>
+      {/each}
+    </ol>
+  </div>
 
-    {#each flags as f (f.year)}
-      {@const lift = f.year === 2018 ? 56 : 26}
-      {@const fy = y(pctAt(Math.min(f.year, 2025))) - 14}
-      <g class="flag" class:ease={f.dir === "lättnad"}>
-        <line x1={x(f.year)} x2={x(f.year)} y1={fy + 14} y2={fy - lift} />
-        <circle cx={x(f.year)} cy={fy - lift - 4} r="4" />
-        <text
-          x={x(f.year) + (f.year >= 2016 ? -8 : 8)}
-          y={fy - lift - 12}
-          text-anchor={f.year >= 2016 ? "end" : "start"}
-        >{f.label}</text>
-      </g>
-    {/each}
-    <line class="axis" x1={M.left} x2={W - M.right} y1={H - M.bottom} y2={H - M.bottom} />
-  </svg>
   <p class="legend">
-    Ungefärliga årsvärden (SCB, Riksbanken, SEB). 2026-markören ligger efter
-    seriens sista observation 2025. I kronor: {(data.totalDebtMdkr).toLocaleString("sv-SE")} miljarder
-    i skulder första kvartalet 2026, varav {data.mortgageShare} är bolån.
+    Skuldstock: SCB:s finansräkenskaper. Bolånens andel: 2026 års ekonomiska
+    vårproposition. Tidslinjen visar regeländringar, inte skuldutvecklingen.
   </p>
 </figure>
 
@@ -94,71 +63,173 @@
     font-size: 13.5px;
     font-weight: 600;
     color: var(--text-secondary);
-    margin-bottom: 6px;
+    margin-bottom: 10px;
   }
-  svg {
-    width: 100%;
-    height: auto;
-    display: block;
+  .summary {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    border: 1px solid var(--baseline);
+    border-top: 8px solid var(--series-red);
+    border-radius: 6px;
+    background: var(--surface-1);
+    overflow: hidden;
   }
-  .grid {
-    stroke: var(--gridline);
+  .metric {
+    padding: 24px 26px 22px;
+    min-width: 0;
   }
-  .axis {
-    stroke: var(--baseline);
-    stroke-width: 1.5;
+  .share {
+    border-left: 1px solid var(--gridline);
   }
-  .tick {
+  .eyebrow {
+    margin: 0 0 10px;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .number {
+    margin: 0;
+    color: var(--ink-red);
+    font-size: clamp(34px, 6vw, 56px);
+    font-weight: 800;
+    line-height: 0.95;
+    font-variant-numeric: tabular-nums;
+  }
+  .share .number {
+    color: var(--ink-blue);
+    font-size: clamp(28px, 4.7vw, 44px);
+  }
+  .unit {
+    margin: 7px 0 0;
+    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .date {
+    margin: 8px 0 0;
+    color: var(--text-muted);
     font-size: 11.5px;
-    fill: var(--text-muted);
+    line-height: 1.35;
   }
-  .area {
-    fill: var(--series-red);
-    opacity: 0.16;
+  .rules {
+    margin-top: 25px;
   }
-  .traj {
-    fill: none;
-    stroke: var(--series-red);
-    stroke-width: 2.4;
-    stroke-linejoin: round;
+  .rules-title {
+    margin: 0 0 13px;
+    color: var(--text-secondary);
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+  }
+  .timeline {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .timeline::before {
+    position: absolute;
+    top: 6px;
+    right: 8%;
+    left: 8%;
+    height: 1px;
+    background: var(--baseline);
+    content: "";
+  }
+  .timeline li {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    opacity: 0.14;
+    transform: translateY(3px);
+    transition: opacity 280ms ease, transform 280ms ease;
+  }
+  .timeline li.visible {
+    opacity: 1;
+    transform: none;
   }
   .dot {
-    fill: var(--series-red);
-    stroke: var(--surface-1);
-    stroke-width: 2;
+    z-index: 1;
+    width: 13px;
+    height: 13px;
+    border: 2px solid var(--surface-1);
+    border-radius: 50%;
+    background: var(--series-blue);
   }
-  .peak-lbl {
-    font-size: 12px;
-    fill: var(--text-secondary);
+  .ease .dot {
+    background: var(--series-green);
   }
-  .peak-lbl.strong {
-    font-weight: 700;
-    fill: var(--ink-red);
+  .year {
+    margin-top: 8px;
+    color: var(--ink-blue);
     font-size: 13px;
+    font-weight: 800;
   }
-  .flag line {
-    stroke: var(--baseline);
-    stroke-width: 1.4;
-    stroke-dasharray: 3 3;
+  .ease .year {
+    color: var(--ink-green);
   }
-  .flag circle {
-    fill: var(--series-blue);
-  }
-  .flag text {
-    font-size: 11.5px;
-    font-weight: 700;
-    fill: var(--ink-blue);
-  }
-  .flag.ease circle {
-    fill: var(--series-green);
-  }
-  .flag.ease text {
-    fill: var(--ink-green);
+  .event {
+    margin-top: 3px;
+    color: var(--text-secondary);
+    font-size: 11px;
+    font-weight: 650;
+    line-height: 1.3;
   }
   .legend {
+    margin: 18px 0 0;
+    color: var(--text-muted);
     font-size: 12px;
     line-height: 1.5;
-    color: var(--text-muted);
-    margin: 8px 0 0;
+  }
+
+  @media (max-width: 520px) {
+    .summary {
+      grid-template-columns: 1fr 1fr;
+    }
+    .metric {
+      padding: 17px 15px 16px;
+    }
+    .eyebrow {
+      min-height: 28px;
+      font-size: 9px;
+    }
+    .number {
+      font-size: 34px;
+    }
+    .share .number {
+      font-size: 27px;
+    }
+    .unit {
+      font-size: 13px;
+    }
+    .date {
+      font-size: 9.5px;
+    }
+    .rules {
+      margin-top: 17px;
+    }
+    .timeline {
+      gap: 5px;
+    }
+    .event {
+      font-size: 9px;
+    }
+    .legend {
+      margin-top: 12px;
+      font-size: 10.5px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .timeline li {
+      transition: none;
+    }
   }
 </style>

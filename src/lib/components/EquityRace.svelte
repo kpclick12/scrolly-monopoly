@@ -4,7 +4,7 @@
   // Two people, same year one of them buys: the owner's equity in a small
   // Södermalm one-roomer (value follows the real brf index, minus the
   // original loan) against a renter putting 1 500 kr/month in the bank.
-  // Neither does anything clever. That gap is bostadskarriärens motor.
+  // The comparison isolates the effect of the price series and a fixed loan.
   let { data, step = 0 } = $props();
 
   const W = 620;
@@ -16,7 +16,8 @@
   const LOAN = 450000; // 90 % belåning, aldrig amorterad — spelets regler
   const SAVE_PER_YEAR = 18000; // 1 500 kr/mån på sparkonto
 
-  const years = $derived(data.years.filter((d) => d.year >= BUY_YEAR - 1));
+  const END_YEAR = $derived(data.totals.brfTo);
+  const years = $derived(data.years.filter((d) => d.year >= BUY_YEAR - 1 && Number.isFinite(d.brf)));
   const idxAt = (list, yr) => {
     // Linear interpolation on the sparse index series.
     for (let i = 0; i < list.length - 1; i++) {
@@ -29,20 +30,20 @@
     }
     return list[list.length - 1].brf;
   };
-  const baseIdx = $derived(idxAt(data.years, BUY_YEAR));
+  const baseIdx = $derived(idxAt(years, BUY_YEAR));
 
   const series = $derived(
-    Array.from({ length: 2025 - BUY_YEAR + 1 }, (_, i) => {
+    Array.from({ length: END_YEAR - BUY_YEAR + 1 }, (_, i) => {
       const year = BUY_YEAR + i;
       return {
         year,
-        equity: (FLAT_PRICE * idxAt(data.years, year)) / baseIdx - LOAN,
+        equity: (FLAT_PRICE * idxAt(years, year)) / baseIdx - LOAN,
         saved: 50000 + SAVE_PER_YEAR * i,
       };
     })
   );
 
-  const x = $derived(scaleLinear([BUY_YEAR, 2025], [M.left, W - M.right]));
+  const x = $derived(scaleLinear([BUY_YEAR, END_YEAR], [M.left, W - M.right]));
   const y = $derived(scaleLinear([0, 2400000], [H - M.bottom, M.top]));
   const path = (key) =>
     series.map((d, i) => `${i ? "L" : "M"}${x(d.year).toFixed(1)},${y(Math.max(0, d[key])).toFixed(1)}`).join("");
@@ -54,7 +55,7 @@
 
 <figure class="chart">
   <figcaption>
-    Räkneexempel 1999–2025: en köper en etta, en sparar på konto
+    Räkneexempel 1999–2024: en köper en etta, en sparar på konto
   </figcaption>
   <p class="key" aria-hidden="true">
     <span><i class="sw sw-blue"></i>Ägarens eget kapital i ettan</span>
@@ -63,7 +64,7 @@
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
-    aria-label="Linjediagram 1999 till 2025: ägarens eget kapital i en etta köpt för 500 000 kronor växer till cirka 2,2 miljoner, medan spararens konto med 1 500 kronor i månaden når drygt en halv miljon."
+    aria-label="Linjediagram 1999 till 2024: ägarens eget kapital i en etta köpt för 500 000 kronor växer till cirka 2,2 miljoner, medan spararens konto med 1 500 kronor i månaden når en halv miljon."
   >
     {#each [0, 500000, 1000000, 1500000, 2000000] as tick}
       <line class="grid" x1={M.left} x2={W - M.right} y1={y(tick)} y2={y(tick)} />
@@ -83,7 +84,7 @@
     {#if step >= 1}
       <g class="ga-note">
         <text class="ga-text" x={x(2011)} y={y(1450000)} text-anchor="middle">Varje varv runt GÅ:</text>
-        <text class="ga-text strong" x={x(2011)} y={y(1310000)} text-anchor="middle">värdestegring utan en enda insats</text>
+        <text class="ga-text strong" x={x(2011)} y={y(1310000)} text-anchor="middle">värdeförändring utan ytterligare sparande</text>
       </g>
     {/if}
     <line class="axis" x1={M.left} x2={W - M.right} y1={H - M.bottom} y2={H - M.bottom} />
@@ -91,7 +92,7 @@
   <p class="legend">
     Räkneexempel: etta köpt 1999 för 500 000 kr med 450 000 kr i lån (aldrig amorterat),
     värdet följer den ungefärliga bostadsrättsserien. Ingen hänsyn till räntor, hyra eller avgifter —
-    poängen är mekanismen, inte kronorna.
+    räkneexemplet illustrerar en möjlig mekanism, inte faktiska kronor.
   </p>
 </figure>
 

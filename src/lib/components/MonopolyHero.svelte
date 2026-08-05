@@ -15,7 +15,7 @@
   //   0.90–1.00  hand-over card to Act One
   // All geometry is procedural — no model files, only canvas textures.
 
-  let { groups = [] } = $props();
+  let { groups = [], gaBonus = 4000 } = $props();
 
   let wrap;
   let canvas = $state();
@@ -34,17 +34,16 @@
     {
       band: [0.9, 1.01],
       body:
-        "På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000. I trettio år har " +
-        "Sverige spelat spelet på riktigt. Gatorna växte till torn av pengar, skatterutorna " +
-        "plockades bort och banken sa alltid ja. Det här är historien om det partiet.",
+        "På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000. Monopol används " +
+        "här som en bild för att följa förändringar i bostadspriser, regler och villkor.",
     },
   ];
 
   // Small stage labels, echoing what the board is doing at that moment.
   const chips = [
-    { label: "Ett parti börjar: köp billigt, bygg hus", band: [0.24, 0.42] },
+    { label: "På brädet: köp gator och bygg hus", band: [0.24, 0.42] },
     { label: "Hus blir hotell", band: [0.5, 0.6] },
-    { label: "…och så förändras spelplanen: gatorna blir torn av riktiga priser", band: [0.66, 0.8] },
+    { label: "Visualiseringen byter skala: gatorna blir staplar för nutida kvadratmeterpriser", band: [0.66, 0.8] },
     { label: "Strandvägen 2026: 168 360 kr/kvm — Sveriges dyraste gata", band: [0.8, 0.9] },
   ];
 
@@ -203,7 +202,7 @@
     cardPile("#e2882a", "?", 2.1, -2.1, Math.PI / 4);
     cardPile("#9ecbe8", "?", -2.1, 2.1, Math.PI / 4);
 
-    // --- The 40 squares of the early 1936/37 board, with the real street names and
+    // --- The 40 squares of the 1937 board, with the real street names and
     // prices printed on them — read off the Åhlén & Åkerlunds board in
     // Nordiska museets samling. Each side runs from the leading corner:
     // bottom (right→left), left (bottom→top), top (left→right), right
@@ -415,7 +414,7 @@
       g.fill();
       g.fillStyle = INK;
       g.font = "700 21px Georgia, serif";
-      g.fillText("AVLÖNING", 0, -70);
+      g.fillText(`AVLÖNING KR.${gaBonus}`, 0, -70);
       g.fillText("NÄR NI PASSERAR", 0, -44);
       g.restore();
     }, B - CORNER / 2, B - CORNER / 2);
@@ -578,9 +577,10 @@
       housesOnTiles.push(tileHouses);
     });
 
-    // --- The towers: one per color group, height = the street's REAL price
-    // per m² today. This is the "spelplanen har förändrats" reveal — the
-    // board's own colors, extruded to 2026 scale. ---
+    // --- The towers: one per color group, height = the sourced comparison
+    // value in board.json (street measures plus one labelled area proxy).
+    // This is the "spelplanen har förändrats" reveal — the board's own
+    // colors, extruded to a 2025–2026 price scale. ---
     const maxReal = Math.max(...groups.map((g) => g.realToday));
     const towers = groups
       .filter((g) => towerAnchor[g.id])
@@ -758,23 +758,38 @@
   });
 </script>
 
-<div class="hero" bind:this={wrap} aria-label="3D-scen: ett Monopolbräde där husen växer och gatorna till slut reser sig som torn i höjd med dagens verkliga kvadratmeterpriser.">
+<section
+  class="hero"
+  bind:this={wrap}
+  aria-labelledby="hero-title"
+  aria-describedby="hero-description"
+>
+  <div class="sr-only">
+    <h1 id="hero-title">Spelplanen har förändrats</h1>
+    <p id="hero-description">
+      En scrollstyrd 3D-visualisering av ett svenskt Monopolbräde. Den visar
+      först historiska gatupriser från brädet och därefter staplar som jämför
+      nutida kvadratmeterpriser för samma platser. Norrmalmstorg representeras
+      av områdessnittet för Vasastan–Norrmalm.
+    </p>
+  </div>
   <div class="hero-sticky">
     {#if webglFailed}
-      <div class="hero-fallback">
+      <div class="hero-fallback" aria-hidden="true">
         <p class="fb-eyebrow">En visuell berättelse om den svenska fastighetsmarknaden</p>
-        <h1>Spelplanen har förändrats</h1>
+        <p class="fb-title">Spelplanen har förändrats</p>
         <p class="fb-body">
-          På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000. I trettio år har
-          Sverige spelat spelet på riktigt. Det här är historien om det partiet.
+          På brädet kostar Hornsgatan 1 000 kronor och Norrmalmstorg 8 000.
+          Monopol används här som en bild för att följa förändringar i
+          bostadspriser, regler och villkor.
         </p>
       </div>
     {:else}
-      <canvas bind:this={canvas}></canvas>
+      <canvas bind:this={canvas} aria-hidden="true"></canvas>
       {#each cards as card, i}
-        <div class="hero-card" bind:this={cardEls[i]}>
+        <div class="hero-card" bind:this={cardEls[i]} aria-hidden="true">
           {#if card.eyebrow}<p class="card-eyebrow">{card.eyebrow}</p>{/if}
-          {#if card.title}<h1>{card.title}</h1>{/if}
+          {#if card.title}<p class="card-title">{card.title}</p>{/if}
           {#if card.body}<p class="card-body">{card.body}</p>{/if}
           {#if card.hint}
             <p class="scroll-hint" aria-hidden="true">Scrolla för att kasta tärningarna <span>↓</span></p>
@@ -782,11 +797,11 @@
         </div>
       {/each}
       {#each chips as chip, i}
-        <p class="hero-chip" bind:this={chipEls[i]}>{chip.label}</p>
+        <p class="hero-chip" bind:this={chipEls[i]} aria-hidden="true">{chip.label}</p>
       {/each}
     {/if}
   </div>
-</div>
+</section>
 
 <style>
   .hero {
@@ -799,6 +814,17 @@
     top: 0;
     height: 100svh;
     overflow: hidden;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
   canvas {
     width: 100%;
@@ -844,7 +870,7 @@
     margin-bottom: 14px;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
   }
-  .hero-card h1 {
+  .card-title {
     font-family: var(--serif);
     font-size: clamp(40px, 7vw, 74px);
     line-height: 1.03;
@@ -912,7 +938,7 @@
     font-weight: 700;
     margin-bottom: 14px;
   }
-  .hero-fallback h1 {
+  .fb-title {
     font-family: var(--serif);
     font-size: clamp(38px, 7vw, 70px);
     color: #ffffff;

@@ -19,9 +19,9 @@
     <p class="act-kicker">Akt ett</p>
     <h2>Spelplanen</h2>
     <p class="act-dek">
-      Det första svenska Monopol kom vid årsskiftet 1936/37 och är en prisstege genom Stockholm, från
-      Gamla stan och Söder upp till paradgatorna. Stegen finns kvar. Priserna
-      har sedan dess spelat ett helt eget parti.
+      Det första svenska Monopol kom sannolikt 1937 och är en prisstege genom Stockholm, från
+      Gamla stan och Söder upp till paradgatorna. Här används brädet som
+      utgångspunkt för att jämföra historiska brädpriser med nutida bostadspriser.
     </p>
   </div>
 
@@ -38,37 +38,38 @@
     {/snippet}
 
     <section class="scrolly-step">
-      <p class="kicker">1936/37</p>
+      <p class="kicker">1937</p>
       <h3>Hornsgatan kostade 1 000 kronor</h3>
       <p>
-        Brädet är en klasskarta över Stockholm. En anställd på Åhlén &amp;
+        Brädet återger dåtidens rangordning av Stockholms gator. En anställd på Åhlén &amp;
         Åkerlund fick i uppdrag att gå runt i stan och rangordna gatorna efter
-        status, och det är den promenaden vi fortfarande spelar på. Billigast
+        status. Urvalet blev grunden för det svenska brädet. Billigast
         blev Gamla stan och Söder: Västerlånggatan och Hornsgatan för tusen
         kronor styck. Dyrast blev Norrmalmstorg, åttatusen.
       </p>
       <div class="callout">
         <p class="callout-num">8×</p>
         <p class="callout-label">
-          skilde det mellan den finaste gatan och den billigaste. Alla som satt
-          runt bordet visste var de hörde hemma.
+          skilde det mellan den högst och lägst prissatta gatan på brädet.
         </p>
       </div>
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">2026</p>
+      <p class="kicker">2025–2026</p>
       <h3>Spelplanen har förändrats</h3>
       <p>
-        Samma gator, illustrerade med dagens områdesnivåer. Söder är inte längre
-        botten: nivån kring <strong>Hornsgatan ligger i den här jämförelsen runt
-        95&nbsp;000&nbsp;kronor per kvadratmeter</strong>, ungefär som kring
-        Drottninggatan. Hela stegen har tryckts ihop uppåt.
+        Samma gator, nu jämförda med registrerade lägenhetsförsäljningar.
+        <strong>Hornsgatans median var cirka 110&nbsp;300 kronor per
+        kvadratmeter 2025</strong>. Lägst i urvalet var Götgatan, cirka
+        98&nbsp;600, medan Drottninggatan låg på cirka 117&nbsp;300.
       </p>
       <p>
         På det tidiga brädet skilde det åtta gånger mellan billigast och dyrast.
-        I de illustrativa områdesnivåerna är spridningen betydligt mindre. Det
-        är en jämförelse av områden, inte uppmätta priser på varje enskild gata.
+        I den moderna jämförelsen är avståndet mellan lägst och högst cirka
+        1,7 gånger. Sex gator visas med medianen för listade försäljningar 2025.
+        Strandvägen har ett publicerat gatusnitt; Norrmalmstorg använder ett
+        områdessnitt eftersom torget saknar registrerade lägenhetsförsäljningar.
       </p>
     </section>
 
@@ -84,9 +85,9 @@
       <div class="callout">
         <p class="callout-num">10 av 10</p>
         <p class="callout-label">
-          av Sveriges dyraste gator ligger i Stockholm. Närmast efter
-          Strandvägen kommer Bältgatan och Lützengatan. Svensk Mäklarstatistik,
-          apr 2025–mar 2026.
+          De tio högsta kvadratmeterpriserna i kartläggningen finns på
+          Stockholmsadresser. Närmast efter Strandvägen kommer Bältgatan och
+          Lützengatan. Svensk Mäklarstatistik, apr 2025–mar 2026.
         </p>
       </div>
     </section>
@@ -102,7 +103,7 @@
         med 34&nbsp;691.
       </p>
       <p>
-        Samma land, samma regler, tre helt olika partier.
+        Samma marknad, men stora geografiska skillnader i prisnivå.
       </p>
     </section>
 
@@ -115,8 +116,8 @@
         1,7 gånger Göteborg och 3,0 gånger Malmö under samma månad.
       </p>
       <p>
-        Var du föddes och när du köpte avgör vilken ruta du börjar på. Nästa
-        akt handlar om dem som hade turen med sig.
+        Prisnivån skiljer sig mellan orter och tidpunkter. Nästa akt använder ett
+        räkneexempel för att visa hur ägt boende och sparande kan utvecklas olika.
       </p>
     </section>
   </Scrolly>

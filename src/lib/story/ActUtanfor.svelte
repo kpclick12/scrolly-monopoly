@@ -26,9 +26,9 @@
     <p class="act-kicker">Akt tre</p>
     <h2>Utanför brädet</h2>
     <p class="act-dek">
-      Monopols första regel är att alla får lika mycket av banken innan partiet
-      börjar. Så började aldrig det svenska partiet. En stor del av Sverige
-      blev aldrig ens inbjuden att spela.
+      I Monopol får alla samma startkapital. På bostadsmarknaden skiljer sig
+      hushållens förutsättningar åt, bland annat genom inkomst, sparande och
+      möjligheten att få ekonomiskt stöd.
     </p>
   </div>
 
@@ -49,16 +49,15 @@
 
     <section class="scrolly-step">
       <p class="kicker">Startkapitalet</p>
-      <h3>Alla började inte med lika mycket</h3>
+      <h3>Olika förutsättningar att köpa</h3>
       <p>
-        I spelet är starten rättvis. Samma sedelbunt till alla, samma GÅ-ruta,
-        samma tärningar. Verkligheten började annorlunda. Vem som kunde köpa en
-        ruta på 90-talet avgjordes av inkomst, arv och var i landet man råkade
-        bo.
+        I spelet är startkapitalet lika stort. På bostadsmarknaden har
+        hushåll olika inkomster, sparande och möjligheter till stöd från
+        familjen. Det påverkar möjligheten att köpa och tidpunkten för ett köp.
       </p>
       <p>
-        De trettio vilda åren delade inte ut vinster till alla som bodde i
-        Sverige. Bara till dem som ägde rutorna.
+        Prisuppgången på ägda bostäder har därför påverkat hushåll olika,
+        beroende på om och när de ägde sin bostad.
       </p>
     </section>
 
@@ -72,25 +71,26 @@
         inte statistiken som ett förenklat tvådelat äga–hyra-tal.
       </p>
       <p>
-        Den som hyr bygger inget eget bostadskapital genom hyran och fick inte
-        del av bostädernas prisuppgång på samma sätt som en ägare.
+        Den som hyr äger inte bostaden och deltar därför inte direkt i dess
+        prisförändring. Det säger däremot inte något om hushållets övriga
+        sparande eller ekonomi.
       </p>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">Hyran</p>
-      <h3>Dyrast för den som har minst</h3>
+      <h3>Boendekostnad som andel av inkomsten</h3>
       <p>
-        Hyresgästerna lägger i snitt <strong>27 procent</strong> av sin
-        disponibla inkomst på boendet. För ägt småhus är motsvarande medianandel
-        18 procent. Det jämför andelar av inkomsten, inte boendekostnader i kronor,
-        och skillnaden påverkas både av kostnader och av hushållens inkomster.
+        Medianandelen av disponibel inkomst som går till boendet är
+        <strong>27 procent</strong> för hyresrätt och 18 procent för ägt småhus.
+        Det jämför andelar av inkomsten, inte boendekostnader i kronor, och
+        skillnaden påverkas både av kostnader och av hushållens inkomster.
       </p>
       <div class="callout">
-        <p class="callout-num">0 kr</p>
+        <p class="callout-num">27 % / 18 %</p>
         <p class="callout-label">
-          av de trettio årens värdestegring gick till den som hyrde. Att stå
-          utanför blev dyrt.
+          Medianandel av disponibel inkomst för hyresrätt respektive ägt småhus
+          enligt SCB:s statistik för 2024.
         </p>
       </div>
     </section>
@@ -99,34 +99,32 @@
       <p class="kicker">Kön</p>
       <h3>894 592 personer väntar på tur</h3>
       <p>
-        Alternativet till att köpa är att köa. Vid årsskiftet stod nästan
-        <strong>900 000 personer</strong> i Stockholms bostadskö, fler än det
-        bor i hela Göteborg. De vanliga hyresrätter som förmedlades under 2025
-        hade i snitt <strong>9,0 års kötid</strong>; i Stockholms kommun var
-        genomsnittet <strong>12,4 år</strong>.
+        En väg till hyresrätt är att köa. Vid årsskiftet stod nästan
+        <strong>900 000 personer</strong> registrerade i Stockholms bostadskö.
+        De vanliga hyresrätter som förmedlades under 2025 hade i snitt
+        <strong>9,0 års kötid</strong>; i Stockholms kommun var genomsnittet
+        <strong>12,4 år</strong>.
       </p>
       <p>
         Det är utfall för bostäder som faktiskt förmedlades, inte ett mått på
         hur många år dagens genomsnittliga kömedlem har kvar. Kontraktet gäller
-        dessutom en hyresrätt, inte en ägd ruta.
+        dessutom en hyresrätt, medan ägande är en annan boendeform.
       </p>
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">Väntrummet</p>
-      <h3>En generation i föräldrahemmet</h3>
+      <p class="kicker">Unga vuxna</p>
+      <h3>Unga vuxna i föräldrahemmet</h3>
       <p>
-        Där kön och priserna möts uppstår ett väntrum.
-        <strong>204 000 unga vuxna</strong> bor kvar hos sina föräldrar, nio av
-        tio ofrivilligt i Hyresgästföreningens mätning 2025. Organisationen
-        beskriver nivån som den högsta i sin mätserie, men metoden har ändrats
-        mellan upplagor. De sparar mot en kontantinsats som kan flytta sig med
-        priserna, samtidigt som kötiderna mäts i år.
+        I Hyresgästföreningens undersökning 2025 uppger
+        <strong>204 000 unga vuxna</strong> mellan 20 och 27 år att de bor kvar
+        hos sina föräldrar. Nio av tio uppger att de gör det ofrivilligt, och
+        184 000 uppger att de vill flytta men inte kan. Jämförelser med tidigare
+        upplagor bör göras försiktigt eftersom undersökningens metod har ändrats.
       </p>
       <p>
-        Det är den gruppen de nya lånereglerna från 2026 säger sig vilja hjälpa
-        in. Men först ska vi titta på det som gjorde ägandet så billigt för dem
-        som redan sitter vid bordet.
+        Från 2026 förändrades vissa låneregler. Nästa avsnitt beskriver skatter
+        och regler som påverkar hushållens boendeekonomi.
       </p>
     </section>
   </Scrolly>

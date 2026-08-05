@@ -52,20 +52,20 @@
 
     <!-- the average queuer -->
     <g class="mark avg" transform="translate({x(AVG)} {QY})">
-      <line y1="-58" y2="-30" />
+      <line y1="-42" y2="-30" />
       <circle cx="0" cy="-19.5" r="6" class="head" />
       <path d="M -7.4 0 C -7.4 -12.5 7.4 -12.5 7.4 0 Z" class="body" />
-      <text y="-96" text-anchor="middle">Alla förmedlade</text>
-      <text class="strong" y="-80" text-anchor="middle">9,0 års kötid</text>
+      <text y="-64" text-anchor="end" x="-10">Alla förmedlade</text>
+      <text class="strong" y="-48" text-anchor="end" x="-10">9,0 års kötid</text>
     </g>
 
     <!-- Stockholm municipality -->
     <g class="mark inner" transform="translate({x(CITY)} {QY})">
-      <line y1="-36" y2="-30" />
+      <line y1="-60" y2="-30" />
       <circle cx="0" cy="-19.5" r="6" class="head" />
       <path d="M -7.4 0 C -7.4 -12.5 7.4 -12.5 7.4 0 Z" class="body" />
-      <text y="-58" text-anchor="end" x="8">Stockholms kommun</text>
-      <text class="strong" y="-42" text-anchor="end" x="8">12,4 års kötid</text>
+      <text y="-82" text-anchor="end" x="10">Stockholms kommun</text>
+      <text class="strong" y="-66" text-anchor="end" x="10">12,4 års kötid</text>
     </g>
 
     <!-- year axis = the floor the queue stands on -->
@@ -77,7 +77,6 @@
 
     <text class="big" x={X0 - 26} y={QY + 76}>{fmt(q.registered)}</text>
     <text class="big-lbl" x={X0 + 166} y={QY + 76}>personer stod i kön {q.asOf}</text>
-    <text class="big-sub" x={X0 - 26} y={QY + 100}>— fler än det bor i hela Göteborg</text>
   </svg>
   <p class="legend">
     Bostadsförmedlingen i Stockholm: vanliga hyresrätter som förmedlades under 2025
@@ -174,11 +173,6 @@
   .big-lbl {
     font-size: 13px;
     fill: var(--text-secondary);
-  }
-  .big-sub {
-    font-size: 12.5px;
-    fill: var(--text-muted);
-    font-style: italic;
   }
   .legend {
     font-size: 12px;

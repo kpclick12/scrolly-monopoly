@@ -23,7 +23,7 @@
   --page-plane: #f1eddf;
   --text-primary: #24211a;
   --text-secondary: #4a463b;
-  --text-muted: #7c776a;
+  --text-muted: #686357;
   --gridline: #e3ddcc;
   --baseline: #c2bba6;
   --border: rgba(36, 33, 26, 0.12);
@@ -160,12 +160,12 @@ p {
   border-radius: 2px;
 }
 .badge-red {
-  background: var(--series-red);
-  color: #241511;
+  background: #a8291f;
+  color: #ffffff;
 }
 .badge-blue {
-  background: var(--series-blue);
-  color: #101c2b;
+  background: #1a5aa8;
+  color: #ffffff;
 }
 .badge-green {
   background: var(--series-green);

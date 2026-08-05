@@ -1,5 +1,5 @@
 {
-  "note": "Nominal price indices, 1996 = 100. The villa series is calculated directly from SCB FASTPI annual values (1996: 185; 2025: 948), giving +412 %. The apartment series is an approximate secondary compilation from Ekonomifokus and is retained as an explicitly labelled estimate, not attributed to SCB. policyRate is Riksbankens policy/repo rate around year-end, approximate, percent. The highlighted correction is about 11 % in the displayed apartment annual series from its 2021 high to 2023.",
+  "note": "Nominal price indices, 1996 = 100. The villa series is calculated directly from SCB FASTPI annual values (1996: 185; 2025: 948), giving +412 %. The apartment endpoint is anchored to the Stockholm Chamber of Commerce report's national annual average price per square metre: +789 % from 1996 to 2024, based on Svensk Mäklarstatistik. Intermediate apartment values are approximate and interpolated; this is not a quality-adjusted price index. policyRate is Riksbankens policy/repo rate around year-end, approximate, percent. The highlighted correction is about 11 % in the displayed apartment annual series from its 2021 high to 2023.",
   "years": [
     { "year": 1996, "brf": 100, "villa": 100, "rate": 4.1 },
     { "year": 1998, "brf": 135, "villa": 117, "rate": 3.4 },
@@ -17,10 +17,10 @@
     { "year": 2021, "brf": 890, "villa": 532, "rate": 0.0 },
     { "year": 2022, "brf": 850, "villa": 556, "rate": 2.5 },
     { "year": 2023, "brf": 790, "villa": 501, "rate": 4.0 },
-    { "year": 2024, "brf": 830, "villa": 503, "rate": 2.5 },
-    { "year": 2025, "brf": 889, "villa": 512, "rate": 1.75 }
+    { "year": 2024, "brf": 889, "villa": 503, "rate": 2.5 },
+    { "year": 2025, "brf": null, "villa": 512, "rate": 1.75 }
   ],
-  "totals": { "brfPct": 789, "villaPct": 412 },
+  "totals": { "brfPct": 789, "brfFrom": 1996, "brfTo": 2024, "villaPct": 412, "villaFrom": 1996, "villaTo": 2025 },
   "villaMedel": { "y1995": 651000, "y2025": 3913000 },
   "correctionPct": -11,
   "ratePeak": { "value": 4.0, "when": "sep 2023" },
@@ -30,7 +30,7 @@
     { "year": 2008, "label": "Finanskrisen" },
     { "year": 2015, "label": "Minusränta" },
     { "year": 2020, "label": "Pandemi­rally" },
-    { "year": 2022, "label": "Räntechock, ≈−11 %" }
+    { "year": 2022, "label": "Ränteuppgång, ≈−11 %" }
   ],
   "savingYears": { "before": 12, "after": 7 },
   "exampleFlat": { "sqm": 60, "kvm2013": 55000, "kvm2021": 95000 }

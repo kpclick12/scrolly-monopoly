@@ -1,17 +1,18 @@
 <script>
   import { scaleBand, scaleLinear } from "d3-scale";
 
-  // The early board's own price ladder, morphing into illustrative current
-  // area levels around the same streets. Same rows, same colors — only the
+  // The early board's own price ladder, morphing into sourced current
+  // street medians/means and one clearly labelled area proxy. Same rows,
+  // same colors — only the
   // scale changes, which is the whole point: on the board the dearest group
-  // costs 6.7× the cheapest; in 2026 the whole city has compressed into
-  // luxury. Group colors are identity (the board's own), and every bar
+  // costs 8× the cheapest; in 2025–2026 the observed spread is much smaller.
+  // Group colors are identity (the board's own), and every bar
   // carries a direct label, so color is never the only carrier.
   let { data, mode = "board", highlight = null } = $props();
 
   const W = 620;
   const H = 460;
-  const M = { top: 30, right: 96, bottom: 34, left: 164 };
+  const M = { top: 30, right: 96, bottom: 34, left: 190 };
 
   const groups = $derived(data.groups);
   const y = $derived(scaleBand(groups.map((g) => g.id), [M.top, H - M.bottom]).padding(0.3));
@@ -26,15 +27,15 @@
 <figure class="chart">
   <figcaption>
     {mode === "board"
-      ? "Spelplanens prisstege — köpesumma i spel-kronor (svenska Monopol, 1936/37)"
-      : "Områdesnivåer kring samma gator — illustrativt, kr/kvm (2026)"}
+      ? "Spelplanens prisstege — köpesumma i spel-kronor (svenska Monopol, 1937)"
+      : "Pris per kvadratmeter på samma gator — 2025–2026"}
   </figcaption>
   <svg
     viewBox="0 0 {W} {H}"
     role="img"
     aria-label={mode === "board"
       ? "Liggande stapeldiagram: Monopolbrädets åtta färggrupper från Hornsgatan 1 000 kronor till Norrmalmstorg 8 000 kronor."
-      : "Liggande stapeldiagram med illustrativa områdesnivåer kring brädets gator, från cirka 95 000 kr/kvm kring Hornsgatan till det uppmätta gatpriset 168 360 kr/kvm på Strandvägen."}
+      : "Liggande stapeldiagram med gatmedianer och gatusnitt för brädets gator. Götgatan har lägst värde, cirka 98 600 kronor per kvadratmeter, och Strandvägen högst, 168 360. Norrmalmstorg visas med områdessnittet för Vasastan–Norrmalm eftersom torget saknar registrerade lägenhetsförsäljningar."}
   >
     {#each ticks as tick}
       <line class="grid" x1={x(tick)} x2={x(tick)} y1={M.top - 6} y2={H - M.bottom} />
@@ -58,7 +59,7 @@
           {g.street}
         </text>
         <text class="area" x={M.left - 28} y={y(g.id) + y.bandwidth() / 2 + 12} text-anchor="end">
-          {mode === "board" ? g.second : g.area}
+          {mode === "board" ? g.second : g.basis}
         </text>
         <rect
           class="bar"
@@ -80,8 +81,8 @@
   </svg>
   <p class="legend">
     {mode === "board"
-      ? "Den första svenska utgåvan kom vid årsskiftet 1936/37: Gamla stans och Söders gator billigast, paradgatorna dyrast."
-      : "Illustrativa områdesnivåer, inte observerade gatpriser. Strandvägen är undantaget: 168 360 kr/kvm i försäljningar apr 2025–mar 2026."}
+      ? "Nordiska museet beskriver exemplaret från 1937 som sannolikt den första svenska utgåvan: Gamla stans och Söders gator billigast, paradgatorna dyrast."
+      : "Sex värden är medianer bland listade lägenhetsförsäljningar 2025. Strandvägen är Svensk Mäklarstatistiks gatusnitt apr 2025–mar 2026. Norrmalmstorg använder områdessnittet för Vasastan–Norrmalm som proxy."}
   </p>
 </figure>
 

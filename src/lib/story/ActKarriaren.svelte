@@ -8,8 +8,8 @@
   let currentStep = $state(0);
 
   const tiles = [
-    { num: "12 år", label: "tog det att spara ihop kontantinsatsen till en etta i Stockholm, innan reglerna lättades", accent: "var(--series-red)" },
-    { num: "7 år", label: "tar det med de nya reglerna från april 2026. Fortfarande en lång väntan", accent: "var(--series-blue)" },
+    { num: "knappt 12 år", label: "i SBAB:s räkneexempel för kontantinsatsen till en etta i Stockholm med 15 procents insats", accent: "var(--series-red)" },
+    { num: "drygt 7 år", label: "i samma räkneexempel med 10 procents kontantinsats från april 2026", accent: "var(--series-blue)" },
     { num: "180 000 kr", label: "blir tolv år med dagens barnbidrag på 1 250 kr/mån, utan avkastning", accent: "var(--series-amber)" },
     { num: "10 %", label: "räcker i kontantinsats sedan april 2026, mot 15 tidigare. Tröskeln sänktes men finns kvar", accent: "var(--series-green)" },
   ];
@@ -24,9 +24,9 @@
     <p class="act-kicker">Akt två</p>
     <h2>Bostadskarriären</h2>
     <p class="act-dek">
-      Alla som spelat Monopol kan strategin. Köp en billig gata, låt värdet
-      stiga, växla upp till en dyrare. I trettio år har det varit Sveriges
-      inofficiella folksport.
+      Bostadskarriär beskriver hur ett ägt boende kan bytas mot ett större när
+      eget kapital har byggts upp. Monopol används här som en begränsad metafor,
+      inte som en modell av enskilda hushåll.
     </p>
   </div>
 
@@ -46,53 +46,50 @@
     {/snippet}
 
     <section class="scrolly-step">
-      <p class="kicker">De vilda åren</p>
+      <p class="kicker">Prisutvecklingen</p>
       <h3>Villor: +412 procent</h3>
       <p>
         SCB:s fastighetsprisindex visar att villapriserna steg
         <strong>412&nbsp;procent</strong> 1996–2025. En genomsnittlig permanent
         småhusfastighet kostade cirka 651&nbsp;000 kronor 1995 och 3,91 miljoner
-        2025. Den uppskattade bostadsrättsserien i diagrammet har en annan källa
-        och landar nära nio gånger 1996 års nivå.
+        2025. Bostadsrättsserien, som mäter genomsnittligt kvadratmeterpris,
+        steg <strong>789&nbsp;procent</strong> 1996–2024 och har en annan källa.
       </p>
       <p>
-        Lönerna hängde inte med i närheten. Men något annat gjorde det:
-        <span class="badge badge-amber">räntan</span>.
+        <span class="badge badge-amber">Ränteläget</span> var en viktig faktor
+        bakom bostadsprisernas utveckling.
       </p>
     </section>
 
     <section class="scrolly-step">
-      <p class="kicker">Bränslet</p>
-      <h3>Pengar blev nästan gratis</h3>
+      <p class="kicker">Ränteläget</p>
+      <h3>Historiskt låga räntor</h3>
       <p>
-        Titta på den undre panelen. Styrräntan föll under långa perioder, och 2015
-        hände det otänkbara: den blev <strong>negativ</strong>. Bankernas
-        bolåneräntor var fortfarande positiva, men de historiskt billiga
-        pengarna gav låntagarna större räckvidd. Under pandemin drog det iväg
-        ytterligare ett snäpp, med budgivningar via mobilen från sommarstugan.
+        Styrräntan låg på historiskt låga nivåer under delar av perioden och var
+        <strong>negativ 2015–2019</strong>. Bankernas bolåneräntor var fortfarande
+        positiva, men de lägre räntekostnaderna ökade låntagarnas köpkraft.
+        Under pandemin steg bostadspriserna ytterligare.
       </p>
       <div class="callout">
         <p class="callout-num">−0,5 %</p>
         <p class="callout-label">
-          var styrräntan 2016. Banken hade lagt till en husregel: den som
-          intecknar mest vinner.
+          var styrräntan 2016, den lägsta nivån under perioden.
         </p>
       </div>
     </section>
 
     <section class="scrolly-step">
       <p class="kicker">2022</p>
-      <h3>Sedan kom räntechocken</h3>
+      <h3>Räntorna steg snabbt</h3>
       <p>
         På arton månader gick styrräntan från noll till
         <strong>4 procent</strong>. Bostadspriserna föll omkring
         <strong>11 procent</strong> från toppen i diagrammets årsserie.
-        Sedan hämtade marknaden andan och räntan sänktes tillbaka mot
-        1,75 procent.
+        Därefter steg priserna igen och styrräntan sänktes till 1,75 procent.
       </p>
       <p>
-        Men zooma ut. Kurvan står fortfarande nära nio gånger startrutan. Det
-        var ett hack i stegen, inte ett nytt spel.
+        Sett över hela perioden låg bostadsrättsserien 2024 fortfarande nära
+        nio gånger 1996 års nivå.
       </p>
     </section>
 
@@ -105,10 +102,10 @@
         sätter in 1&nbsp;500 kronor i månaden på banken.
       </p>
       <p>
-        Ägarens <span class="badge badge-blue">eget kapital</span> växer år för
-        år, inte för att hon gör något särskilt utan för att bostaden stiger i
-        värde. Spararens <span class="badge badge-amber">konto</span> växer
-        bara med det som sätts in.
+        Ägarens <span class="badge badge-blue">eget kapital</span> förändras
+        när bostadens värde förändras, medan lånet hålls oförändrat i exemplet.
+        Spararens <span class="badge badge-amber">konto</span> ökar med
+        insättningarna.
       </p>
     </section>
 
@@ -116,14 +113,14 @@
       <p class="kicker">Uppväxlingen</p>
       <h3>Etta blir tvåa blir villa</h3>
       <p>
-        Efter tjugosex år står det drygt <strong>2,2 miljoner</strong> mot drygt
+        Efter tjugofem år står det drygt <strong>2,2 miljoner</strong> mot
         en halv miljon. I verkligheten kan utvecklingen bli både bättre och sämre;
         i exemplet kan vinsten belånas och växlas upp till nästa gata. Ettan blir
         tvåa, tvåan blir villa. Det är det vi menar när vi säger
         <em>bostadskarriär</em>.
       </p>
       <div class="callout">
-        <p class="callout-num">≈×4,3</p>
+        <p class="callout-num">≈×4,5</p>
         <p class="callout-label">
           mer än spararen i det förenklade räkneexemplet. Räntor, avgifter,
           hyra, amortering och avkastning på sparandet ingår inte.
@@ -133,16 +130,16 @@
 
     <section class="scrolly-step">
       <p class="kicker">Tröskeln</p>
-      <h3>Tolv år för att spara ihop kontantinsatsen</h3>
+      <h3>Spartid för kontantinsatsen</h3>
       <p>
-        Innan man kan köpa något måste man ha pengar på fickan. I Stockholm tog
-        det i snitt <strong>tolv år</strong> att spara ihop kontantinsatsen
-        till en etta, sju år med de nya reglerna från 2026. Problemet är att
-        priserna stiger under tiden man sparar. Målet flyttar sig.
+        Ett bostadsköp kräver normalt en kontantinsats. I SBAB:s räkneexempel
+        för Stockholm minskar spartiden från <strong>knappt tolv år</strong>
+        till <strong>drygt sju år</strong> när insatsen sänks från 15 till 10
+        procent. Beräkningen antar bland annat ett sparande på 4&nbsp;000 kronor
+        i månaden samt årliga förändringar i priser, sparande och avkastning.
       </p>
       <p>
-        Så långt de som står och väntar. Men många kom aldrig ens så långt.
-        Nästa akt handlar om dem.
+        Nästa akt går vidare till dem som söker hyresrätt.
       </p>
     </section>
   </Scrolly>
