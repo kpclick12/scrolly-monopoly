@@ -24,9 +24,10 @@
     <p class="act-kicker">Akt två</p>
     <h2>Bostadskarriären</h2>
     <p class="act-dek">
-      Bostadskarriär beskriver hur ett ägt boende kan bytas mot ett större när
-      eget kapital har byggts upp. Monopol används här som en begränsad metafor,
-      inte som en modell av enskilda hushåll.
+      Med bostadskarriär menas att du först köper en mindre bostad och senare
+      kan byta till en större eller mer attraktiv, om priserna har stigit och
+      du har byggt upp ett eget kapital. Lite som i Monopol, där du efter hand
+      kan byta upp dig till en mer attraktiv gata.
     </p>
   </div>
 
@@ -111,13 +112,12 @@
 
     <section class="scrolly-step">
       <p class="kicker">Uppväxlingen</p>
-      <h3>Etta blir tvåa blir villa</h3>
+      <h3>Eget kapital kan användas vid nästa köp</h3>
       <p>
         Efter tjugofem år står det drygt <strong>2,2 miljoner</strong> mot
-        en halv miljon. I verkligheten kan utvecklingen bli både bättre och sämre;
-        i exemplet kan vinsten belånas och växlas upp till nästa gata. Ettan blir
-        tvåa, tvåan blir villa. Det är det vi menar när vi säger
-        <em>bostadskarriär</em>.
+        en halv miljon. I exemplet kan det egna kapitalet användas för att köpa
+        en större bostad. I verkligheten kan utfallet bli både bättre och sämre.
+        Det är den här möjligheten som brukar kallas <em>bostadskarriär</em>.
       </p>
       <div class="callout">
         <p class="callout-num">≈×4,5</p>
@@ -137,9 +137,6 @@
         till <strong>drygt sju år</strong> när insatsen sänks från 15 till 10
         procent. Beräkningen antar bland annat ett sparande på 4&nbsp;000 kronor
         i månaden samt årliga förändringar i priser, sparande och avkastning.
-      </p>
-      <p>
-        Nästa akt går vidare till dem som söker hyresrätt.
       </p>
     </section>
   </Scrolly>

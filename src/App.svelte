@@ -32,10 +32,9 @@
       familjespel med Stockholmsgator på brädet.
     </p>
     <p>
-      Jämförelsen med Monopol är ett berättargrepp, inte en modell av
-      bostadsmarknaden. Sidan samlar statistik om priser, boendeformer,
-      skatter och skulder samt visar hur definitioner, tidsperioder och
-      antaganden påverkar jämförelserna.
+      Liknelsen med Monopol förenklar förstås hur bostadsmarknaden fungerar.
+      Siffrorna bakom texten och visualiseringarna kommer däremot från verkliga
+      källor. Du hittar dem samlade här nedanför.
     </p>
   </div>
 </section>
@@ -174,7 +173,8 @@
         <strong>Räkneexemplet i akt två</strong> är illustrativt: en etta köpt
         1999 vars värde följer den ungefärliga bostadsrättsserien till 2024, mot ett banksparande på
         1&nbsp;500 kr/mån. Räntor, avgifter, hyra, amortering och avkastning på
-        sparandet ingår inte — exemplet visar mekanismen, inte en privatekonomisk kalkyl.
+        sparandet ingår inte. Exemplet är till för att visa mekanismen och ska
+        inte läsas som en privatekonomisk kalkyl.
         Barnbidragsrutan visar 1&nbsp;250 kr × 144 månader = 180&nbsp;000 kr:
         dagens nivå i tolv år, inte vad som historiskt betalats ut under en viss tolårsperiod.
       </li>

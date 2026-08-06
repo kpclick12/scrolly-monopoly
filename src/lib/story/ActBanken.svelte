@@ -47,7 +47,7 @@
       <p>
         Första kvartalet 2026 uppgick hushållens skulder exklusive
         periodiseringar till <strong>5&nbsp;530,49 miljarder kronor</strong>.
-        Det är ett ställningsvärde vid kvartalets slut, inte ett årsflöde.
+        Siffran avser skulderna vid kvartalets slut.
         Enligt 2026 års ekonomiska vårproposition är över 80 procent bolån.
       </p>
     </section>

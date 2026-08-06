@@ -68,7 +68,7 @@
       hyresrätt i flerbostadshus och 12 % i övriga boendeformer.
     {:else}
       I Monopol får alla spelare lika mycket av banken innan partiet börjar.
-      Den jämförelsen är en metafor — statistiken beskriver boendeformer, inte startkapital.
+      Här används det som en liknelse. Statistiken visar hur hushållen bor.
     {/if}
   </p>
 </figure>

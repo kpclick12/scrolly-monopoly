@@ -11,7 +11,7 @@
     { num: "204 000", label: "unga vuxna mellan 20 och 27 år bor kvar hemma hos föräldrarna, 21 procent av alla (2025)", accent: "var(--series-red)" },
     { num: "9 av 10", label: "av dem uppger i Hyresgästföreningens mätning 2025 att de bor kvar ofrivilligt", accent: "var(--series-amber)" },
     { num: "184 000", label: "vill flytta hemifrån men kan inte (2025)", accent: "var(--series-blue)" },
-    { num: "Olika start", label: "inkomst, sparande och familjehjälp påverkade vem som kunde köpa; Monopol-liknelsen är inte en statistisk mätning", accent: "var(--series-green)" },
+    { num: "Olika start", label: "inkomst, sparande och hjälp från familjen påverkar vem som kan köpa", accent: "var(--series-green)" },
   ];
 
   const waffleView = $derived(currentStep === 0 ? "all" : currentStep === 1 ? "split" : "rent");
@@ -26,9 +26,9 @@
     <p class="act-kicker">Akt tre</p>
     <h2>Utanför brädet</h2>
     <p class="act-dek">
-      I Monopol får alla samma startkapital. På bostadsmarknaden skiljer sig
-      hushållens förutsättningar åt, bland annat genom inkomst, sparande och
-      möjligheten att få ekonomiskt stöd.
+      Alla börjar med samma summa i Monopol. I verkligheten är skillnaderna i
+      inkomst och sparande stora, och en del får dessutom hjälp av familjen.
+      Det påverkar vem som kan köpa en bostad.
     </p>
   </div>
 
@@ -51,13 +51,13 @@
       <p class="kicker">Startkapitalet</p>
       <h3>Olika förutsättningar att köpa</h3>
       <p>
-        I spelet är startkapitalet lika stort. På bostadsmarknaden har
-        hushåll olika inkomster, sparande och möjligheter till stöd från
-        familjen. Det påverkar möjligheten att köpa och tidpunkten för ett köp.
+        I Monopol får alla samma startkapital. I verkligheten påverkar skillnader
+        i inkomst, sparande och hjälp från familjen både möjligheten att köpa
+        och när ett köp kan bli av.
       </p>
       <p>
-        Prisuppgången på ägda bostäder har därför påverkat hushåll olika,
-        beroende på om och när de ägde sin bostad.
+        Därför har inte alla kunnat dra nytta av prisuppgången på ägda bostäder.
+        Det har spelat stor roll om, och när, man kunnat köpa.
       </p>
     </section>
 
@@ -97,7 +97,7 @@
 
     <section class="scrolly-step">
       <p class="kicker">Kön</p>
-      <h3>894 592 personer väntar på tur</h3>
+      <h3>894 592 personer var registrerade i kön</h3>
       <p>
         En väg till hyresrätt är att köa. Vid årsskiftet stod nästan
         <strong>900 000 personer</strong> registrerade i Stockholms bostadskö.
@@ -106,9 +106,8 @@
         <strong>12,4 år</strong>.
       </p>
       <p>
-        Det är utfall för bostäder som faktiskt förmedlades, inte ett mått på
-        hur många år dagens genomsnittliga kömedlem har kvar. Kontraktet gäller
-        dessutom en hyresrätt, medan ägande är en annan boendeform.
+        Kötiderna gäller de bostäder som faktiskt förmedlades. De visar alltså
+        inte hur länge en person som står i kön i dag kommer att få vänta.
       </p>
     </section>
 
@@ -122,10 +121,7 @@
         184 000 uppger att de vill flytta men inte kan. Jämförelser med tidigare
         upplagor bör göras försiktigt eftersom undersökningens metod har ändrats.
       </p>
-      <p>
-        Från 2026 förändrades vissa låneregler. Nästa avsnitt beskriver skatter
-        och regler som påverkar hushållens boendeekonomi.
-      </p>
+      <p>Från 2026 ändrades också vissa av reglerna för bolån.</p>
     </section>
   </Scrolly>
 </section>

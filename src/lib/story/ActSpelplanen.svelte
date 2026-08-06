@@ -102,9 +102,7 @@
         med 87&nbsp;854, och i Kronoberg <strong>Kungsgatan i Växjö</strong>
         med 34&nbsp;691.
       </p>
-      <p>
-        Samma marknad, men stora geografiska skillnader i prisnivå.
-      </p>
+      <p>Prisskillnaderna mellan olika delar av landet är stora.</p>
     </section>
 
     <section class="scrolly-step">
@@ -116,8 +114,7 @@
         1,7 gånger Göteborg och 3,0 gånger Malmö under samma månad.
       </p>
       <p>
-        Prisnivån skiljer sig mellan orter och tidpunkter. Nästa akt använder ett
-        räkneexempel för att visa hur ägt boende och sparande kan utvecklas olika.
+        Prisnivån skiljer sig alltså mycket beroende på var i landet du köper.
       </p>
     </section>
   </Scrolly>

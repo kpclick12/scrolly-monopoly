@@ -91,8 +91,8 @@
   </svg>
   <p class="legend">
     Räkneexempel: etta köpt 1999 för 500 000 kr med 450 000 kr i lån (aldrig amorterat),
-    värdet följer den ungefärliga bostadsrättsserien. Ingen hänsyn till räntor, hyra eller avgifter —
-    räkneexemplet illustrerar en möjlig mekanism, inte faktiska kronor.
+    värdet följer den ungefärliga bostadsrättsserien. Räntor, hyra och avgifter ingår
+    inte. Beloppen visar hur räkneexemplet utvecklas under de antagandena.
   </p>
 </figure>
 
