@@ -194,6 +194,9 @@
     Sidan är gjord för att förklara och jämföra statistik, inte för att ge råd
     om bostadsköp eller ta ställning i bostadspolitiska frågor.
   </p>
+  <p class="footer-home">
+    <a href="https://plainx.dev/">Fler berättelser på (<i>x</i>)plain</a>
+  </p>
 </footer>
 
 <style>
@@ -278,5 +281,19 @@
   footer p {
     max-width: 480px;
     margin: 0 auto;
+  }
+  .footer-home {
+    margin-top: 18px;
+  }
+  .footer-home a {
+    color: var(--text-muted);
+    text-decoration-color: var(--border);
+    text-underline-offset: 3px;
+  }
+  .footer-home a:hover {
+    color: var(--text-primary);
+  }
+  .footer-home i {
+    font-style: italic;
   }
 </style>
